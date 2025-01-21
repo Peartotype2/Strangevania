@@ -105,7 +105,7 @@
     <instance objName="obj_candle" x="456" y="488" name="inst_100052" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stairbox" x="1680" y="592" name="inst_100053" locked="0" code="stairDirV = STAIR_UP;&#xA;stairDirH = STAIR_RIGHT;&#xA;stairLength = 6;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1264" y="400" name="inst_100054" locked="0" code="event_register_script(&quot;DoorClose&quot;, id, activate_object, id)&#xA;event_register_script(&quot;DoorOpen&quot;, id, deactivate_object, id)&#xA;solidSprite = spr_gate;&#xA;instance_deactivate_object(id)" scaleX="1" scaleY="1" colour="4278255424" rotation="0"/>
-    <instance objName="obj_trigger" x="1328" y="400" name="inst_100055" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;DoorClose&quot;)" scaleX="1" scaleY="2.13333" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger" x="1328" y="400" name="inst_100055" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;DoorClose&quot;)" scaleX="1" scaleY="2.13333010673523" colour="4294967295" rotation="0"/>
     <instance objName="obj_soundmaker" x="1280" y="368" name="inst_100056" locked="0" code="sound = snd_door;&#xA;playEvent = &quot;DoorClose&quot;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1264" y="416" name="inst_100057" locked="0" code="event_register_script(&quot;DoorClose2&quot;, id, activate_object, id)&#xA;event_register_script(&quot;DoorOpen&quot;, id, deactivate_object, id)&#xA;solidSprite = spr_gate;&#xA;instance_deactivate_object(id)&#xA;" scaleX="1" scaleY="1" colour="4278255424" rotation="0"/>
     <instance objName="obj_wall" x="1264" y="432" name="inst_100058" locked="0" code="event_register_script(&quot;DoorClose3&quot;, id, activate_object, id)&#xA;event_register_script(&quot;DoorOpen&quot;, id, deactivate_object, id)&#xA;solidSprite = spr_gate;&#xA;instance_deactivate_object(id)&#xA;" scaleX="1" scaleY="1" colour="4278255424" rotation="0"/>
@@ -151,7 +151,7 @@
     <instance objName="ai_zombie" x="928" y="416" name="inst_100098" locked="0" code="facing = 1;&#xA;event_register_script(&quot;DoorAIKilled&quot;, id, activate_object, id)&#xA;instance_deactivate_object(id)&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_zombie" x="1008" y="416" name="inst_100099" locked="0" code="facing = 1;&#xA;event_register_script(&quot;DoorAIKilled&quot;, id, activate_object, id)&#xA;instance_deactivate_object(id)&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camblock_left" x="1200" y="384" name="inst_100100" locked="0" code="event_register_script(&quot;DoorCamBlock&quot;, id, activate_object, id)&#xA;event_register_script(&quot;DoorOpen&quot;, id, deactivate_object, id)&#xA;instance_deactivate_object(id)&#xA;" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trigger" x="1392" y="400" name="inst_100101" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;DoorCamBlock&quot;)&#xA;" scaleX="1" scaleY="2.13333" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger" x="1392" y="400" name="inst_100101" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;DoorCamBlock&quot;)&#xA;" scaleX="1" scaleY="2.13333010673523" colour="4294967295" rotation="0"/>
     <instance objName="obj_counter" x="1936" y="368" name="inst_100102" locked="0" code="goalAmount = 2;&#xA;addEvent = &quot;BattleAIKilled&quot;;&#xA;goalEvent = &quot;BattleFinished&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_soundmaker" x="1952" y="368" name="inst_100103" locked="0" code="sound = snd_success;&#xA;playEvent = &quot;BattleFinished&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_floor" x="1200" y="624" name="inst_100104" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
@@ -204,7 +204,7 @@
     <instance objName="obj_camblock_left" x="2048" y="192" name="inst_100151" locked="0" code="" scaleX="1" scaleY="8.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1648" y="688" name="inst_100152" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_skeleton" x="1504" y="672" name="inst_100153" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trigger" x="1440" y="704" name="inst_100154" locked="0" code="triggerAction = trig.OnEntry;&#xA;&#xA;//trig_action(SetObjectVar, player.id, &quot;hp&quot;, 0);&#xA;trig_action(event_fire, &quot;PitfallDeath&quot;);" scaleX="10.6667" scaleY="1" colour="4294901760" rotation="0"/>
+    <instance objName="obj_trigger" x="1440" y="704" name="inst_100154" locked="0" code="triggerAction = trig.OnEntry;&#xA;&#xA;//trig_action(SetObjectVar, player.id, &quot;hp&quot;, 0);&#xA;trig_action(event_fire, &quot;PitfallDeath&quot;);" scaleX="10.6667003631592" scaleY="1" colour="4294901760" rotation="0"/>
     <instance objName="obj_killbox" x="1424" y="704" name="inst_100155" locked="0" code="destroyAI = true;&#xA;" scaleX="11.25" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_floor" x="1616" y="688" name="inst_100156" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_floor" x="1552" y="688" name="inst_100157" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
@@ -216,7 +216,7 @@
     <instance objName="obj_solid" x="1461" y="672" name="inst_100163" locked="0" code="" scaleX="8" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1520" y="671" name="inst_100164" locked="0" code="" scaleX="8" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger" x="1248" y="464" name="inst_100165" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableZombieSpawner&quot;;&#xA;rightExitEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="3" colour="4278255360" rotation="0"/>
-    <instance objName="obj_trigger" x="976" y="400" name="inst_100166" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableZombieSpawner&quot;;&#xA;rightExitEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="2.13333" colour="4278255360" rotation="0"/>
+    <instance objName="obj_trigger" x="976" y="400" name="inst_100166" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableZombieSpawner&quot;;&#xA;rightExitEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="2.13333010673523" colour="4278255360" rotation="0"/>
     <instance objName="obj_floor" x="1888" y="128" name="inst_100167" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle" x="1904" y="104" name="inst_100168" locked="0" code="drop = item_up_whip;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle" x="1984" y="136" name="inst_100169" locked="0" code="drop = item_up_whip;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -4617,5 +4617,5 @@
   <PhysicsWorldBottom>736</PhysicsWorldBottom>
   <PhysicsWorldGravityX>0</PhysicsWorldGravityX>
   <PhysicsWorldGravityY>10</PhysicsWorldGravityY>
-  <PhysicsWorldPixToMeters>0.1</PhysicsWorldPixToMeters>
+  <PhysicsWorldPixToMeters>0.100000001490116</PhysicsWorldPixToMeters>
 </room>

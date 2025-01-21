@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_version = "0.4.5";
+            <string>game_version = "0.4.6";
 game_subversion = "";
 game_calculate_subversion();
 
