@@ -20,7 +20,9 @@ with director
         case 5:  break;
         
         //June
-        case 6:  break;
+        case 6:
+            if current_day == 24 {GAME_HOLIDAY = "pearbday";}
+        break;
         
         //July
         case 7:  break;

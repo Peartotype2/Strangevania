@@ -79,6 +79,11 @@ if GAME_HOLIDAY == "charliebday"
     titlesprite = logo_title_rainbow;
     flavorText_str = "Happy Birthday Charlie!";
 }
+if GAME_HOLIDAY == "pearbday"
+{
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday To Me!#:soyoucumnow:";
+}
 
 //HOLIDAY TITLE CHANGES HERE!!!!!!!!!!!!!!!!!!!!
 

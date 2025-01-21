@@ -34,7 +34,7 @@ movespeed   =   5;
 hsp         =   0;
 grv         =   1;
 vsp         =   0;
-damage      =   2;
+damage      =   4;
 pdir        =   -1;
 
 disableDistance = 0; //Does not get disabled past a certain distance.
