@@ -35,6 +35,39 @@ oldRoom = room;
 
 laughTextAlpha = 0;//0.025;
 
+
+var _ticksToComplete = (1 / inc)
+
+contrastPerTick = (global.television_contrast / (_ticksToComplete*4));
+contrastPerTick *= -1;
+
+_oldContrast = global.television_contrast;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if newroom == closegame
+{
+    global.television_contrast = _oldContrast;
+}
 </string>
           </argument>
         </arguments>
@@ -58,6 +91,13 @@ laughTextAlpha = 0;//0.025;
           <argument>
             <kind>1</kind>
             <string>game_end();
+
+//Debug for testing the fade to black
+// screen where you see "dracula is laughing at you"
+///////////////
+//room_goto(init);
+//instance_destroy();
+
 </string>
           </argument>
         </arguments>
@@ -107,6 +147,14 @@ fadeout = false;
             <string>if alpha &lt; 1 &amp;&amp; fadeout
 {
     alpha += inc;
+    if newroom == closegame
+    {
+        if global.television_contrast != 0
+        {
+            global.television_contrast = (global.television_contrast+contrastPerTick);
+            //print("CONTRAST: ",global.television_contrast);
+        }
+    }
 }
 
 if alpha == 1 &amp;&amp; can 

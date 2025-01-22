@@ -29,8 +29,11 @@ if argument_count > 0
 }
 else
 {
-    if instance_exists(modmenu_manager)
+    if instance_exists(modmenu_manager) or instance_exists(crtmenu_manager)
     {
+        var _visibleCategory = "Modifiers";
+        if instance_exists(crtmenu_manager) {_visibleCategory = "CRT";}
+    
         var l = 0;
         for(l=0;l<settings.count;l++)
         {
@@ -41,7 +44,7 @@ else
             var _category = _set[? "category"];
             var _trueid = _set[? "id"];
             
-            if _category != "Modifiers"
+            if _category != _visibleCategory//"Modifiers"
             {
                 if (setting_is_visible(_trueid) != false)
                 {

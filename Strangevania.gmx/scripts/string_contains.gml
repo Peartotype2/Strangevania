@@ -1,4 +1,4 @@
-///string_contains
+///string_contains(substr, string)
 var _substr = argument[0];
 var _str = argument[1];
 

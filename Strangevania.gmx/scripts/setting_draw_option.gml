@@ -36,15 +36,27 @@ else
         bgr_c, 0.65*menu_alpha);
 }
 
-var _tCol = c_maroon;
-var _sCol = c_maroon;
-    
+var _tCol   = c_maroon;
+var _tCol2  = c_orange;
+var _sCol   = c_maroon;
+
+if string_contains("--", _displayname)
+{
+    _tCol = c_gray;
+    _tCol2 = c_white;
+}
+
 if _selected
 {
     draw_sprite_stretched_ext(spr_white_pixel, 0, xx-32, yy, ww+64, hh,
         c_white, 0.35*menu_alpha);
     _tCol = c_red;
     _sCol = c_maroon;
+    if string_contains("--", _displayname)
+    {
+        _tCol = c_ltgray;
+        _sCol = c_black;
+    }
 }
 
 /*var _even = (_id % 2 == 0)
@@ -65,13 +77,18 @@ draw_set_font(font_menu);
 draw_text_transformed_colour(xx+2+1, yy+(hh/2)+1, _displayname, 3, 3, 0,
     _sCol, _sCol, _sCol, _sCol, menu_alpha);
 draw_text_transformed_colour(xx+2, yy+(hh/2), _displayname, 3, 3, 0,
-    _tCol, _tCol, c_orange, c_orange, menu_alpha);
+    _tCol, _tCol, _tCol2, _tCol2, menu_alpha);
 
 draw_set_halign(fa_right);
 var _val = _choices[_value];
 var _valColor = c_white;
 if _val == "ON" then _valColor = c_lime;
 if _val == "Disabled" or _val == "Off" then _valColor = c_gray;
+if string_is_real(string(_val))
+{
+    if real(_val) >= -1 and real(_val) <= 1 
+    { _val = round(real(_val)*100); _val = string(_val)+"%";}
+}
 
 /*draw_text_transformed_colour(xx+ww-2, yy+(hh/2), string(_val), 0.5, 0.5, 0,
 c_white, c_white, c_white, c_white, menu_alpha);*/

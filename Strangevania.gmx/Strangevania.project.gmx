@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions>
     <extension index="0">extensions\GMRichPresence</extension>
     <extension index="1">extensions\catch_error</extension>
@@ -323,6 +324,17 @@
     <sprite>sprites\spr_stairboxend</sprite>
     <sprite>sprites\spr_sparkle</sprite>
     <sprite>sprites\spr_hit</sprite>
+    <sprites name="OLD TV Filter Sprites">
+      <sprite>sprites\sprScanline1</sprite>
+      <sprite>sprites\sprScanline2</sprite>
+      <sprite>sprites\sprScanline3</sprite>
+      <sprite>sprites\sprNoise1</sprite>
+      <sprite>sprites\sprStatic1</sprite>
+      <sprite>sprites\sprMask1</sprite>
+      <sprite>sprites\sprMaskWide1</sprite>
+      <sprite>sprites\sprChromatic1</sprite>
+      <sprite>sprites\sprChromatic2</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bgr_tileset1</background>
@@ -349,6 +361,8 @@
         <script>scripts\statadd_Execute.gml</script>
         <script>scripts\setvar_Execute.gml</script>
         <script>scripts\showvar_Execute.gml</script>
+        <script>scripts\setglobalvar_Execute.gml</script>
+        <script>scripts\showglobalvar_Execute.gml</script>
         <script>scripts\setmoney_Execute.gml</script>
         <script>scripts\addmoney_Execute.gml</script>
         <script>scripts\goto_Execute.gml</script>
@@ -481,9 +495,11 @@
       <script>scripts\setting_exists.gml</script>
       <script>scripts\setting_get_id.gml</script>
       <script>scripts\setting_get.gml</script>
+      <script>scripts\setting_get_choice.gml</script>
       <script>scripts\setting_set_value.gml</script>
       <script>scripts\setting_is_visible.gml</script>
       <script>scripts\setting_set_visible.gml</script>
+      <script>scripts\setting_get_display_value.gml</script>
     </scripts>
     <scripts name="Stylemenu Manager">
       <scripts name="Style">
@@ -587,8 +603,11 @@
       <script>scripts\string_split.gml</script>
       <script>scripts\percent.gml</script>
       <script>scripts\num_separator.gml</script>
+      <script>scripts\string_is_real.gml</script>
     </scripts>
     <scripts name="misc">
+      <script>scripts\a1.gml</script>
+      <script>scripts\a2.gml</script>
       <script>scripts\print.gml</script>
       <script>scripts\spawnCandleDrop.gml</script>
       <script>scripts\CollisionPointIDs.gml</script>
@@ -601,7 +620,6 @@
       <script>scripts\SecondsToTime.gml</script>
       <script>scripts\iif.gml</script>
       <script>scripts\object_to_floor.gml</script>
-      <script>scripts\a1.gml</script>
       <script>scripts\draw_object_tiled.gml</script>
       <script>scripts\particles_init.gml</script>
       <script>scripts\KonamiCode.gml</script>
@@ -622,6 +640,11 @@
     <script>scripts\DoorCutsceneInfo.gml</script>
     <script>scripts\DoorCutsceneInfo_BACKUP.gml</script>
     <script>scripts\draw_object_sprite_flicker.gml</script>
+    <scripts name="OLD TV Filter Scripts">
+      <script>scripts\scr_OLDTVFilter_Setup.gml</script>
+      <script>scripts\scr_OLDTVFilter_Settings.gml</script>
+      <script>scripts\scr_OLDTVFilter_Draw.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\sh_white.shader</shader>
@@ -630,6 +653,15 @@
     <shader type="GLSLES">shaders\sh_brightness.shader</shader>
     <shader type="GLSLES">shaders\sh_scanlines.shader</shader>
     <shader type="GLSLES">shaders\sh_gamma.shader</shader>
+    <shaders name="OLD TV Filter Shaders">
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Noise.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Composite.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Scanline.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Tube.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Television.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Bleeding.shader</shader>
+      <shader type="GLSLES">shaders\sh_OLDTVFilter_Chromatic.shader</shader>
+    </shaders>
   </shaders>
   <fonts name="fonts">
     <font>fonts\font_hud</font>
@@ -663,7 +695,6 @@
         <object>objects\obj_camera_BACKUP9_24_24</object>
         <object>objects\obj_camera_OLDBACKUP</object>
         <object>objects\obj_camera_collider</object>
-        <object>objects\obj_scanlines</object>
         <object>objects\manager_parent</object>
       </objects>
       <object>objects\discordmanager</object>
@@ -685,6 +716,7 @@
         <object>objects\levelmenu_manager</object>
         <object>objects\settingsmenu_manager</object>
         <object>objects\modmenu_manager</object>
+        <object>objects\crtmenu_manager</object>
         <object>objects\statsmenu_manager</object>
         <object>objects\songsmenu_manager</object>
         <object>objects\rewardmenu</object>
@@ -794,6 +826,16 @@
       <object>objects\obj_door_trigger</object>
       <object>objects\obj_door_wall</object>
       <object>objects\entity_parent</object>
+    </objects>
+    <objects name="OLD TV Filter Presets">
+      <object>objects\obj_OLDTVFilter_PresetBase</object>
+      <object>objects\obj_OLDTVFilter_Strange</object>
+      <object>objects\obj_OLDTVFilter_Tube_Only</object>
+      <object>objects\obj_OLDTVFilter_Scanline_Only</object>
+      <object>objects\obj_OLDTVFilter_BW</object>
+      <object>objects\obj_OLDTVFilter_Composite</object>
+      <object>objects\obj_OLDTVFilter_SVideo</object>
+      <object>objects\obj_OLDTVFilter_VHS</object>
     </objects>
   </objects>
   <rooms name="rooms">

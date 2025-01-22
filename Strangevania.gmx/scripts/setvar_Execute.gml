@@ -19,8 +19,8 @@ if (array_length_1d(args) == 3)
     if !variable_instance_exists(_obj, _var) then return "Invalid variable!"
     
     var _value = args[2];
-    var _digits = string_digits(_value);
-    if string_length(_digits) == string_length(_value)
+    //var _digits = string_digits(_value);
+    if string_is_real(_value) //string_length(_digits) == string_length(_value)
     {
         _value = real(_value);
     }

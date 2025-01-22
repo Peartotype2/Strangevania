@@ -256,7 +256,7 @@ if !show_anim and q_total &gt; 0
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="116">
+    <event eventtype="10" enumb="117">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -278,6 +278,7 @@ if !show_anim and q_total &gt; 0
 var _tog = ach_is_unlocked(_num)
 ach_set_unlocked(_num, !_tog);*/
 ach_award(_num);
+//DEBUG REMOVE LATER
 </string>
           </argument>
         </arguments>

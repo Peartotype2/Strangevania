@@ -51,6 +51,7 @@ enum menulevel
     statsmenu,
     modmenu,
     songsmenu,
+    CRT,
     
 }
 
@@ -113,7 +114,8 @@ option[menulevel.volume, 3] = "BACK"
 option[menulevel.display, 0] = "FULLSCREEN " + fcheck;
 option[menulevel.display, 1] = "&lt;" + director.res_text + "&gt;"; //Resolution
 option[menulevel.display, 2] = "APPLY"
-option[menulevel.display, 3] = "BACK"
+option[menulevel.display, 3] = "CRT EFFECTS"
+option[menulevel.display, 4] = "BACK"
 
 //Unlocks menu
 option[menulevel.unlocks, 0] = "ACHIEVEMENTS"
@@ -731,8 +733,14 @@ if accept_key
                     }
                 break;
                 
-                //Back
+                //CRT EFFECTS MENU
                 case 3:
+                    menu_level = menulevel.CRT;
+                    instance_create(vieww/2, viewh/2, crtmenu_manager);
+                break;
+                
+                //Back
+                case 4:
                     if prev_res != director.res_id {director.res_id = prev_res;}
                     if prev_mmfullscreen != mmfullscreen {mmfullscreen = prev_mmfullscreen;}
                     menu_level = 1;

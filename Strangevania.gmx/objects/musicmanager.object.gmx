@@ -248,7 +248,7 @@ else
             <kind>1</kind>
             <string>if current_song != noone
 {
-    settingsMenu = instance_exists(settingsmenu_manager);
+    settingsMenu = (instance_exists(settingsmenu_manager) or instance_exists(crtmenu_manager));
     if instance_exists(songsmenu_manager) {songMenu = true;}
     else if song_alpha == 0 {songMenu = false;} //Done in this way so will only change to bottom pos after fading out
 

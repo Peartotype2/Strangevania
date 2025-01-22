@@ -59,9 +59,9 @@ newwhip_list = ds_list_create();
 showHiddenStats = false;
 
 mastervolume = 1.00;
-musicvolume = 1.00;
+musicvolume = 1.00;//0.40;
 musicmult = 1;
-sfxvolume = 1.00;
+sfxvolume = 1.00;//0.50;
 
 catch_error_init();
 catch_error_set_normal(catch_error_normal_queue);
@@ -137,14 +137,12 @@ screen_loaded = false;
 music_loaded = false;
 sfx_loaded = false;
 
-scanlineScale = 1;
-scanlineAlpha = 0.75;
-global.showScanlines = true;
 global.skipIntroOnce = false;
 
 save_migrate("save0.sav");
 scr_loadconfig();
 scr_loadgame();
+if res_id == -1 {res_id = res_max-2;}
 
 showHiddenStats = stat_get("CHEATS_ENABLED");
 
@@ -216,6 +214,11 @@ if fullscreen
 prev_fullscreen = fullscreen;
 screen_loaded = true;
 //roomFadeTo(intro);
+
+if !instance_exists(obj_OLDTVFilter_Strange)
+{instance_create(0,0,obj_OLDTVFilter_Strange);}
+
+
 </string>
           </argument>
         </arguments>
@@ -600,14 +603,6 @@ if !stat_get("FINISHED_GAME")
             <kind>1</kind>
             <string>//key_screenshot = keyboard_check_released(vk_f12);
 
-if global.showScanlines
-{
-    draw_sprite_tiled_ext(spr_scanlines, 0, viewx, viewy,
-     scanlineScale, scanlineScale, c_white, scanlineAlpha);
-    //draw_sprite_tiled_ext(spr_scanlines, 0, viewx, viewy,
-    // scanlineScale*vieww, scanlineScale*max(1,res_id), c_white, scanlineAlpha);
-}
-
 if key_screenshot
 {
     date_set_timezone(timezone_local);
@@ -755,7 +750,7 @@ show_debug_overlay(global.debugoverlay)
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="118">
+    <event eventtype="10" enumb="116">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -772,7 +767,9 @@ show_debug_overlay(global.debugoverlay)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.showScanlines = !global.showScanlines;
+            <string>var _toggle = iif(settings.oldtvfilter_enabled, 0, 1)
+setting_set_value("oldtvfilter_enabled", _toggle);
+
 </string>
           </argument>
         </arguments>

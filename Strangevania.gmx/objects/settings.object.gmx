@@ -33,7 +33,7 @@ visibleList = ds_list_create();
 setting_register("oldmenu", "Original Main Menu", 0, a1("Off", "On"), "FINISHED_GAME", "Extras");
 setting_register("enableconsole", "Enable Console", 0, a1("Disabled", "Enabled"), "CHEATS_ENABLED");
 //setting_register("keyboardlayout", "Keyboard Layout", 1, a1("WASD", "Arrows Keys"));
-setting_register("crtmode", "CRT Mode", 1, a1("Disabled", "Enabled"));
+//setting_register("crtmode", "CRT Mode", 1, a1("Disabled", "Enabled"));
 setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"));
 setting_register("spriteflicker", "Sprite Flicker", 1, a1("Disabled", "Enabled"));
 setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"));
@@ -47,6 +47,31 @@ setting_register("onehit", "1 HP Mode", 0, a1("- ", "ON"), "HIDDEN", "Modifiers"
 setting_register("permadeath", "Perma Death", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
 setting_register("nowhips", "No Whips", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
 setting_register("noweapons", "No Weapons", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
+
+//CRT Settings
+setting_register("crt_reset", "Reset To Defaults", 0, a1("", ""), "HIDDEN", "CRT");
+setting_register("oldtvfilter_enabled", "All Effects", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+
+setting_register("scanline_enabled", "Scanlines", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("scanline_magnetude", "--Magnitude", 5, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+
+setting_register("television_enabled", "Screen", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("television_sharpness", "--Sharpness", 10, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("television_saturation", "--Saturation", 10, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("television_contrast", "--Contrast", 21, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("television_brightness", "--Brightness", 20, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
+
+setting_register("composite_enabled", "Composite", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("composite_artifact", "--Artifact", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("composite_fringing", "--Fringing", 8, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("composite_bleeding", "--Bleed", 18, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+//setting_register("noise_magnetude", "Noise Magnitude", 9, a2(-1.0, 1.0, 0.1), "HIDDEN", "CRT");
+
+setting_register("chromatic_enabled", "Chromatic Aberration", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("chromatic_magnetude", "--Magnitude", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+
+setting_register("tube_enabled", "Tube", 0, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("tube_distortion", "--Distortion", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
 
 /*var _amt = 15;
 for(var j=0;j&lt;_amt;j++)

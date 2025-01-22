@@ -117,7 +117,6 @@ surf = surface_create(surf_w, surf_h);
     var old_pos = pos;
     if inputmanager.up_held and canHold
     {
-        inputmanager.selectingControlType = false;
         pos--;
         if max(pos, 0) &lt; pos_min
         {
@@ -134,7 +133,6 @@ surf = surface_create(surf_w, surf_h);
     
     if inputmanager.down_held and canHold
     {
-        inputmanager.selectingControlType = false;
         pos++;
         if min(pos, settings.visibleCount-1) &gt; pos_max
         {
@@ -193,32 +191,29 @@ surf = surface_create(surf_w, surf_h);
         __setting[? "value"] = clamp(__value, 0, __len);
         settings.list[| __id] = __setting;
         settings_update(__id);
-        
-        if (__name == "gamepadtype")
-        {inputmanager.selectingControlType = true;}
-        
         accept_pressed = false;
         left_pressed = false;
         right_pressed = false;
     }
     
-    if back_pressed
+    if back_pressed or inputmanager.weapon_press
     {
         audio_play_sound(snd_select, 0, 0);
-        menumanager.menu_level = menulevel.options;
-        menumanager.pos = 2;
-        menumanager.menuEnabled = true;
-        inputmanager.selectingControlType = false;
+        
+        menumanager.menu_level = menulevel.display
+        menumanager.pos = 3;
+        menumanager.menuEnabled = true
+        
         menu_close = true;
     }
     
-    var _inc = 0.35;
+    var _inc = 0.4;
     if menu_alpha &lt; 1 then menu_alpha += _inc;
     else menu_alpha = 1;
 }
 else
 {// if menu_close
-    var _inc = 0.35;
+    var _inc = 0.45;
     if menu_alpha &gt; 0 then menu_alpha -= _inc;
     else
     {
@@ -315,6 +310,13 @@ draw_text_transformed_colour(viewx+vieww-22, viewy+viewh-12, "Back", 0.75, 0.75,
     c_white, c_white, c_ltgray, c_ltgray, menu_alpha);
 draw_sprite_ext(bp_back_lt, inputmanager.control_type, viewx+vieww-12, viewy+viewh-12,
     bp_scale, bp_scale, 0, c_white, menu_alpha);
+    
+//Modifiers Text
+/*draw_set_halign(fa_left);
+draw_text_transformed_colour(20, viewh-12, "Levels", 0.75, 0.75, 0,
+    c_white, c_white, c_ltgray, c_ltgray, menu_alpha);
+draw_sprite_ext(bp_weapon, inputmanager.control_type, 10, viewh-12,
+    bp_scale, bp_scale, 0, c_white, menu_alpha);*/
 
 
 //Reset draw values
