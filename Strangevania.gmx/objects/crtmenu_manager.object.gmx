@@ -186,11 +186,15 @@ surf = surface_create(surf_w, surf_h);
         var __value     = __setting[? "value"];
         var __len       = array_length_1d(__choices)-1;
         var __id        = __setting[? "id"];
-        __value += _change;
-        if __value &gt; __len and accept_pressed then __value = 0;
-        __setting[? "value"] = clamp(__value, 0, __len);
-        settings.list[| __id] = __setting;
-        settings_update(__id);
+        
+        if not (__name == "crt_reset" and (left_pressed or right_pressed))
+        {
+            __value += _change;
+            if __value &gt; __len and accept_pressed then __value = 0;
+            __setting[? "value"] = clamp(__value, 0, __len);
+            settings.list[| __id] = __setting;
+            settings_update(__id);
+        }
         accept_pressed = false;
         left_pressed = false;
         right_pressed = false;

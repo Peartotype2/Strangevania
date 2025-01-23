@@ -286,8 +286,6 @@
       <sprite>sprites\spr_camborder</sprite>
       <sprite>sprites\spr_camborder_resize</sprite>
       <sprite>sprites\spr_nothing</sprite>
-      <sprite>sprites\spr_scanline</sprite>
-      <sprite>sprites\spr_scanlines</sprite>
       <sprite>sprites\spr_blood</sprite>
       <sprite>sprites\spr_spearwind</sprite>
       <sprite>sprites\spr_laughtext</sprite>

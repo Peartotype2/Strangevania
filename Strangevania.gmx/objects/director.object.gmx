@@ -127,8 +127,33 @@ res_array[8, 1] = 1980;
 res_array[9, 0] = 3840;
 res_array[9, 1] = 2160;
 
+res_array[10, 0] = 4160;
+res_array[10, 1] = 2340;
+
+res_array[11, 0] = 4480;
+res_array[11, 1] = 2520;
+
+res_array[12, 0] = 4800;
+res_array[12, 1] = 2700;
+
 res_id = 1;
 res_max = (array_height_2d(res_array)-1);
+res_monitor_max = res_max;
+
+var _dw = display_get_width();
+for(r=0; r&lt;=res_max; r++)
+{
+    if res_array[r, 0] == _dw
+    {
+        res_monitor_max = r;
+        break;
+    }
+    if res_array[r, 0] &gt; _dw
+    {
+        res_monitor_max = r-1;
+        break;
+    }
+}
 
 global.money = 0;
 
@@ -142,7 +167,7 @@ global.skipIntroOnce = false;
 save_migrate("save0.sav");
 scr_loadconfig();
 scr_loadgame();
-if res_id == -1 {res_id = res_max-2;}
+if res_id == -1 {res_id = res_monitor_max-2;}
 
 showHiddenStats = stat_get("CHEATS_ENABLED");
 
