@@ -1,28 +1,21 @@
 name: "tagged-release"
 
-on:
-  workflow_dispatch:
-
 #on:
-  #push:
-    #tags:
-      #- "v*"
+  #workflow_dispatch:
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
 
 jobs:
-  tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
-
+  release-build:
+    name: "Release Build"
+    runs-on: ubuntu-latest
     steps:
-      # ...
-      - name: "Build & test"
-        run: |
-          echo "done!"
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          files: |
-            Strangevania.zip
+    - run: gh release create ${{github.ref_name}} Strangevania.zip
+    env:
+      GITHUB_TOKEN: ${{ github.TOKEN }}
