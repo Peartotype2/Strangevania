@@ -98,7 +98,7 @@ with stattracker
     var _default = 0;
     var _hidden = false;
     stat_register(_stat, _displayname, _default, _hidden);
-    event_register_script("BlockDestroyed", id, stat_add, _stat, 1);
+    event_register_script("BlockDestroyedByWhip", id, stat_add, _stat, 1);
     
     var _stat = "PLAYER_CANDLES_BROKEN";
     var _displayname = "Candles Broken";

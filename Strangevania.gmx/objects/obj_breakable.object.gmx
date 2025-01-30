@@ -85,7 +85,8 @@ if initStep
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>BreakBlock(id);
+            <string>event_fire("BlockDestroyedByWhip");
+BreakBlock(id);
 </string>
           </argument>
         </arguments>

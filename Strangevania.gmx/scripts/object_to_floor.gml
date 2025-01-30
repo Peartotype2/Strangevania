@@ -1,5 +1,6 @@
-///object_to_floor(_obj)
+///object_to_floor(_obj, [PixelsAboveFloor])
 var _obj = argument[0];
+var _aboveFloor = 1; if argument_count > 1 then _aboveFloor = argument[1];
 
 var _offset = 1;
 
@@ -7,17 +8,20 @@ with _obj
 {
     var _floorSteps = 0;
     var _floorStepsMax = 30;
+    var _offsetInc = 4;
     while !place_meeting( x, y+_offset, obj_solid)
     {
-        _offset++
+        _offset += _offsetInc;
         _floorSteps++;
         if !InsideRoom(x, y+_offset) or _floorSteps > _floorStepsMax
         {
-            print("OBJECT TO FLOOR BROKE WHILE LOOP!!!!");
+            print("OBJECT TO FLOOR BROKE WHILE LOOP!! (steps: ", _floorSteps, ")");
             break;
             exit;
         }
     }
+    var _floorObj = instance_place( x, y+_offset, obj_solid);
     
-    y += _offset-1;
+    //y += _offset-_aboveFloor;
+    y = (_floorObj.bbox_top-_aboveFloor)-sprite_yoffset;
 }

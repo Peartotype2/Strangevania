@@ -80,7 +80,8 @@ if onBreakEvent != -1 {event_fire(onBreakEvent);}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with instance_change(obj_itemdrop, true)
+            <string>ColHitEffect(-4, -3, 3);
+with instance_change(obj_itemdrop, true)
 {
     drop = other.drop;
 }

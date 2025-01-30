@@ -48,7 +48,7 @@ leftEdgeOnly        = false;
 rightEdgeOnly       = false;
 spawnEdgeDistance   = 15;
 
-spawnAboveFloorDistance = 0; //Spawn the ai this many pixels above the floor
+spawnAboveFloorDistance = 1; //Spawn the ai this many pixels above the floor
 
 active      = false;
 disabled    = false;
@@ -136,8 +136,8 @@ if spawnAtEdges
         if spawnSide == left then ai.facing = 1;
         ai.spawnerObject = id;
         ai.pointReward = (ai.pointReward*0.10)
-        object_to_floor(ai)
-        ai.y -= spawnAboveFloorDistance;
+        object_to_floor(ai, spawnAboveFloorDistance)
+        //ai.y -= spawnAboveFloorDistance;
     }
     //else {print("Spawner couldn't fit enemy there!")}
     

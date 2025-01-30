@@ -48,23 +48,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//instance_create(x, y, item_up_whip);
-//if drop != -1
-//{
-    var dropName = object_get_name(drop);
-    if string_contains("ai_", dropName) //If drop is an AI
-    {
-        var ai = instance_create(x, y, drop);
-        ai.hurt = 4;
-        if dropDeathEvent != -1 { ai.deathEvent = dropDeathEvent; }
-        //Give the ai 4 frames of invincibility to survive the whip
-        // hitbox that is breaking the block
-    }
-    else
-    {
-        spawnCandleDrop(x, y, drop);
-    }
-//}
+            <string>var dropName = object_get_name(drop);
+if string_contains("ai_", dropName) //If drop is an AI
+{
+    var ai = instance_create(x, y, drop);
+    ai.hurt = 4;
+    if dropDeathEvent != -1 { ai.deathEvent = dropDeathEvent; }
+    //Give the ai 4 frames of invincibility to survive the whip
+    // hitbox that is breaking the block
+}
+else
+{
+    spawnCandleDrop(x, y, drop);
+}
 instance_destroy();
 </string>
           </argument>
