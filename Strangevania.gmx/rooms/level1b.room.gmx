@@ -253,7 +253,7 @@
     <instance objName="obj_candle" x="2240" y="56" name="inst_100200" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle" x="1824" y="56" name="inst_100201" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle" x="1984" y="56" name="inst_100202" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_candle_big" x="2360" y="64" name="inst_100203" locked="0" code="onBreakEvent = &quot;SecretCandlesBroken&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_candle_big" x="2360" y="64" name="inst_100203" locked="0" code="onBreakEvent = &quot;SecretCandlesBroken&quot;;&#xA;drop = item_up_chicken;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle_big" x="2312" y="64" name="inst_100204" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle_big" x="2336" y="64" name="inst_100205" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_axeman" x="1568" y="144" name="inst_100206" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -261,14 +261,15 @@
     <instance objName="obj_solid" x="1392" y="80" name="inst_100208" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1472" y="80" name="inst_100209" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_stairbox" x="1744" y="144" name="inst_100210" locked="0" code="stairDirV = STAIR_UP;&#xA;stairDirH = STAIR_LEFT;&#xA;stairLength = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_breakable" x="2144" y="-8" name="inst_100211" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_breakable" x="2152" y="-8" name="inst_100211" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2232" y="-8" name="inst_100212" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2328" y="-8" name="inst_100213" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_breakable" x="2064" y="-8" name="inst_100214" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_breakable" x="2136" y="-8" name="inst_100214" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_delay" x="2368" y="16" name="inst_100215" locked="0" code="delay = 15;&#xA;event = &quot;SecretCandlesBlocks&quot;;&#xA;startEvent = &quot;SecretCandlesBroken&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger" x="2128" y="32" name="inst_100216" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableBatSpawner&quot;;&#xA;rightExitEvent = &quot;DisableBatSpawner&quot;;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger" x="2272" y="80" name="inst_100217" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;EnableBatSpawner&quot;);" scaleX="2" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger" x="2176" y="80" name="inst_100218" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;EnableBatSpawner&quot;);" scaleX="2" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_soundmaker" x="2352" y="16" name="inst_449297A1" locked="0" code="playEvent = &quot;SecretCandlesBroken&quot;;&#xA;sound = snd_upgrade2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bgr_tileset2" x="0" y="0" w="16" h="16" xo="96" yo="192" id="100219" name="inst_100219" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

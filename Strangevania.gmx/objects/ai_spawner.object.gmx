@@ -42,13 +42,21 @@ enemyType       = ai_zombie;
 enemyList       = ds_list_create();
 enemyCount      = 0;
 enemyMax        = 4;
+enemyScoreMult  = 0.10;
+enemyNotCounted = false; //If enemy is not counted for achievements
+enemyToFloor    = true;
 
+//enemySpawnXOffset   = 0;
+//enemySpawnYOffset   = 0;
+
+spawnAboveFloorDistance = 1; //Spawn the ai this many pixels above the floor
+
+canSpawnOutside     = false;
+canSpawnInSolid     = false;
 spawnAtEdges        = true;
 leftEdgeOnly        = false;
 rightEdgeOnly       = false;
 spawnEdgeDistance   = 15;
-
-spawnAboveFloorDistance = 1; //Spawn the ai this many pixels above the floor
 
 active      = false;
 disabled    = false;
@@ -127,17 +135,26 @@ if spawnAtEdges
     if spawnSide == right {spawnX = viewx+vieww+sideDistance;}
     spawnY = player.y-1;
     
-    if !place_meeting(spawnX, spawnY, obj_solid)
-    and InsideRoom(spawnX, spawnY)
+    if (place_meeting(spawnX, spawnY, obj_solid) and !canSpawnInSolid)
+    or (!InsideRoom(spawnX, spawnY) and !canSpawnOutside)
+    then {spawnSide *= -1;} //If selected side is blocked, attempt other side.
+    
+    
+    if (!place_meeting(spawnX, spawnY, obj_solid) or canSpawnInSolid)
+    and (InsideRoom(spawnX, spawnY) or canSpawnOutside)
     {
         //print("Spawned AI!")
         var ai = instance_create(spawnX, spawnY, enemyType);
-        ds_list_add(enemyList, ai.id);
-        if spawnSide == left then ai.facing = 1;
-        ai.spawnerObject = id;
-        ai.pointReward = (ai.pointReward*0.10)
-        object_to_floor(ai, spawnAboveFloorDistance)
-        //ai.y -= spawnAboveFloorDistance;
+        if instance_exists(ai)
+        {
+            ds_list_add(enemyList, ai.id);
+            if spawnSide == left then ai.facing = 1;
+            ai.spawnerObject = id;
+            ai.pointReward = (ai.pointReward*enemyScoreMult)
+            ai.notCounted = enemyNotCounted;
+            if enemyToFloor {object_to_floor(ai, spawnAboveFloorDistance);}
+            //ai.y -= spawnAboveFloorDistance;
+        }
     }
     //else {print("Spawner couldn't fit enemy there!")}
     

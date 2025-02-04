@@ -34,6 +34,8 @@ fromScript  = false;
 
 startEvent = "NONE";
 
+tickWhilePaused = false;
+
 initStep = true;
 activate = false;
 </string>
@@ -111,6 +113,16 @@ if activate
     alarm[0] = delay;
     activate = false;
 }
+
+if instance_exists(gamemanager)
+{
+    if gamemanager.paused and !tickWhilePaused
+    {
+        if alarm_get(0) &gt; 0 then alarm[0]++;
+    }
+}
+
+
 </string>
           </argument>
         </arguments>

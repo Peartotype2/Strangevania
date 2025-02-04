@@ -38,6 +38,7 @@ staggered = false;
 hitSound = snd_hit;
 disableDistance = 175;
 deathEvent = "NONE";
+notCounted = false; //Disables counting towards achievement progress
 
 hsp = 0;
 vsp = 0;
@@ -212,9 +213,12 @@ if hp &lt;= 0
 {
     killer = attacker;
     
-    if object_get_parent(killer) == projectile_parent {event_fire("PlayerProjectileKilledAI", object_index, killer)};
+    if object_get_parent(killer) == projectile_parent and notCounted == false
+    {
+        event_fire("PlayerProjectileKilledAI", object_index, killer);
+    }
 
-    event_fire("PlayerKilledAI", id);
+    if notCounted == false {event_fire("PlayerKilledAI", id)};
     if deathEvent != "NONE" {event_fire(deathEvent, id);}
     if (playDeathSound) audio_play_sound(snd_kill, 0, 0);
     instance_create(x, y, obj_sparkle);
