@@ -43,6 +43,8 @@ starthsp = 0;
 firststep = true;
 
 vsp = irandom_range(-13, -9);
+
+vsp_lerp = vsp;
 </string>
           </argument>
         </arguments>
@@ -70,16 +72,24 @@ if disabled then exit;
 
 if firststep
 {
-    starthsp = movespeed;;
+    starthsp = movespeed;
     hsp = movespeed*dir;
     startvsp = vsp;
     firststep = false;
 }
 
+var maxvsp = 6;
 vsp = vsp + grv;
-if vsp &gt;= 6 vsp = 6;
+if vsp &gt;= maxvsp {vsp = maxvsp;}
 
 image_xscale = dir;
+vsp_lerp = lerp(vsp_lerp, vsp, 0.00025);
+
+var _percentmax = startvsp
+if sign(vsp) == 1 then _percentmax = maxvsp;
+var _ispeed = percent(abs(vsp_lerp), 0, abs(_percentmax));
+_ispeed *= sign(vsp);
+image_speed = _ispeed;
 
 x = x + hsp;
 
