@@ -42,6 +42,7 @@ loadbarh = 2;
 loadbarval = 0;
 loadbarlerp = 0;
 loadbarmax = 4;
+loadbar_sound_delay = 0;
 
 loadbardelay = 1*room_speed;
 game_logo_scale = 1;
@@ -175,6 +176,12 @@ res_text = (string(res_array[res_id,0]) + "x" + string(res_array[res_id,1]))
 game_width = res_array[res_id, 0];
 game_height = res_array[res_id, 1];
 
+if fullscreen
+{
+    game_width = display_get_width();
+    game_height = display_get_height();
+}
+
 audio_group_load(ag_music);
 audio_group_load(ag_sfx);
 audio_group_load(ag_voices);
@@ -235,6 +242,11 @@ if fullscreen
     surface_resize(application_surface, dw, dh);
     //alarm[0] = 15;
 }
+/*else if window_get_width() == 1
+{
+    window_set_size(game_width, game_height);
+    surface_resize(application_surface, game_width, game_height);
+}*/
 ///////////////WINDOW IS CENTERED IN STEP EVENT WHEN ALARM = 14
 prev_fullscreen = fullscreen;
 screen_loaded = true;
@@ -709,9 +721,28 @@ if key_screenshot
     draw_text_transformed(bufferx, viewy+180-buffery, str,
     0.5, 0.5, 0);
     
-    var loads = screen_loaded + music_loaded + sfx_loaded + config_loaded;
+    var music_loaded_percent = clamp(music_loaded+(audio_group_load_progress(ag_music)/100),0,1)
+    var _sload = audio_group_load_progress(ag_sfx);
+    var _vload = audio_group_load_progress(ag_voices)
+    var sfx_loaded_percent = clamp(sfx_loaded+((_sload + _vload)/200),0,1);
+    
+    var loads = screen_loaded + music_loaded_percent + sfx_loaded_percent + config_loaded;
     loadbarval = (loads / loadbarmax) * 100;
     loadbarlerp = lerp(loadbarlerp, loadbarval, 0.2)
+    
+    if (loadbarval - loadbarlerp) &lt;= 1 {loadbarlerp = loadbarval;}
+    print(loadbarlerp, " ", loadbarval);
+    if loadbarlerp != loadbarval 
+    {
+        if loadbar_sound_delay == 0
+        {
+            var _pitch = 0.5
+            play_sound_pitched(snd_voice1, (loadbarval/100)*_pitch);
+            loadbar_sound_delay = 1//1;
+        }
+        else {loadbar_sound_delay--;}
+    }
+    
     draw_healthbar(loadbarx, loadbary, loadbarx+loadbarw, loadbary+loadbarh, loadbarlerp,
     c_dkgray, c_white, c_white, 0, true, false);
     //show_debug_message(loadstate)
