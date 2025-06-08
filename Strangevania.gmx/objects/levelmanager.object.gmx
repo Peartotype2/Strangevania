@@ -28,10 +28,10 @@
             <string>level_count = 0;
 level_list = ds_list_create();
 
-level_register("stage01", "Stage 0-1", a1(level1a, level1b), true);
-level_register("stage02", "Stage 0-2", a1(level0))//, 2, 2394, 112);
-level_register("stage03", "Stage 0-3", a1(level_scene1))//, 1, 1000, 60);
-level_register("stage04", "Stage 0-4", a1(level_tiled))//, 3, 1337, 69);
+level_register("stage01", "Level 1", a1(level1a, level1b), true);
+level_register("stage02", "Level 2", a1(level0))//, 2, 2394, 112);
+level_register("stage03", "Level 3", a1(level_scene1))//, 1, 1000, 60);
+level_register("stage04", "Level 4", a1(level_tiled))//, 3, 1337, 69);
 
 
 </string>

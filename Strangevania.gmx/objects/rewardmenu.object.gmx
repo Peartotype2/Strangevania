@@ -54,7 +54,7 @@ cont_delay = 25;
 stagex = vieww/2;
 stagey = 12;
 stagescale = 1.5;
-stagecol = c_white;
+//stagecol = c_white;
 stage_name = "Stage 0-1"
 
 //alarm[0] = increment_delay;
@@ -64,10 +64,10 @@ scoreamount = 0;
 score_num = scoreamount;
 score_numstring = string(score_num);
 score_zeros = 0;
-score_length = 4;
+score_length = 5;
 scoretext = "SCORE ";
 scorescale = 1;
-scorex = vieww/2-string_width(scoretext);
+scorex = vieww/2//-string_width(scoretext+score_numstring);
 scorey = viewh/2-_spacer;
 
 scoreModString = "";
@@ -330,6 +330,12 @@ if firststep
     if finalscore &gt; _highscore {level_set_score(level, finalscore);}
     if timeTotal &lt; _lowtime {level_set_time(level, timeTotal);}
     gamemanager.hearts = gamemanager.heartsDefault;
+    
+    if level != -1
+    {
+        stage_name = level[? "displayname"];
+    }
+    
     firststep = false;
 }
 
@@ -496,15 +502,22 @@ draw_set_font(font_menu);
 draw_set_valign(fa_top);
 draw_set_halign(fa_center);
 
+//draw_line_colour(0,viewh/2, vieww,viewh/2, c_green, c_green);
+//draw_line_colour(vieww/2,0, vieww/2,viewh, c_green, c_green);
+
 //Stage name text
+//draw_text_transformed_colour(stagex+1, stagey+1, stage_name, stagescale, stagescale, 0,
+// c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 draw_text_transformed_colour(stagex, stagey, stage_name, stagescale, stagescale, 0,
- stagecol, stagecol, c_ltgray, c_ltgray, 1);
+ c_maroon, c_maroon, c_orange, c_orange, 1);
+ 
 draw_text_transformed_colour(stagex, stagey+14, "complete",
- stagescale-0.4, stagescale-0.4, 0, stagecol, stagecol, c_ltgray, c_ltgray, 1);
+ stagescale-0.4, stagescale-0.4, 0, c_white, c_white, c_ltgray, c_ltgray, 1);
 
 draw_set_font(font_hud);
 draw_set_valign(fa_top);
-draw_set_halign(fa_left);
+//draw_set_halign(fa_left);
+draw_set_halign(fa_center);
 
 //Draw Score
 var _scoreString = (scoretext + string(score_numstring));
@@ -516,7 +529,7 @@ draw_set_font(font_menu);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 var _xoff = (string_width(scoreModString)/2)
-draw_text_transformed_colour(scorex+_xoff+6+string_width(_scoreString)*scorescale, scorey, scoreModString,
+draw_text_transformed_colour(scorex-3+_xoff+((string_width(_scoreString)/2)*scorescale), scorey, scoreModString,
  scorescale+_modStringScale, scorescale+_modStringScale, 0, c_orange, c_orange, c_yellow, c_yellow, scoreModAlpha);
 
 if finished and scoreModFadeInc &gt; 0 {scoreModFadeInc *= -1}
@@ -528,20 +541,22 @@ draw_set_halign(fa_left);
  
 //Draw Hearts
 draw_set_font(font_menu);
-var hearts_xoff = 12;
+//var hearts_xoff = 12;
+var hearts_xoff = -((string_width(stage_name)*stagescale)/2)+sprite_get_width(spr_smallheart);
 var hearts_yoff = -16;
-draw_text_transformed(scorex+hearts_xoff, scorey+hearts_yoff, string(hearts_numstring),
+draw_text_transformed(stagex+hearts_xoff, scorey+hearts_yoff, string(hearts_numstring),
  1, 1, 0);
-draw_sprite_ext(spr_smallheart, 0, scorex+hearts_xoff-8, scorey+hearts_yoff+4, 1, 1, 0, c_white, 1)
+draw_sprite_ext(spr_smallheart, 0, stagex+hearts_xoff-8, scorey+hearts_yoff+4, 1, 1, 0, c_white, 1)
 
 //Draw Time
 draw_set_halign(fa_right);
-var time_xoff = 12+string_width(scoretext + string(score_numstring));
+//var time_xoff = 12+string_width(scoretext + string(score_numstring));
+var time_xoff = ((string_width(stage_name)*stagescale)/2);
 var time_yoff = -16;
 var _strw = string_width(time_numstring);
-draw_text_transformed(scorex+time_xoff, scorey+time_yoff, string(time_numstring),
+draw_text_transformed(stagex+time_xoff, scorey+time_yoff, string(time_numstring),
  1, 1, 0);
-draw_sprite_ext(spr_timeclock, 0, scorex+time_xoff-_strw-8, scorey+time_yoff+4, 1, 1, 0, c_white, 1)
+draw_sprite_ext(spr_timeclock, 0, stagex+time_xoff-_strw-8, scorey+time_yoff+4, 1, 1, 0, c_white, 1)
 
 //Draw Money
 draw_set_font(font_hud);
