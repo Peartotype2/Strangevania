@@ -29,6 +29,8 @@
 facing = -1;
 pointReward = 300;
 
+firstStep = true;
+
 movespeed = 2;
 movedir = facing;
 movedelay = 0.175*room_speed;
@@ -54,6 +56,8 @@ damage = 4;
 
 throwing = 0;
 throwdamage = 2;
+
+throwdelaymult = 1;
 throwdelaymin = 0.95;//0.55;
 throwdelaymax = 1.20//0.75;
 throwdelay = random_range(throwdelaymin, throwdelaymax)*room_speed;
@@ -190,6 +194,13 @@ alarm[1] = 8;//15;
             <kind>1</kind>
             <string>event_inherited();
 if disabled then exit;
+
+if firstStep
+{
+    throwdelaymin *= throwdelaymult;
+    throwdelaymax *= throwdelaymult;
+    firstStep = false;
+}
 
 vsp = vsp + grv;
 if vsp &gt;= 7 vsp = 7;
