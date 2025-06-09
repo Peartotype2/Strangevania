@@ -37,6 +37,9 @@ playing_wave2 = "_-_";
 playing_wave_delay = 10;
 alarm[1] = playing_wave_delay;
 
+playWhenLoaded = -1;
+loadDots = "";
+
 songsList = musicmanager.allsongs_list;
 songsCount = ds_list_size(songsList);
 
@@ -100,6 +103,9 @@ surf = surface_create(surf_w, surf_h);
             <kind>1</kind>
             <string>playing_wave = !playing_wave;
 alarm[1] = playing_wave_delay;
+
+if loadDots == "..." {loadDots = "";}
+else {loadDots += ".";}
 </string>
           </argument>
         </arguments>
@@ -147,6 +153,16 @@ alarm[1] = playing_wave_delay;
             <kind>1</kind>
             <string>if !menu_close
 {
+    if playWhenLoaded != -1
+    {
+        if audio_group_is_loaded(ag_music)
+        {
+            var _sid = asset_get_index(songsList[| playWhenLoaded]);
+            music_fade_to(_sid, 500)
+            playWhenLoaded = -1;
+        }
+    }
+
     var old_pos = pos;
     if inputmanager.up_held and canHold
     {
@@ -202,7 +218,14 @@ alarm[1] = playing_wave_delay;
         {
             var _sid = asset_get_index(songsList[| pos]);
             
-            music_fade_to(_sid, 500)
+            if !audio_group_is_loaded(ag_music)
+            {
+                playWhenLoaded = pos;
+            }
+            else
+            {
+                music_fade_to(_sid, 500)
+            }
         }
     }
     

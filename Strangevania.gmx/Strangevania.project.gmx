@@ -50,6 +50,7 @@
     </sounds>
     <sounds name="music">
       <sound>sound\song_intheway</sound>
+      <sound>sound\song_namelesssong</sound>
       <sound>sound\song_victory</sound>
       <sound>sound\song_victory_short</sound>
       <sound>sound\song_songofhealing</sound>
@@ -58,7 +59,6 @@
       <sound>sound\song_thisfire</sound>
       <sound>sound\song_entersandman</sound>
       <sound>sound\song_hyruleking</sound>
-      <sound>sound\song_namelesssong</sound>
       <sound>sound\song_finale</sound>
     </sounds>
     <sounds name="Ambient">
@@ -861,6 +861,7 @@
     <audiogroup name="ag_music"/>
     <audiogroup name="ag_sfx"/>
     <audiogroup name="ag_voices"/>
+    <audiogroup name="ag_music_mainmenu"/>
   </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>

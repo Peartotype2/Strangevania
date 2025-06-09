@@ -184,6 +184,7 @@ if fullscreen
 
 audio_group_load(ag_sfx);
 audio_group_load(ag_voices);
+audio_group_load(ag_music_mainmenu);
 audio_group_load(ag_music);
 
 window_set_size(game_width, game_height);
@@ -339,10 +340,6 @@ if screen_loaded and music_loaded and sfx_loaded and config_loaded
         prev_fullscreen = fullscreen;
     }
 
-    /*audio_master_gain(mastervolume);
-    audio_group_set_gain(ag_music, (musicvolume*musicmult), 0);
-    audio_group_set_gain(ag_sfx, sfxvolume, 0);*/
-
     if room == init and loadbardelay &lt;= 0
     {
         UpdateAudioVolume();
@@ -477,7 +474,8 @@ if global.stopwatch_paused
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if audio_group_is_loaded(ag_music)
+            <string>//if audio_group_is_loaded(ag_music)
+if audio_group_is_loaded(ag_music_mainmenu)
 {
     music_loaded = true;
 }
@@ -698,7 +696,7 @@ if key_screenshot
     
     if !config_loaded {loadstate = "Loading Config";}
     else if !screen_loaded {loadstate = "Setting up display";}
-    else if !music_loaded {loadstate = "Unpacking Music"; progress = string(audio_group_load_progress(ag_music))}
+    else if !music_loaded {loadstate = "Unpacking Music"; progress = string(audio_group_load_progress(ag_music_mainmenu))}
     else if !sfx_loaded 
         {
             loadstate = "Unpacking SFX";
@@ -718,7 +716,7 @@ if key_screenshot
     draw_text_transformed(bufferx, viewy+180-buffery, str,
     0.5, 0.5, 0);
     
-    var music_loaded_percent = clamp(music_loaded+(audio_group_load_progress(ag_music)/100),0,1)
+    var music_loaded_percent = clamp(music_loaded+(audio_group_load_progress(ag_music_mainmenu)/100),0,1)
     var _sload = audio_group_load_progress(ag_sfx);
     var _vload = audio_group_load_progress(ag_voices)
     var sfx_loaded_percent = clamp(sfx_loaded+((_sload + _vload)/200),0,1);
@@ -845,6 +843,7 @@ setting_set_value("oldtvfilter_enabled", _toggle);
           <argument>
             <kind>1</kind>
             <string>audio_group_stop_all(ag_music);
+audio_group_stop_all(ag_music_mainmenu);
 </string>
           </argument>
         </arguments>

@@ -167,6 +167,9 @@ if alpha == 1 &amp;&amp; can
         exit;
     }
     
+    var _toLevel = string_contains("level", room_get_name(newroom))
+    if _toLevel and !audio_group_is_loaded(ag_music) {exit;} //Hold at black until music loads
+    
     alarm[0] = 10;
     var _wasLevel = (string_count("level", room_get_name(oldRoom)) &gt;= 1);
     room_goto(newroom);

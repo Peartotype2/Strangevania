@@ -68,6 +68,13 @@ if _selected
     }
 }
     
+if songsmenu_manager.playWhenLoaded == _id //If option was pressed before song loaded
+{
+    _displayname = "LOADING" + songsmenu_manager.loadDots;
+    _tCol = c_ltgray;
+    _tCol2 = c_ltgray;
+    _sCol = c_dkgray;
+}
 //text
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
