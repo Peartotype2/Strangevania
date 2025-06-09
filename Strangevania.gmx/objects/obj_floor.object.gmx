@@ -42,7 +42,8 @@ var _w = sprite_width;
 var _h = sprite_height;
 var _xoff = sprite_xoffset;
 var _yoff = sprite_yoffset;
-with instance_create(x, y, obj_aisolid)
+//with instance_create(x, y, obj_aisolid)
+with instance_create(x, y, obj_floorsolid)
 {
     target = other;
     xoff = _xoff;

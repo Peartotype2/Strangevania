@@ -30,6 +30,12 @@ decayTime = 4.5;
 decay = false;
 decayflash = 0;
 landed = false;
+
+grv = 1;
+
+itemDefaultGravity              = true;
+itemDefaultGravityMax           = 12;
+itemDefaultVerticalCollision    = true;
 </string>
           </argument>
         </arguments>
@@ -87,7 +93,27 @@ if disabled
     exit;
 }
 
-if !landed and place_meeting( x, y+1, obj_solid)
+if itemDefaultGravity
+{
+    vsp = vsp + grv;
+    if vsp &gt;= itemDefaultGravityMax {vsp = itemDefaultGravityMax;}
+}
+
+if itemDefaultVerticalCollision
+{
+    //Vertical Collision
+    if place_meeting( x, y+vsp, obj_wall)
+    {
+        while !place_meeting(x, y+sign(vsp), obj_wall)
+        {
+            y = y + sign(vsp)
+        }
+        vsp = 0;
+    }
+    y = y + vsp;
+}
+
+if !landed and place_meeting( x, y+1, obj_wall)
 {
     alarm[11] = decayTime*room_speed;
     landed = true;

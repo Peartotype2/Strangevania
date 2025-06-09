@@ -140,7 +140,8 @@ if OLDdetails != details
     OLDdetails      = details;
     OLDstate        = state;
     OLDsmallImage   = smallImage;
-    print("DISCORD STATUS UPDATED!");
+    var _secondLine = iif(state != "", " | " + state, "");
+    print("DISCORD STATUS: ", details, _secondLine);
 }
 </string>
           </argument>

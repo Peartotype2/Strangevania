@@ -38,6 +38,9 @@ sin_amp = 6;
 startx = x;
 //goalx = startx + xdist;
 
+itemDefaultGravity = false;
+itemDefaultVerticalCollision = false;
+
 </string>
           </argument>
         </arguments>

@@ -745,6 +745,7 @@
       <object>objects\obj_door</object>
       <object>objects\obj_solid</object>
       <object>objects\obj_aisolid</object>
+      <object>objects\obj_floorsolid</object>
       <object>objects\obj_stairboxend</object>
       <object>objects\obj_stairparent</object>
       <object>objects\obj_itemdrop</object>
