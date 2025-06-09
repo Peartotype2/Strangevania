@@ -83,6 +83,7 @@ _selected = false;
         if _unlocked
         {
             audio_play_sound(snd_select, 0, 0);
+            music_fade_out(500);
             level_start(_level);
         }
         else

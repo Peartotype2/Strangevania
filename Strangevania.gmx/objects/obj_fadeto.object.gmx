@@ -42,6 +42,11 @@ contrastPerTick = (global.television_contrast / (_ticksToComplete*4));
 contrastPerTick *= -1;
 
 _oldContrast = global.television_contrast;
+
+barEnabled = false;
+barTime = 1 * room_speed;
+_barLerp = 0;
+
 </string>
           </argument>
         </arguments>
@@ -68,6 +73,29 @@ _oldContrast = global.television_contrast;
 {
     global.television_contrast = _oldContrast;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>barEnabled = true;
 </string>
           </argument>
         </arguments>
@@ -168,7 +196,11 @@ if alpha == 1 &amp;&amp; can
     }
     
     var _toLevel = string_contains("level", room_get_name(newroom))
-    if _toLevel and !audio_group_is_loaded(ag_music) {exit;} //Hold at black until music loads
+    if _toLevel and !audio_group_is_loaded(ag_music) //Hold at black until music loads
+    {
+        if alarm[2] &lt; 0 then alarm[2] = barTime;
+        exit;
+    } 
     
     alarm[0] = 10;
     var _wasLevel = (string_count("level", room_get_name(oldRoom)) &gt;= 1);
@@ -209,7 +241,7 @@ if alpha == 0 &amp;&amp; fadein {instance_destroy();}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = alpha
+            <string>image_alpha = alpha;
 
 draw_sprite_ext(spr_black, 0, -1, -1, 400, 400, 0, c_white, image_alpha);
 
@@ -218,7 +250,22 @@ if newroom == closegame and !stat_get("FINISHED_GAME")
     draw_sprite_ext(spr_laughtext, 0, viewx, viewy, 1, 1, 0, c_white, laughTextAlpha);
     laughTextAlpha = alpha*0.035;
 }
+
+if barEnabled// and !fadein
+{
+    var _barAlpha = 0.5;
+    var _barx = vieww/2;
+    var _bary = viewh/2;
+    var _barw = 50;
+    var _barh = 1;
+    var _barValue = audio_group_load_progress(ag_music);
+    _barLerp = lerp(_barLerp, _barValue, 0.2);
     
+    draw_set_alpha(alpha*_barAlpha);
+    draw_healthbar(_barx-(_barw/2), _bary-(_barh/2), _barx+(_barw/2), _bary+(_barh/2),
+     _barLerp, c_dkgray, c_white, c_white, 0, true, false);
+    draw_set_alpha(1);
+}
 </string>
           </argument>
         </arguments>

@@ -10,6 +10,11 @@ if musicmanager.current_song == noone or musicmanager.current_song == _newsong
     exit;
 }
 
+if musicmanager.new_song != noone
+{
+    audio_stop_sound(musicmanager.new_song);
+}
+
 if musicmanager.current_song != noone
 {
     musicmanager.new_song = _newsong;
@@ -18,7 +23,7 @@ if musicmanager.current_song != noone
 }
 else
 {
-    //musicmanager.current_song = _newsong;
+    musicmanager.current_song = _newsong;
 }
 
 if !audio_is_playing(_newsong)

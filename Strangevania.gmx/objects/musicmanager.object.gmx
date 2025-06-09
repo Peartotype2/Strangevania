@@ -175,7 +175,7 @@ if current_song != noone
             if _gain &lt;= 0
             {
                 audio_stop_sound(_song);
-                print("MUSIC STOPPED: " + string(_song));
+                print("MUSIC STOPPED: ", sound_get_name(_song)," ",string(_song));
                 ds_list_delete(stop_list, i);
             }
         }
