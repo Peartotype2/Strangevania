@@ -608,6 +608,7 @@
       <script>scripts\a1.gml</script>
       <script>scripts\a2.gml</script>
       <script>scripts\print.gml</script>
+      <script>scripts\draw_hitbox.gml</script>
       <script>scripts\spawnCandleDrop.gml</script>
       <script>scripts\CollisionPointIDs.gml</script>
       <script>scripts\ColHitEffect.gml</script>
@@ -745,7 +746,6 @@
       <object>objects\obj_door</object>
       <object>objects\obj_solid</object>
       <object>objects\obj_aisolid</object>
-      <object>objects\obj_floorsolid</object>
       <object>objects\obj_stairboxend</object>
       <object>objects\obj_stairparent</object>
       <object>objects\obj_itemdrop</object>
@@ -841,10 +841,10 @@
   <rooms name="rooms">
     <room>rooms\directorInit</room>
     <room>rooms\init</room>
+    <room>rooms\level1a</room>
     <room>rooms\intro</room>
     <room>rooms\level0</room>
     <rooms name="Stage1">
-      <room>rooms\level1a</room>
       <room>rooms\level1b</room>
     </rooms>
     <room>rooms\level_tiled</room>

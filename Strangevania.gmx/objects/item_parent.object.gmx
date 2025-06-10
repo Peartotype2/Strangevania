@@ -102,9 +102,9 @@ if itemDefaultGravity
 if itemDefaultVerticalCollision
 {
     //Vertical Collision
-    if place_meeting( x, y+vsp, obj_wall)
+    if place_meeting( x, y+vsp, obj_solid)
     {
-        while !place_meeting(x, y+sign(vsp), obj_wall)
+        while !place_meeting(x, y+sign(vsp), obj_solid)
         {
             y = y + sign(vsp)
         }
@@ -113,7 +113,7 @@ if itemDefaultVerticalCollision
     y = y + vsp;
 }
 
-if !landed and place_meeting( x, y+1, obj_wall)
+if !landed and place_meeting( x, y+1, obj_solid)
 {
     alarm[11] = decayTime*room_speed;
     landed = true;
@@ -150,10 +150,7 @@ if alarm[11] &lt; 1.5*room_speed and landed
 //Draw hitbox if enabled
 if global.showhitbox
 {
-    draw_set_colour(c_red);
-    draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,1)
-    draw_rectangle(bbox_left-1,bbox_top-1,bbox_right+1,bbox_bottom+1,1)
-    draw_set_colour(c_white);
+    draw_hitbox();
 }
 
 if decay
