@@ -258,7 +258,7 @@ if outsideViewMax != -1 and outsideViewSteps &gt; outsideViewMax {instance_destr
 if !disabled and moveOnPlatform
 {
     //Moving platform logic
-    var _movingPlatform = instance_place(x, y + max(1, vsp), obj_aisolid);
+    var _movingPlatform = instance_place(x, y + max(1, vsp), obj_platformsolid);
     if _movingPlatform
     {
         _movingPlatform = _movingPlatform.target;

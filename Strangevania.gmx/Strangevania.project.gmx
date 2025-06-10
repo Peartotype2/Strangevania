@@ -267,6 +267,7 @@
       <sprite>sprites\spr_black</sprite>
       <sprite>sprites\spr_black_pixel</sprite>
       <sprite>sprites\spr_white_pixel</sprite>
+      <sprite>sprites\spr_aiblock</sprite>
       <sprite>sprites\spr_director</sprite>
       <sprite>sprites\spr_discordmanager</sprite>
       <sprite>sprites\spr_console</sprite>
@@ -735,6 +736,7 @@
       </objects>
       <object>objects\obj_wall</object>
       <object>objects\obj_floor</object>
+      <object>objects\obj_aiblock</object>
       <object>objects\obj_candle</object>
       <object>objects\obj_candle_big</object>
       <object>objects\obj_breakable</object>
@@ -745,7 +747,7 @@
       <object>objects\obj_killbox</object>
       <object>objects\obj_door</object>
       <object>objects\obj_solid</object>
-      <object>objects\obj_aisolid</object>
+      <object>objects\obj_platformsolid</object>
       <object>objects\obj_stairboxend</object>
       <object>objects\obj_stairparent</object>
       <object>objects\obj_itemdrop</object>
@@ -841,10 +843,10 @@
   <rooms name="rooms">
     <room>rooms\directorInit</room>
     <room>rooms\init</room>
-    <room>rooms\level1a</room>
     <room>rooms\intro</room>
     <room>rooms\level0</room>
     <rooms name="Stage1">
+      <room>rooms\level1a</room>
       <room>rooms\level1b</room>
     </rooms>
     <room>rooms\level_tiled</room>

@@ -169,7 +169,7 @@ wander = (distance_to_point(obj_player.x, y) &gt; pdistmin)
 
 if canmove and !deadMode
 {
-    if place_meeting( x, y+1, obj_solid)
+    if place_meeting( x, y+1, obj_aiblock)
     {
         if moveonce
         {
@@ -191,7 +191,7 @@ if canmove and !deadMode
 }
 else if !deadMode
 {
-    if place_meeting( x, y+1, obj_solid)
+    if place_meeting( x, y+1, obj_aiblock)
     {
         hsp = 0;
     }
@@ -230,9 +230,9 @@ if deadMode
 }
 
 //Vertical Collision
-if place_meeting( x, y+vsp, obj_solid)
+if place_meeting( x, y+vsp, obj_aiblock)
 {
-    while !place_meeting(x, y+sign(vsp), obj_solid)
+    while !place_meeting(x, y+sign(vsp), obj_aiblock)
     {
         y = y + sign(vsp)
     }
@@ -240,7 +240,7 @@ if place_meeting( x, y+vsp, obj_solid)
 }
 y = y + vsp;
 
-if !position_meeting( x+(sign(hsp)*3), bbox_bottom+1, obj_solid) and vsp == 0
+if !position_meeting( x+(sign(hsp)*3), bbox_bottom+1, obj_aiblock) and vsp == 0
 {
     movedir *= -1;
     facing = movedir;
@@ -248,9 +248,9 @@ if !position_meeting( x+(sign(hsp)*3), bbox_bottom+1, obj_solid) and vsp == 0
 }
 
 //Horizontal Collision
-if place_meeting( x+hsp, y, obj_solid)
+if place_meeting( x+hsp, y, obj_aiblock)
 {
-    while !place_meeting(x+sign(hsp), y, obj_solid)
+    while !place_meeting(x+sign(hsp), y, obj_aiblock)
     {
         x = x + sign(hsp)
     }

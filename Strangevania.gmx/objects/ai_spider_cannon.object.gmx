@@ -324,9 +324,9 @@ if gravityEnabled
     if vsp &gt;= 12 vsp = 12;
 
     //Vertical Collision
-    if place_meeting( x, y+vsp, obj_solid)
+    if place_meeting( x, y+vsp, obj_aiblock)
     {
-        while !place_meeting(x, y+sign(vsp), obj_solid)
+        while !place_meeting(x, y+sign(vsp), obj_aiblock)
         {
             y = y + sign(vsp)
         }
@@ -338,9 +338,9 @@ if gravityEnabled
 if canMove
 {
     //Horizontal Collision
-    if place_meeting( x+hsp, y, obj_solid)
+    if place_meeting( x+hsp, y, obj_aiblock)
     {
-        while !place_meeting(x+sign(hsp), y, obj_solid)
+        while !place_meeting(x+sign(hsp), y, obj_aiblock)
         {
             x = x + sign(hsp)
         }

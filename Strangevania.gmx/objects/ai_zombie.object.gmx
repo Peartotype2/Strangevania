@@ -67,9 +67,9 @@ if vsp &gt;= 12 vsp = 12;
 hsp = facing*movespeed;
 
 //Vertical Collision
-if place_meeting( x, y+vsp, obj_solid)
+if place_meeting( x, y+vsp, obj_aiblock)
 {
-    while !place_meeting(x, y+sign(vsp), obj_solid)
+    while !place_meeting(x, y+sign(vsp), obj_aiblock)
     {
         y = y + sign(vsp)
     }
@@ -78,9 +78,9 @@ if place_meeting( x, y+vsp, obj_solid)
 y = y + vsp;
 
 //Horizontal Collision
-if place_meeting( x+hsp, y, obj_solid)
+if place_meeting( x+hsp, y, obj_aiblock)
 {
-    while !place_meeting(x+sign(hsp), y, obj_solid)
+    while !place_meeting(x+sign(hsp), y, obj_aiblock)
     {
         x = x + sign(hsp)
     }
@@ -137,8 +137,8 @@ if !InsideView(x, y)
     var dx = lengthdir_x(move_dis,dir);
     //var dy = lengthdir_y(move_dis,dir);
     
-    if (!place_meeting(x+dx,y,obj_solid)) x += dx;
-    //if (!place_meeting(x,y+dy,obj_solid)) y += dy;
+    if (!place_meeting(x+dx,y,obj_aiblock)) x += dx;
+    //if (!place_meeting(x,y+dy,obj_aiblock)) y += dy;
 }
 </string>
           </argument>

@@ -3,8 +3,8 @@
   <caption></caption>
   <width>2384</width>
   <height>736</height>
-  <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <vsnap>8</vsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -210,11 +210,7 @@
     <instance objName="obj_floor" x="1552" y="688" name="inst_100157" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_floor" x="1472" y="688" name="inst_100158" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_floor" x="1408" y="688" name="inst_100159" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="2176" y="224" name="inst_100160" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="2272" y="272" name="inst_100161" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="ai_zombie" x="1104" y="432" name="inst_100162" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1461" y="672" name="inst_100163" locked="0" code="" scaleX="8" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1520" y="671" name="inst_100164" locked="0" code="" scaleX="8" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger" x="1248" y="464" name="inst_100165" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableZombieSpawner&quot;;&#xA;rightExitEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="3" colour="4278255360" rotation="0"/>
     <instance objName="obj_trigger" x="960" y="400" name="inst_100166" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent = &quot;EnableZombieSpawner&quot;;&#xA;rightExitEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="2.13333010673523" colour="4278255360" rotation="0"/>
     <instance objName="obj_floor" x="1888" y="128" name="inst_100167" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
@@ -258,8 +254,6 @@
     <instance objName="obj_candle_big" x="2336" y="64" name="inst_100205" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_axeman" x="1568" y="144" name="inst_100206" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_axeman" x="1424" y="80" name="inst_100207" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1392" y="80" name="inst_100208" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1472" y="80" name="inst_100209" locked="0" code="" scaleX="16" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_stairbox" x="1744" y="144" name="inst_100210" locked="0" code="stairDirV = STAIR_UP;&#xA;stairDirH = STAIR_LEFT;&#xA;stairLength = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2152" y="-8" name="inst_100211" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2232" y="-8" name="inst_100212" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -271,9 +265,14 @@
     <instance objName="obj_trigger" x="2176" y="80" name="inst_100218" locked="0" code="triggerAction = trig.OnlyOnce;&#xA;&#xA;trig_action(event_fire, &quot;EnableBatSpawner&quot;);" scaleX="2" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_soundmaker" x="2352" y="16" name="inst_100219" locked="0" code="playEvent = &quot;SecretCandlesBroken&quot;;&#xA;sound = snd_upgrade2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_skeleton" x="1864" y="64" name="inst_100220" locked="0" code="//throwdelaymin = 1.70;&#xA;//throwdelaymax = 2.10;&#xA;throwdelaymult = 2.2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1832" y="48" name="inst_100221" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="1896" y="48" name="inst_100222" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_camblock_left" x="1184" y="16" name="inst_100223" locked="0" code="" scaleX="1" scaleY="8.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1464" y="672" name="inst_7CEBB64C" locked="0" code="" scaleX="2" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1520" y="672" name="inst_0440D7B2" locked="0" code="" scaleX="2" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="2288" y="272" name="inst_6345BA4E" locked="0" code="" scaleX="-4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="2176" y="224" name="inst_D3CDF311" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1896" y="48" name="inst_B49813E6" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1472" y="80" name="inst_DAC1B38C" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1408" y="80" name="inst_A40343C2" locked="0" code="" scaleX="-4" scaleY="16" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bgr_tileset2" x="0" y="0" w="16" h="16" xo="96" yo="192" id="100224" name="inst_100224" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

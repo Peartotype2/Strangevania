@@ -211,7 +211,7 @@ facing = pdir;
 
 if canmove and throwing == 0
 {
-    if place_meeting( x, y+1, obj_solid)
+    if place_meeting( x, y+1, obj_aiblock)
     {
         if moveonce
         {
@@ -232,7 +232,7 @@ if canmove and throwing == 0
 }
 else
 {
-    if place_meeting( x, y+1, obj_solid)
+    if place_meeting( x, y+1, obj_aiblock)
     {
         hsp = 0;
     }
@@ -248,22 +248,22 @@ if throwing &gt; 0
 }
 
 /*var _jumpDir = iif(sign(hsp), bbox_right, bbox_left)
-if canjump and !position_meeting( _jumpDir+hsp, bbox_bottom+1, obj_solid)
+if canjump and !position_meeting( _jumpDir+hsp, bbox_bottom+1, obj_aiblock)
 {
     vsp = jumpspeed;
     canjump = false;
 }*/
 
-if canjump and !place_meeting( x+hsp, y+1, obj_solid)
+if canjump and !place_meeting( x+hsp, y+1, obj_aiblock)
 {
     vsp = jumpspeed;
     canjump = false;
 }
 
 //Vertical Collision
-if place_meeting( x, y+vsp, obj_solid)
+if place_meeting( x, y+vsp, obj_aiblock)
 {
-    while !place_meeting(x, y+sign(vsp), obj_solid)
+    while !place_meeting(x, y+sign(vsp), obj_aiblock)
     {
         y = y + sign(vsp)
         canjump = true;
@@ -273,9 +273,9 @@ if place_meeting( x, y+vsp, obj_solid)
 y = y + vsp;
 
 //Horizontal Collision
-if place_meeting( x+hsp, y, obj_solid)
+if place_meeting( x+hsp, y, obj_aiblock)
 {
-    while !place_meeting(x+sign(hsp), y, obj_solid)
+    while !place_meeting(x+sign(hsp), y, obj_aiblock)
     {
         x = x + sign(hsp)
     }

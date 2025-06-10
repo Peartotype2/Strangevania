@@ -172,9 +172,9 @@ if gravityEnabled
     if vsp &gt;= 12 vsp = 12;
 
     //Vertical Collision
-    if place_meeting( x, y+vsp, obj_solid)
+    if place_meeting( x, y+vsp, obj_aiblock)
     {
-        while !place_meeting(x, y+sign(vsp), obj_solid)
+        while !place_meeting(x, y+sign(vsp), obj_aiblock)
         {
             y = y + sign(vsp)
         }

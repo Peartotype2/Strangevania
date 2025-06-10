@@ -135,12 +135,12 @@ if spawnAtEdges
     if spawnSide == right {spawnX = viewx+vieww+sideDistance;}
     spawnY = player.y-1;
     
-    if (place_meeting(spawnX, spawnY, obj_solid) and !canSpawnInSolid)
+    if (place_meeting(spawnX, spawnY, obj_aiblock) and !canSpawnInSolid)
     or (!InsideRoom(spawnX, spawnY) and !canSpawnOutside)
     then {spawnSide *= -1;} //If selected side is blocked, attempt other side.
     
     
-    if (!place_meeting(spawnX, spawnY, obj_solid) or canSpawnInSolid)
+    if (!place_meeting(spawnX, spawnY, obj_aiblock) or canSpawnInSolid)
     and (InsideRoom(spawnX, spawnY) or canSpawnOutside)
     {
         //print("Spawned AI!")
