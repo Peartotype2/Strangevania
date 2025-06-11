@@ -253,7 +253,7 @@
     <instance objName="obj_candle_big" x="2312" y="64" name="inst_100204" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candle_big" x="2336" y="64" name="inst_100205" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_axeman" x="1568" y="144" name="inst_100206" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ai_axeman" x="1424" y="80" name="inst_100207" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ai_axeman" x="1440" y="80" name="inst_100207" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stairbox" x="1744" y="144" name="inst_100210" locked="0" code="stairDirV = STAIR_UP;&#xA;stairDirH = STAIR_LEFT;&#xA;stairLength = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2152" y="-8" name="inst_100211" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_breakable" x="2232" y="-8" name="inst_100212" locked="0" code="causeBreakEvent = &quot;SecretCandlesBlocks&quot;;&#xA;drop = item_money_huge;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -271,8 +271,9 @@
     <instance objName="obj_aiblock" x="2288" y="272" name="inst_6345BA4E" locked="0" code="" scaleX="-4" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_aiblock" x="2176" y="224" name="inst_D3CDF311" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
     <instance objName="obj_aiblock" x="1896" y="48" name="inst_B49813E6" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_aiblock" x="1472" y="80" name="inst_DAC1B38C" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
-    <instance objName="obj_aiblock" x="1408" y="80" name="inst_A40343C2" locked="0" code="" scaleX="-4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1488" y="80" name="inst_DAC1B38C" locked="0" code="" scaleX="4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_aiblock" x="1392" y="80" name="inst_A40343C2" locked="0" code="" scaleX="-4" scaleY="16" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger" x="1344" y="48" name="inst_20404A49" locked="0" code="triggerAction = trig.OnExitDirection;&#xA;&#xA;leftExitEvent   = &quot;DisableBatSpawner&quot;;&#xA;rightExitEvent  = &quot;EnableBatSpawner&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bgr_tileset2" x="0" y="0" w="16" h="16" xo="96" yo="192" id="100224" name="inst_100224" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

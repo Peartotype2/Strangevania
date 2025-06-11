@@ -158,6 +158,28 @@
       <sprite>sprites\spr_whip3</sprite>
       <sprite>sprites\whip3_BUP</sprite>
     </sprites>
+    <sprites name="skins">
+      <sprites name="whipSkins">
+        <sprite>sprites\dev_whip_points</sprite>
+        <sprites name="Spine">
+          <sprite>sprites\spr_whip1_spine</sprite>
+          <sprite>sprites\spr_whip2_spine</sprite>
+          <sprite>sprites\spr_whip3_spine</sprite>
+        </sprites>
+        <sprites name="Gold">
+          <sprite>sprites\spr_whip1_gold</sprite>
+          <sprite>sprites\spr_whip2_gold</sprite>
+          <sprite>sprites\spr_whip3_gold</sprite>
+        </sprites>
+        <sprites name="Spear">
+          <sprite>sprites\spr_whip1_spear</sprite>
+          <sprite>sprites\spr_whip2_spear</sprite>
+          <sprite>sprites\spr_whip3_spear</sprite>
+        </sprites>
+      </sprites>
+      <sprite>sprites\pal_player</sprite>
+      <sprite>sprites\pal_player_gray</sprite>
+    </sprites>
     <sprites name="Portraits">
       <sprite>sprites\portrait_bright</sprite>
       <sprite>sprites\portrait_empty</sprite>
@@ -190,28 +212,6 @@
       <sprite>sprites\spr_money_med</sprite>
       <sprite>sprites\spr_money_big</sprite>
       <sprite>sprites\spr_money_huge</sprite>
-    </sprites>
-    <sprites name="skins">
-      <sprites name="whipSkins">
-        <sprite>sprites\dev_whip_points</sprite>
-        <sprites name="Spine">
-          <sprite>sprites\spr_whip1_spine</sprite>
-          <sprite>sprites\spr_whip2_spine</sprite>
-          <sprite>sprites\spr_whip3_spine</sprite>
-        </sprites>
-        <sprites name="Gold">
-          <sprite>sprites\spr_whip1_gold</sprite>
-          <sprite>sprites\spr_whip2_gold</sprite>
-          <sprite>sprites\spr_whip3_gold</sprite>
-        </sprites>
-        <sprites name="Spear">
-          <sprite>sprites\spr_whip1_spear</sprite>
-          <sprite>sprites\spr_whip2_spear</sprite>
-          <sprite>sprites\spr_whip3_spear</sprite>
-        </sprites>
-      </sprites>
-      <sprite>sprites\pal_player</sprite>
-      <sprite>sprites\pal_player_gray</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="parts">
