@@ -44,7 +44,7 @@ loadbarlerp = 0;
 loadbarmax = 4;
 loadbar_sound_delay = 0;
 
-loadbardelay = 1*room_speed;
+loadbardelay = 1.5*room_speed;
 game_logo_scale = 1;
 game_logo_anim = false;
 game_logo_inc = -0.025;
@@ -475,15 +475,18 @@ if global.stopwatch_paused
           <argument>
             <kind>1</kind>
             <string>//if audio_group_is_loaded(ag_music)
-if audio_group_is_loaded(ag_music_mainmenu)
+/*if audio_group_is_loaded(ag_music_mainmenu)
 {
     music_loaded = true;
-}
+} // DEV DEBUG DELETE LATER */
 
-if audio_group_is_loaded(ag_sfx) and audio_group_is_loaded(ag_voices)
+music_loaded = (audio_group_is_loaded(ag_music_mainmenu));
+sfx_loaded = (audio_group_is_loaded(ag_sfx) and audio_group_is_loaded(ag_voices));
+
+/*if audio_group_is_loaded(ag_sfx) and audio_group_is_loaded(ag_voices)
 {
     sfx_loaded = true;
-}
+} // DEV DEBUG DELETE LATER */
 </string>
           </argument>
         </arguments>
@@ -746,7 +749,7 @@ if key_screenshot
     
     if loadbarval == 100 and !game_logo_anim
     {
-        audio_play_sound(snd_loaded, 1, 0);
+        audio_play_sound(snd_strangevania, 1, 0);
         game_logo_anim = true;
     }
     
