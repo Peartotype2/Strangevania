@@ -9,9 +9,10 @@ if console.helpMessage
 
 console._oldks = keyboard_string;
 console.open = false;
-
 roomFadeTo(init)
 music_stop_all();
+print("Game reload command executed.");
+
 return "Reloading game...";
 
 
