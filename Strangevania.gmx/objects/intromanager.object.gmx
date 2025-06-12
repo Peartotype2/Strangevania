@@ -68,23 +68,69 @@ flavorText_pulse_val    = 0;
 flavorText_pulse_amp    = 0.05;
 
 //HOLIDAY TITLE CHANGES HERE!!!!!!!!!!!!!!!!!!!!
+//HOLIDAY TITLE CHANGES HERE!!!!!!!!!!!!!!!!!!!!
 
-if GAME_HOLIDAY == "outlawday" 
-{
+if GAME_HOLIDAY == "outlawday" {
     titlesprite = logo_title_purple;
     flavorText_str = "Happy Outlaw Day!";
 }
-if GAME_HOLIDAY == "charliebday" 
-{
+
+if GAME_HOLIDAY == "christmas" {
+    titlesprite = logo_title_christmas;
+    flavorText_str = "Merry Christmas!";
+    flavorText_col1     = c_lime;
+    flavorText_col2     = c_green;
+    flavorText_scale    = 0.75;
+}
+
+//BIRTHDAYS//BIRTHDAYS//BIRTHDAYS//BIRTHDAYS
+if GAME_HOLIDAY == "charliebday" {
     titlesprite = logo_title_rainbow;
     flavorText_str = "Happy Birthday Charlie!";
 }
-if GAME_HOLIDAY == "pearbday"
-{
+
+if GAME_HOLIDAY == "gummybday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Gummy!";
+}
+
+if GAME_HOLIDAY == "austinbday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Austin!";
+}
+
+if GAME_HOLIDAY == "elenabday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Elena!";
+}
+
+if GAME_HOLIDAY == "keypilotbday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Keypilot!";
+}
+
+if GAME_HOLIDAY == "cookiebday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Cookie!";
+}
+
+if GAME_HOLIDAY == "davidbday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday David!";
+}
+
+if GAME_HOLIDAY == "kylebday" {
+    titlesprite = logo_title_rainbow;
+    flavorText_str = "Happy Birthday Kyle!";
+}
+
+if GAME_HOLIDAY == "pearbday"{
     titlesprite = logo_title_rainbow;
     flavorText_str = "Happy Birthday To Me!#:soyoucumnow:";
 }
+//BIRTHDAYS//BIRTHDAYS//BIRTHDAYS//BIRTHDAYS
 
+//HOLIDAY TITLE CHANGES HERE!!!!!!!!!!!!!!!!!!!!
 //HOLIDAY TITLE CHANGES HERE!!!!!!!!!!!!!!!!!!!!
 
 level_current = -1;
