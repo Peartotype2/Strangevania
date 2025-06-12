@@ -76,6 +76,7 @@ if place_meeting(x, y, player)
     if gamemanager.checkpoint != image_blend
     {
         gamemanager.checkpoint = image_blend;
+        gamemanager.stageNumber++;
         print("Checkpoint set to: " + string(image_blend));
     }
 }
