@@ -60,9 +60,9 @@ newwhip_list = ds_list_create();
 showHiddenStats = false;
 
 mastervolume = 1.00;
-musicvolume = 1.00;//0.40;
+musicvolume = 1.00;//0.50 //Volume defaults set in scr_loadconfig
 musicmult = 1;
-sfxvolume = 1.00;//0.50;
+sfxvolume = 1.00;//0.50
 
 catch_error_init();
 catch_error_set_normal(catch_error_normal_queue);

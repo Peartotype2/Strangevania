@@ -4,7 +4,7 @@
 //{
     ini_open("config.ini");
         director.mastervolume = ini_read_real("Main", "mastervolume", 1.00)
-        director.musicvolume = ini_read_real("Main", "musicvolume", 0.40)
+        director.musicvolume = ini_read_real("Main", "musicvolume", 0.50)
         director.sfxvolume = ini_read_real("Main", "sfxvolume", 0.50)
         director.fullscreen = ini_read_real("Main", "fullscreen", false)
         director.res_id = ini_read_real("Main", "resolution_id", -1)
