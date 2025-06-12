@@ -36,6 +36,15 @@ h_off = 8;
 pos = 0;
 _selected = false;
 
+totalModifiers  = 5;
+activeModifiers = 0;
+
+if settings.noeasyweapon    then activeModifiers++;
+if settings.onehit          then activeModifiers++;
+if settings.permadeath      then activeModifiers++;
+if settings.nowhips         then activeModifiers++;
+if settings.noweapons       then activeModifiers++;
+
 </string>
           </argument>
         </arguments>
@@ -192,8 +201,16 @@ draw_sprite_ext(bp_back_lt, inputmanager.control_type, vieww-12, viewh-12,
     
 //Modifiers Text
 draw_set_halign(fa_left);
-draw_text_transformed_colour(20, viewh-12, "Modifiers", 0.75, 0.75, 0,
+
+var _modifierText = "Modifiers";
+var _modifierTextScale = 0.75;
+draw_text_transformed_colour(20, viewh-12, _modifierText, _modifierTextScale, _modifierTextScale, 0,
     c_white, c_white, c_ltgray, c_ltgray, menu_alpha);
+    
+var _modifierCountText = "("+string(activeModifiers)+"/"+string(totalModifiers)+")";
+draw_text_transformed_colour(20+(string_width(_modifierText)*_modifierTextScale)+1, viewh-11.5, _modifierCountText,
+    0.6, 0.6, 0, c_gray, c_gray, c_gray, c_gray, menu_alpha);
+    
 draw_sprite_ext(bp_weapon, inputmanager.control_type, 10, viewh-12,
     bp_scale, bp_scale, 0, c_white, menu_alpha);
 
