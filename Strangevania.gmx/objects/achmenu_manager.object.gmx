@@ -513,8 +513,15 @@ var _darkyoff = ( string_count("#", str)*(_oneline*_scalemod) )
 var _progressyoff = 0;
 if info_progress != "" {_progressyoff = 7;}
 
-draw_sprite_ext(spr_black_pixel, 0, info_descx-3, info_descy-3+_darkyoff+_progressyoff,
-    infow-5, infoh-54-_darkyoff, 0, c_white, 0.25*menu_alpha);
+
+//draw_sprite_ext(spr_black_pixel, 0, info_descx-3, info_descy-3+_darkyoff+_progressyoff,
+//    infow-5, min(infoh-54-_darkyoff, infoy+infoh), 0, c_white, 0.25*menu_alpha);
+var _darkRectX = info_descx-3;
+var _darkRectY = info_descy-3+_darkyoff+_progressyoff;
+draw_set_alpha(0.25*menu_alpha);
+draw_rect_col(_darkRectX, _darkRectY, _darkRectX+(infow-7), infoy+infoh-4, c_black, false); 
+draw_set_alpha(1);
+
 draw_sprite_ext(spr_black_pixel, 0, infox+2, info_descy-3+_darkyoff+_progressyoff,
     infow-4, 1, 0, c_white, menu_alpha);
 
