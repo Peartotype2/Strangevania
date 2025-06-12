@@ -78,7 +78,8 @@ hearts = heartsDefault;
 //lives = 3;
 stageNumber = 1;
 stageTimeDefault = 400;
-stageTime = stageTimeDefault//3.5*60;//210;
+stageTime = 2//stageTimeDefault;
+//^ this may be necessary for stageTime functionality
 stageTimePaused = false;
 stageAlarm = false;
 
@@ -556,23 +557,24 @@ if instance_exists(player)
     
     if hearts &lt; heartsDefault {hearts = heartsDefault;}
     
-    //stageTime = stageTimeDefault;
     if oldPlayerWhip != -1
     {
         player.whip = oldPlayerWhip
         oldPlayerWhip = -1;
     }
     
-    stageTime = 5;
+    //stageTime = 5;
     if !instance_exists(room_info)
     {
-        stageTime = max(stageTimeDefault, stageTime);
+        //stageTime = max(stageTimeDefault, stageTime);
+        game_set_time(max(stageTimeDefault, stageTime));
     }
     else if !playerDied //If player DID NOT die and ROOM_INFO does exist
     {
         var _setTime = room_info.room_time;
         if _setTime == -1 {_setTime = stageTimeDefault;}
-        stageTime = max(_setTime, stageTime);
+        //stageTime = max(_setTime, stageTime);
+        game_set_time(max(_setTime, stageTime));
     }
 }
 
@@ -589,7 +591,7 @@ if playerDied
     if checkpoint != -1
     {
         var _obj = -1;
-        var _time = -1;
+        var _checkpointTime = -1;
         var _camX = -999;
         var _camY = -999;
         with obj_checkpoint
@@ -597,7 +599,7 @@ if playerDied
             if image_blend == gamemanager.checkpoint
             {
                 _obj = spawnObj;
-                _time = newTime;
+                _checkpointTime = newTime;
                 if camPosObj
                 {
                     _camX = camPosObj.x;
@@ -606,7 +608,7 @@ if playerDied
             }
         }
         
-        if _time != -1 {stageTime = _time;}
+        if _checkpointTime != -1 {game_set_time(_checkpointTime);}
         
         if instance_exists(_obj)
         {
@@ -631,14 +633,15 @@ if playerDied
     {
         if !instance_exists(room_info)
         {
-            stageTime = max(stageTimeDefault, stageTime);
+            game_set_time(max(stageTimeDefault, stageTime));
         }
         else
         {
             //if room_info.room_time == -1
             //{
                 //stageTime = max(stageTimeDefault, stageTime);
-                stageTime = max(room_info.room_time, stageTime);
+                //stageTime = max(room_info.room_time, stageTime);
+                game_set_time(room_info.room_time);
             //}
         }
     }
@@ -692,7 +695,8 @@ if realhud
     
     //stage text
     draw_text(hud_stagetext_x + viewx, hud_stagetext_y + viewy, hud_stagetext);
-    draw_text(hud_stagetext_x + viewx + hud_stagetext_sep, hud_stagetext_y + viewy, hud_stagetext_num);
+    var _stageZero = iif(hud_stagetext_num&lt;10, "0", "");
+    draw_text(hud_stagetext_x + viewx + hud_stagetext_sep, hud_stagetext_y + viewy, _stageZero+string(hud_stagetext_num));
      
     //enemy text
     draw_text(hud_enemytext_x + viewx, hud_enemytext_y + viewy, hud_enemytext);
