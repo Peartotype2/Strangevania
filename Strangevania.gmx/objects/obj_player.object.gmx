@@ -112,7 +112,6 @@ _whipyoff       = 0;
 whipbox         = spr_whipbox1;
 whip            = 1;
 whipsprite      = spr_whip1;
-//whipsound       = get_whip_sound();//snd_whip;
 whiptipx        = 0;
 </string>
           </argument>
@@ -269,9 +268,19 @@ if attack
 {
     whipbox = spr_whipbox1;
     if whip = 3 { whipbox = spr_whipbox3; }
-    var _whipsound = get_whip_sound()
-    //audio_play_sound(_whipsound, 0, 0);
-    play_sound_pitched(_whipsound);
+    
+    var _whipsoundData = get_whip_sound_info()
+    var _whipsound = _whipsoundData[0];
+    var _whipsoundPitchMin = _whipsoundData[1];
+    var _whipsoundPitchMax = _whipsoundData[2];
+    
+    if is_real(_whipsoundPitchMax)
+    {play_sound_pitched(_whipsound, _whipsoundPitchMin, _whipsoundPitchMax);}
+    else 
+    {play_sound_pitched(_whipsound);}
+    
+    
+    
     with instance_create(x, y, obj_whipbox)
     {
         sprite_index = other.whipbox;

@@ -9,7 +9,9 @@ var _loop        = false;   if(argument_count > 4) {_loop = argument[4]};
 
 var _finalPitch = 1;
 if (argument_count == 2) {_finalPitch = _pmin;}
-else if (argument_count >= 3) {_finalPitch = random_range(_pmin, _pmax);}
+else {_finalPitch = random_range(_pmin, _pmax);}
+
+//else if (argument_count >= 3) {_finalPitch = random_range(_pmin, _pmax);}
 
 var _snd = audio_play_sound(_soundFile, _priority, _loop);
 audio_sound_pitch(_snd, _finalPitch)

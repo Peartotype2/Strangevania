@@ -399,7 +399,7 @@
       <script>scripts\UpdatePlayerStairMovement.gml</script>
       <script>scripts\get_whip_sprite.gml</script>
       <script>scripts\get_whip_anim.gml</script>
-      <script>scripts\get_whip_sound.gml</script>
+      <script>scripts\get_whip_sound_info.gml</script>
       <script>scripts\draw_whip_effect.gml</script>
       <script>scripts\PlayerAttackAnim.gml</script>
       <script>scripts\draw_player_parts.gml</script>
