@@ -75,6 +75,7 @@ if place_meeting( x, y+vsp, obj_aiblock)
     }
     vsp = 0;
 }
+else {hsp = 0;} //Stop moving when falling
 y = y + vsp;
 
 //Horizontal Collision
