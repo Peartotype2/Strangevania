@@ -2,7 +2,7 @@
 //Adds the extra unique version text depending on the build
 with director
 {
-    var _alphabet = "a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad|ae|ERROR";
+    var _alphabet = "A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|AA|AB|AC|AD|AE|ERROR";
     var _alphabetArray = string_split(_alphabet, "|");
     var _alphabetLen = array_length_1d(_alphabetArray);
     
