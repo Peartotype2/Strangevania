@@ -62,6 +62,8 @@ throwdelaymin = 0.95;//0.55;
 throwdelaymax = 1.20//0.75;
 throwdelay = random_range(throwdelaymin, throwdelaymax)*room_speed;
 alarm[2] = throwdelay;
+
+extraThrowCooldown = 0;
 </string>
           </argument>
         </arguments>
@@ -129,11 +131,10 @@ if hsp == 0
 moveonce = true;
 alarm[0] = movedelay;
 
-var _rand = choose(1,2,3);
-if _rand == 3
+if chance(0.20) and extraThrowCooldown == 0
 {
-    throwdelay = random_range(throwdelaymin, throwdelaymax)*room_speed;
-    alarm[2] = throwdelay;
+    //throwdelay = random_range(throwdelaymin, throwdelaymax)*room_speed;
+    //alarm[2] = throwdelay;
 
     //throwing = 10;
     var _x, _y;
@@ -145,6 +146,7 @@ if _rand == 3
         parent = other;
         damage = other.throwdamage;
     }
+    extraThrowCooldown = 1.5*room_speed;
 }
 </string>
           </argument>
@@ -201,6 +203,8 @@ if firstStep
     throwdelaymax *= throwdelaymult;
     firstStep = false;
 }
+
+if extraThrowCooldown &gt; 0 {extraThrowCooldown--};
 
 vsp = vsp + grv;
 if vsp &gt;= 7 vsp = 7;
