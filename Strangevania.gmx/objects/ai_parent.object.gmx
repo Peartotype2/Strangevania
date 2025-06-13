@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 1;
+            <string>initParentStep = true;
+
+hp = 1;
+maxhp = "ERROR";
 damage = 4;
 flash = 0;
 hurt = 0;
@@ -36,6 +39,11 @@ dropchance = 25;
 canGetStaggered = true;
 staggered = false;
 hitSound = snd_hit;
+deathSound = choose(snd_kill, snd_kill2, snd_kill3);
+deathSoundPitchMin = 0.90;
+deathSoundPitchMax = 1.10;
+deathSoundPitchAuto = true;
+//Pitch min/max get overwritten in first step if deathSoundPitchAuto
 disableDistance = 175;
 deathEvent = "NONE";
 notCounted = false; //Disables counting towards achievement progress
@@ -188,7 +196,14 @@ beenInsideView = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>disabled = (distance_to_point(obj_camera.x, y) &gt; disableDistance
+            <string>if initParentStep
+{
+    maxhp = hp;
+    if deathSoundPitchAuto {ai_deathSoundPitchAuto()}
+    initParentStep = false;
+}
+
+disabled = (distance_to_point(obj_camera.x, y) &gt; disableDistance
             and disableDistance &gt; 0
             and !ObjectInsideView(id, 16))
 
@@ -220,7 +235,10 @@ if hp &lt;= 0
 
     if notCounted == false {event_fire("PlayerKilledAI", id)};
     if deathEvent != "NONE" {event_fire(deathEvent, id);}
-    if (playDeathSound) audio_play_sound(snd_kill, 0, 0);
+    
+    if (playDeathSound)
+    {play_sound_pitched(deathSound, deathSoundPitchMin, deathSoundPitchMax, 0, 0);}
+    
     instance_create(x, y, obj_sparkle);
     game_add_points(pointReward);
     
@@ -315,8 +333,7 @@ if !disabled and moveOnPlatform
     
     attacker = other.object_index;
     
-    //audio_play_sound(hitSound, 0, 0);
-    play_sound_pitched(hitSound, 0.9, 1.1);
+    ai_playHitSound(other.damage);
     if other.destroyonhit {with other {instance_destroy();}}
     
     hp -= other.damage;
@@ -354,7 +371,8 @@ if !disabled and moveOnPlatform
             <string>if hurt == 0 and !gamemanager.paused
 {
     ColHitEffect(0, -3, 3);
-    audio_play_sound(hitSound, 0, 0);
+    //play_sound_pitched(hitSound, 0.85, 1.15);
+    ai_playHitSound();
     
     hp -= obj_player.whip;
     flash = 3;

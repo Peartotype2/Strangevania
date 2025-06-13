@@ -120,7 +120,11 @@ image_xscale = facing*-1;
 //Seems to work but its ugly
 //DEBUG
 
-if !InsideView(x, y)
+// 6/13/25 commented out because would sometimes cause zombies going in opposite
+//  directions just off screen to block each other and prevent new zombies from 
+//  walking onto screen.
+
+/*if !InsideView(x, y)
 {
     var dir;
     var move_dis = 1;  // change this value to your liking
@@ -140,7 +144,7 @@ if !InsideView(x, y)
     
     if (!place_meeting(x+dx,y,obj_aiblock)) x += dx;
     //if (!place_meeting(x,y+dy,obj_aiblock)) y += dy;
-}
+}*/
 </string>
           </argument>
         </arguments>

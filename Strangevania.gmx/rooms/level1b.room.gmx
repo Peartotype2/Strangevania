@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_player" x="24" y="496" name="inst_100001" locked="0" code="visible = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="room_info" x="32" y="368" name="inst_100002" locked="0" code="room_music = song_doomsgate_short;&#xA;room_time = 300;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="room_info" x="32" y="368" name="inst_100002" locked="0" code="room_music = song_doomsgate_short;&#xA;room_time = 300;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="gamemanager" x="16" y="368" name="inst_100003" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ai_spawner" x="112" y="368" name="inst_100004" locked="0" code="onEvent = &quot;EnableZombieSpawner&quot;;&#xA;offEvent = &quot;DisableZombieSpawner&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="16" y="512" name="inst_100005" locked="0" code="" scaleX="94" scaleY="1" colour="4294967295" rotation="0"/>

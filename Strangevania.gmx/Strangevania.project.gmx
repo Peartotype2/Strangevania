@@ -32,6 +32,8 @@
       <sound>sound\snd_success</sound>
       <sound>sound\snd_watch_tick</sound>
       <sound>sound\snd_kill</sound>
+      <sound>sound\snd_kill2</sound>
+      <sound>sound\snd_kill3</sound>
       <sound>sound\snd_break</sound>
       <sound>sound\snd_spider_scream</sound>
       <sound>sound\snd_spider_charge</sound>
@@ -405,6 +407,10 @@
       <script>scripts\PlayerAttackAnim.gml</script>
       <script>scripts\draw_player_parts.gml</script>
     </scripts>
+    <scripts name="AI">
+      <script>scripts\ai_deathSoundPitchAuto.gml</script>
+      <script>scripts\ai_playHitSound.gml</script>
+    </scripts>
     <scripts name="Palette Swap">
       <script>scripts\pal_swap_draw_palette.gml</script>
       <script>scripts\pal_swap_get_color_count.gml</script>
@@ -468,8 +474,9 @@
       <script>scripts\game_remove_hearts.gml</script>
       <script>scripts\game_set_hearts.gml</script>
       <script>scripts\game_complete_level.gml</script>
-      <script>scripts\drop_table_add.gml</script>
       <script>scripts\game_play_room_music.gml</script>
+      <script>scripts\drop_table_add.gml</script>
+      <script>scripts\game_set_time.gml</script>
     </scripts>
     <scripts name="Level Manager">
       <script>scripts\level_register.gml</script>
@@ -847,8 +854,8 @@
     <room>rooms\intro</room>
     <room>rooms\level0</room>
     <rooms name="Stage1">
-      <room>rooms\level1a</room>
       <room>rooms\level1b</room>
+      <room>rooms\level1a</room>
     </rooms>
     <room>rooms\level_tiled</room>
     <room>rooms\level_scene1</room>
