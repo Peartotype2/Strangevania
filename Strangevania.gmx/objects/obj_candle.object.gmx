@@ -116,6 +116,11 @@ if onBreakEvent != -1 {event_fire(onBreakEvent);}
 if global.showhitbox
 {
     draw_hitbox();
+    var _dropSprite = object_get_sprite(drop);
+    if _dropSprite != -1
+    {
+        draw_sprite_ext(_dropSprite, 0, x, bbox_top-8, 1, 1, 0, c_white, 0.75);
+    }
 }
 </string>
           </argument>
