@@ -857,17 +857,17 @@
   <rooms name="rooms">
     <room>rooms\directorInit</room>
     <room>rooms\init</room>
-    <room>rooms\credits</room>
     <room>rooms\intro</room>
     <room>rooms\level0</room>
     <rooms name="Stage1">
-      <room>rooms\level1b</room>
       <room>rooms\level1a</room>
+      <room>rooms\level1b</room>
     </rooms>
     <room>rooms\level_tiled</room>
     <room>rooms\level_scene1</room>
     <room>rooms\level_rewardroom</room>
     <room>rooms\level_gameover</room>
+    <room>rooms\credits</room>
     <room>rooms\room_BACKUP</room>
   </rooms>
   <help>
