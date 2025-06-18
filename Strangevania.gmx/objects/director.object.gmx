@@ -32,6 +32,14 @@ game_calculate_subversion();
 holiday = "NONE";
 CalculateHolidays();
 
+// Variables to store the FPS tracking
+fps_history = ds_list_create();
+fps_max_history = 100;
+fps_update_interval = room_speed/2; // update every half second
+fps_timer = 0;
+fps_average = 0;
+fps_10pct_low = 0;
+
 savemap  = undefined; //Leave this as undefined
 savename = "save0.dat"
 
@@ -306,6 +314,8 @@ game_height = res_array[res_id, 1];
           <argument>
             <kind>1</kind>
             <string>//randomize();
+
+UpdateGameFPS();
 
 key_screenshot = keyboard_check_released(vk_f12);
 
@@ -654,6 +664,71 @@ if key_screenshot
     //date_set_timezone(timezone_utc)
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.debugoverlay
+{
+    var _seconds = (fps_update_interval / room_speed);
+    var _goodFPS = 2000;
+    
+    draw_set_font(font_menu);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    
+    //TOTAL REAL AVERAGE//
+    //TOTAL REAL AVERAGE//
+    var _str = string_all(GAME_FPS_AVERAGE, " average fps over (", _seconds, " seconds)")
+    var _scale = 2;
+    var _colorAmount = clamp(GAME_FPS_AVERAGE/_goodFPS, 0, 1);
+    var _color = merge_colour(c_red, c_lime, _colorAmount);
+    var _alpha = 1;
+    draw_text_transformed_colour(2, 25, _str, _scale, _scale, 0,
+        _color, _color, _color, _color, _alpha);
+
+
+    //10 PERCENT LOWS//
+    //10 PERCENT LOWS//
+    var _str = string_all(GAME_FPS_10PCT, " 10% lows")
+    var _scale = 2;
+    var _colorAmount = clamp(GAME_FPS_10PCT/_goodFPS, 0, 1);
+    var _color = merge_colour(c_red, c_lime, _colorAmount);
+    var _alpha = 1;
+    draw_text_transformed_colour(2, 45, _str, _scale, _scale, 0,
+        _color, _color, _color, _color, _alpha);
+        
+        
+        
+    //DEBUG DEV REMOVE LATER LAG SIMULATOR
+    if keyboard_check(vk_lcontrol)
+    {
+        var _i, _max;
+        _max = 20000; // Increase this for more lag
+        for (_i = 0; _i &lt; _max; _i++) {
+            // Just loop to waste time
+            var _temp = sqrt(_i); // Do something meaningless
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

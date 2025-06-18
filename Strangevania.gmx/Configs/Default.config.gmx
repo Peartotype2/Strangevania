@@ -682,7 +682,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="33">
+    <constants number="35">
       <constant name="STAIR_START">234111</constant>
       <constant name="STAIR_RIGHT">234001</constant>
       <constant name="STAIR_LEFT">-234001</constant>
@@ -716,6 +716,8 @@
       <constant name="INCOMPLETE_LEVEL">9999999999</constant>
       <constant name="NO_EVENT_DATA">-1234098765</constant>
       <constant name="GAME_HOLIDAY">director.holiday</constant>
+      <constant name="GAME_FPS_AVERAGE">director.fps_average</constant>
+      <constant name="GAME_FPS_10PCT">director.fps_10pct_low</constant>
     </constants>
   </ConfigConstants>
 </Config>
