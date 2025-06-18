@@ -40,6 +40,7 @@
       <sound>sound\snd_score1</sound>
       <sound>sound\snd_score2</sound>
       <sound>sound\snd_score3</sound>
+      <sound>sound\snd_castle_destroy</sound>
     </sounds>
     <sounds name="voices">
       <sound>sound\snd_voice1</sound>
@@ -185,10 +186,15 @@
     <sprites name="Portraits">
       <sprite>sprites\portrait_bright</sprite>
       <sprite>sprites\portrait_empty</sprite>
-      <sprite>sprites\portrait_death</sprite>
-      <sprite>sprites\portrait_dracula</sprite>
-      <sprite>sprites\portrait_dracula_old</sprite>
       <sprite>sprites\portrait_originals</sprite>
+      <sprites name="Dracula">
+        <sprite>sprites\portrait_dracula</sprite>
+        <sprite>sprites\portrait_dracula_concerned</sprite>
+        <sprite>sprites\portrait_dracula_old</sprite>
+      </sprites>
+      <sprites name="Death">
+        <sprite>sprites\portrait_death</sprite>
+      </sprites>
     </sprites>
     <sprites name="items">
       <sprites name="weapons">
@@ -307,6 +313,9 @@
       <sprite>sprites\spr_candle</sprite>
       <sprite>sprites\spr_candle_big</sprite>
     </sprites>
+    <sprites name="Ending">
+      <sprite>sprites\spr_ending_castle</sprite>
+    </sprites>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_floor</sprite>
     <sprite>sprites\spr_floorbump</sprite>
@@ -328,20 +337,17 @@
     <sprite>sprites\spr_hit</sprite>
     <sprites name="OLD TV Filter Sprites">
       <sprite>sprites\sprScanline1</sprite>
-      <sprite>sprites\sprScanline2</sprite>
-      <sprite>sprites\sprScanline3</sprite>
       <sprite>sprites\sprNoise1</sprite>
       <sprite>sprites\sprStatic1</sprite>
-      <sprite>sprites\sprMask1</sprite>
       <sprite>sprites\sprMaskWide1</sprite>
       <sprite>sprites\sprChromatic1</sprite>
-      <sprite>sprites\sprChromatic2</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bgr_tileset1</background>
     <background>background\bgr_tileset2</background>
     <background>background\bgr_walls</background>
+    <background>background\bgr_ending</background>
     <background>background\bgr_intro</background>
     <background>background\bgr_finale</background>
     <background>background\bgr_fog</background>
@@ -617,6 +623,7 @@
       <script>scripts\a1.gml</script>
       <script>scripts\a2.gml</script>
       <script>scripts\print.gml</script>
+      <script>scripts\string_all.gml</script>
       <script>scripts\draw_hitbox.gml</script>
       <script>scripts\spawnCandleDrop.gml</script>
       <script>scripts\CollisionPointIDs.gml</script>
@@ -644,6 +651,7 @@
       <script>scripts\ObjectDestroy.gml</script>
       <script>scripts\play_sound_pitched.gml</script>
       <script>scripts\game_calculate_subversion.gml</script>
+      <script>scripts\UpdateGameFPS.gml</script>
     </scripts>
     <script>scripts\CalculateHolidays.gml</script>
     <script>scripts\DoorCutsceneInfo.gml</script>
@@ -683,6 +691,10 @@
     <object>objects\obj_player</object>
     <object>objects\obj_whipbox</object>
     <objects name="Main">
+      <objects name="ending">
+        <object>objects\endingmanager</object>
+        <object>objects\obj_ending_castle</object>
+      </objects>
       <objects name="intro">
         <object>objects\intromanager</object>
         <object>objects\intro_bird</object>
@@ -840,17 +852,12 @@
     <objects name="OLD TV Filter Presets">
       <object>objects\obj_OLDTVFilter_PresetBase</object>
       <object>objects\obj_OLDTVFilter_Strange</object>
-      <object>objects\obj_OLDTVFilter_Tube_Only</object>
-      <object>objects\obj_OLDTVFilter_Scanline_Only</object>
-      <object>objects\obj_OLDTVFilter_BW</object>
-      <object>objects\obj_OLDTVFilter_Composite</object>
-      <object>objects\obj_OLDTVFilter_SVideo</object>
-      <object>objects\obj_OLDTVFilter_VHS</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\directorInit</room>
     <room>rooms\init</room>
+    <room>rooms\credits</room>
     <room>rooms\intro</room>
     <room>rooms\level0</room>
     <rooms name="Stage1">
