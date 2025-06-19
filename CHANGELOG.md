@@ -1,3 +1,11 @@
+## v0.5.03 - 2025-06-19
+
+### Added
+- Added changelog menu to main menu
+- Added string_split_unicode function
+- Added string_from_file function
+- Added new fonts for changelog
+
 ## v0.5.02 - 2025-06-19
 
 ### Added
