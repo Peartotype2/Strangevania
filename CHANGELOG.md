@@ -1,4 +1,4 @@
-## UNRELEASED
+## v0.5.02 - 2025-06-19
 
 ### Added
 - Added github changelog
