@@ -1,3 +1,8 @@
 DEV_HASH_GEN.exe
 /Application
 Update Hash.ps1
+Generate Changelog.ps1
+ٴUPDATE HASHٴ.lnk
+ٴUPDATE CHANGELOGٴ.lnk
+CreateRelease.ps1
+ٴCREATE NEW RELEASEٴ.lnk
