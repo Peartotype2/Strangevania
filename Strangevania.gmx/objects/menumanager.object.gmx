@@ -52,6 +52,7 @@ enum menulevel
     modmenu,
     songsmenu,
     CRT,
+    changelog,
     
 }
 
@@ -263,6 +264,7 @@ if inputEnabled
     back_key = inputmanager.menu.back_press;
     
     esc_key = inputmanager.menu.escape_press;
+    changelog_key = inputmanager.weapon_press;
 }
 else
 {
@@ -275,6 +277,15 @@ else
     accept_key      = false;
     back_key        = false;
     esc_key         = false;
+    changelog_key   = false;
+}
+
+if changelog_key and menu_level == menulevel.main and !pauseMenu
+{
+    audio_play_sound(snd_select, 0, 0)
+    menu_level = menulevel.changelog;
+    instance_create(0,0,changelogmenu_manager);
+    exit;
 }
 
 if esc_key

@@ -662,6 +662,24 @@ if introFinished
     if (settings.tube_enabled and settings.oldtvfilter_enabled) {_xOff = -9; _yOff = -2;}
     draw_text_transformed_colour(vieww-(len*scale)-1+_xOff, viewh-(3)+_yOff, str, scale, scale, 0,
     c_white, c_white, c_white, c_white, versionAlpha)
+    
+    if !instance_exists(changelogmenu_manager)
+    {
+        //Changelog button
+        draw_set_valign(fa_middle);
+        draw_set_halign(fa_left);
+        
+        var _buttonText = "Changelog";
+        var _buttonTextScale = 0.5;
+        var _buttonAlphaMax = 0.8;
+        var _buttonAlpha = lerp(0, _buttonAlphaMax, (versionAlpha / alphaMax))
+        
+        var bp_scale = (1/16)*2
+        draw_text_transformed_colour(14, viewh-8, _buttonText, _buttonTextScale, _buttonTextScale, 0,
+            c_white, c_white, c_ltgray, c_ltgray, _buttonAlpha);
+        draw_sprite_ext(bp_weapon, inputmanager.control_type, 6, viewh-8,
+            bp_scale, bp_scale, 0, c_white, _buttonAlpha);
+    }
 }
 </string>
           </argument>

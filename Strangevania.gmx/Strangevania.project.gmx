@@ -652,6 +652,8 @@
       <script>scripts\play_sound_pitched.gml</script>
       <script>scripts\game_calculate_subversion.gml</script>
       <script>scripts\UpdateGameFPS.gml</script>
+      <script>scripts\string_from_file.gml</script>
+      <script>scripts\string_split_unicode.gml</script>
     </scripts>
     <script>scripts\CalculateHolidays.gml</script>
     <script>scripts\DoorCutsceneInfo.gml</script>
@@ -686,6 +688,8 @@
     <font>fonts\font_console</font>
     <font>fonts\font_points_outline</font>
     <font>fonts\font_points</font>
+    <font>fonts\font_changelog</font>
+    <font>fonts\font_changelog_italic</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -740,6 +744,7 @@
         <object>objects\crtmenu_manager</object>
         <object>objects\statsmenu_manager</object>
         <object>objects\songsmenu_manager</object>
+        <object>objects\changelogmenu_manager</object>
         <object>objects\rewardmenu</object>
         <object>objects\gameovermenu</object>
       </objects>
