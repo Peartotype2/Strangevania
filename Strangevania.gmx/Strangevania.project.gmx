@@ -365,6 +365,7 @@
         <script>scripts\showallstats_Execute.gml</script>
         <script>scripts\showallsongs_Execute.gml</script>
         <script>scripts\statget_Execute.gml</script>
+        <script>scripts\setweapon_Execute.gml</script>
         <script>scripts\statset_Execute.gml</script>
         <script>scripts\statadd_Execute.gml</script>
         <script>scripts\setvar_Execute.gml</script>
