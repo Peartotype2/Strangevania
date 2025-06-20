@@ -663,7 +663,7 @@ if introFinished
     draw_text_transformed_colour(vieww-(len*scale)-1+_xOff, viewh-(3)+_yOff, str, scale, scale, 0,
     c_white, c_white, c_white, c_white, versionAlpha)
     
-    if !instance_exists(changelogmenu_manager)
+    if !instance_exists(changelogmenu_manager) and menumanager.menu_level == menulevel.main
     {
         //Changelog button
         draw_set_valign(fa_middle);
