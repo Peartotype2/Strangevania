@@ -832,6 +832,7 @@
         <object>objects\projectile_dagger</object>
         <object>objects\projectile_cross</object>
         <object>objects\projectile_bottle</object>
+        <object>objects\projectile_axe</object>
         <object>objects\projectile_bottle_splash</object>
       </objects>
       <object>objects\weapon_parent</object>
