@@ -25,7 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menumanager.menuEnabled = false;
+            <string>///EVERYTHING IN THIS OBJ IS CURSED
+//Half of it is ChatGPT gibberish that didn't work and
+//was tweaked and changed over and over.
+//There are probably variables that do nothing, redundant code,
+//lots of commented out code.
+//BUT ITS WORKING ATM SO FUCK IT
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if instance_exists(menumanager) {menumanager.menuEnabled = false;}
 
 // Load changelog text using the new script
 var changelog_text = string_from_file("game/CHANGELOG.md");
@@ -34,9 +60,13 @@ var changelog_text = string_from_file("game/CHANGELOG.md");
 //text_lines = string_split(changelog_text, "U+2028");
 text_lines = string_split_unicode(changelog_text);
 
+defaultTextScale = window_get_height()/1080;
+
 // Scrolling parameters
 scroll_y = 0;
-line_height = 44; // Adjust based on your font size
+
+line_height_default = 44; // Adjust based on your font size
+line_height = (line_height_default*defaultTextScale);
 
 // Scroll box position and size
 box_x = 8;
@@ -121,7 +151,7 @@ if inputmanager.menu.back_press or inputmanager.menu.escape_press
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -138,17 +168,47 @@ if inputmanager.menu.back_press or inputmanager.menu.escape_press
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw event
-var _surfScale = 1.5;
-var _padding = 44*_surfScale;
+            <string>var _pad = 8;
+var _surfPad = _pad+2;
+
+draw_set_color(c_black);
+draw_rectangle(_pad, _pad, vieww-_pad, viewh-_pad, false);
+draw_set_color(c_white);
+
+////////////////////////////////////
+
+//var _surfScale = 1.5;
+//var _padding = 44*_surfScale;
+var _surfScale = 0.1875;
+//var gapPercent = 0.044444444444444444;
+//var gapPercent = 0.09999999999999999999999955555556;
+var gapPercent = 0.11111111111111111111111111111111;
 
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
+var windowWidth = window_get_width();
+var windowHeight = window_get_height()
+var windowScaling = windowHeight/180;
+
+var surfXScale = 320/windowWidth;
+var surfYScale = 180/windowHeight;
+
+windowWidth -= (_surfPad*windowScaling)*2+5;
+windowHeight -= (_surfPad*windowScaling)*2+12;
+
+//var windowWidth = windowWidth-(ceil(windowWidth*gapPercent)*2);
+//var windowHeight = windowHeight-(ceil(windowHeight*gapPercent)*2);
+
+//Game res is 320 x 180
+
 // Create or resize surface if needed
-if (!surface_exists(scr_surface) || surface_get_width(scr_surface) != box_width || surface_get_height(scr_surface) != box_height) {
+if (!surface_exists(scr_surface) || surface_get_width(scr_surface) != windowWidth) {
     if (surface_exists(scr_surface)) surface_free(scr_surface);
-    scr_surface = surface_create(window_get_width(), window_get_height()-(box_y*_padding)-_padding*2);
+    scr_surface = surface_create(windowWidth, windowHeight)//-ceil(windowHeight*gapPercent));
+    //print("WIDTH: ", window_get_width());
+    //print("height: ", window_get_height());
+    //print("NEWheight: ", windowHeight-(ceil(windowHeight*gapPercent)));
 }
 
 // Draw onto surface
@@ -163,13 +223,16 @@ draw_set_font(font_changelog); // your font here
 var first_line = floor(scroll_y / line_height);
 var lines_visible = ceil(window_get_height()-64 / line_height);
 
+//line_height = (line_height_default*defaultTextScale);
+
 for (var i = first_line; i &lt; min(array_length_1d(text_lines), first_line + lines_visible + 1); i++) {
     var y_pos = 5 + (i - first_line) * line_height - (scroll_y mod line_height);
     var _str = text_lines[i];
     var _col = c_white;
     var _col2 = c_white;
     var _alpha = 1;
-    var _textScale = 1;
+    //var _textScale = 1;
+    var _textScale = defaultTextScale;
     draw_set_font(font_changelog);
     
     if (string_contains("## ", _str) or string_contains("### ", _str))
@@ -194,88 +257,16 @@ surface_reset_target();
 
 draw_set_color(c_white);
 
-draw_surface_ext(scr_surface, box_x+_padding, box_y+_padding, _surfScale, _surfScale, 0, c_white, 1);
+draw_surface_ext(scr_surface, 10, 10, surfXScale, surfYScale, 0, c_white, 1);
+//draw_surface_general(scr_surface, 0, 0, windowWidth, windowHeight-ceil(windowHeight*gapPercent), 10, 10,
+//    _surfScale, _surfScale, 0, c_white, c_white, c_white, c_white, 1)
+//draw_surface_ext(scr_surface, box_x+_padding, box_y+_padding, 0.25, 0.25, 0, c_white, 1);
+
 //draw_surface_stretched(scr_surface, box_x, box_y, box_width*4, box_height*4);
 //draw_surface(scr_surface, box_x, box_y);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*// Draw event
 
-// Create or resize surface if needed
-if (!surface_exists(scr_surface) || surface_get_width(scr_surface) != box_width || surface_get_height(scr_surface) != box_height) {
-    if (surface_exists(scr_surface)) surface_free(scr_surface);
-    scr_surface = surface_create(box_width, box_height);
-}
-
-// Draw onto surface
-surface_set_target(scr_surface);
-draw_clear_alpha(c_black, 0); // transparent background
-
-draw_set_color(c_white);
-draw_set_font(font_changelog); // your font here
-
-// Calculate first line and lines visible
-var first_line = floor(scroll_y / line_height);
-var lines_visible = ceil(box_height / line_height);
-
-for (var i = first_line; i &lt; min(array_length_1d(text_lines), first_line + lines_visible + 1); i++) {
-    var y_pos = 5 + (i - first_line) * line_height - (scroll_y mod line_height);
-    var _str = text_lines[i];
-    var _col = c_white;
-    var _alpha = 1;
-    var _textScale = 1;
-    draw_set_font(font_changelog);
-    
-    if (string_contains("## ", _str) or string_contains("### ", _str))
-    {
-        print("BEFORE: ", _str)
-        _str = string_replace(_str, "### ", "");
-        _str = string_replace(_str, "## ", "");
-        print("AFTER: ", _str)
-        draw_set_font(font_changelog_italic);
-        _col = c_orange;
-    }
-    
-    draw_text_transformed_colour(5, y_pos, _str, _textScale, _textScale, 0, _col, _col, _col, _col, _alpha);
-    //draw_text(5, y_pos, _str);
-    //draw_text_ext_transformed(5, y_pos, text_lines[i], 8, ((500-10)/_textScale),_textScale, _textScale, 0);
-}
-
-surface_reset_target();
-
-// Draw surface on screen with border
-draw_set_color(c_black);
-draw_rectangle(box_x - 2, box_y +- 2, box_x + box_width + 2, box_y + box_height + 2, false);
-
-draw_set_color(c_white);
-draw_surface_ext(scr_surface, box_x, box_y, 1, 1, 0, c_white, 1);
-//draw_surface_stretched(scr_surface, box_x, box_y, box_width*4, box_height*4);
-//draw_surface(scr_surface, box_x, box_y);*/
-
-draw_set_color(c_black);
-draw_rectangle(8, 8, vieww-8, viewh-8, false);
-draw_set_color(c_white);
+/////////////////////////////////////////////////
 
 draw_set_valign(fa_middle);
 draw_set_halign(fa_right);
