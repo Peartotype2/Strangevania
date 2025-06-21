@@ -638,23 +638,18 @@ draw_sprite(logo_pef, 0, (vieww/4)*3, viewh/2);*/
 if introFinished
 {
     var alphaMax = 0.250//0.125;
-    var alphaInc = 0.00725;
-    if versionAlpha &lt; alphaMax then versionAlpha = clamp(versionAlpha+alphaInc, 0, alphaMax)
+    var alphaIncDefault = 0.029;//0.00725;
+    var alphaInc = alphaIncDefault;
+    var menuCheck = (menumanager.menu_level == menulevel.main or menumanager.menu_level == menulevel.changelog)
+    alphaInc = alphaIncDefault*iif(menuCheck, 1, -1);
+    menuArray = -1;
+    
+    versionAlpha = clamp(versionAlpha+alphaInc, 0, alphaMax)
+    
     draw_set_font(font_console);
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);
-    
     var str = "ver "+string(director.game_version)+"."+string(director.game_subversion);
-    
-    /*date_set_timezone(timezone_utc);
-    var _date = date_date_string(GM_build_date);
-    var _day = string(date_get_day(GM_build_date));
-    var _hour = string(date_get_hour(GM_build_date));
-    var _min = string(date_get_minute(GM_build_date));
-    
-    //str += " ("+_date+" "+_hour+_min+")";
-    str+="."+_day+_hour+_min*/
-    
     var len = string_width(str);
     var scale = 0.40;
     var _xOff = 0;
@@ -663,7 +658,7 @@ if introFinished
     draw_text_transformed_colour(vieww-(len*scale)-1+_xOff, viewh-(4)+_yOff, str, scale, scale, 0,
     c_white, c_white, c_white, c_white, versionAlpha)
     
-    if !instance_exists(changelogmenu_manager) and menumanager.menu_level == menulevel.main
+    if !instance_exists(changelogmenu_manager)
     {
         //Changelog button
         draw_set_valign(fa_middle);
