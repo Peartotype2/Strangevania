@@ -1,3 +1,13 @@
+## v0.5.04 - 2025-06-21
+
+### Added
+- Added /setweapon command
+- Added axe weapon functionality
+
+### Fixed
+- Fixed changelog text scaling at different resolutions
+- Fixed changelog prompt showing in other menus
+
 ## v0.5.03 - 2025-06-19
 
 ### Added
