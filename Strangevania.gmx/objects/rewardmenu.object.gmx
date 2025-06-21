@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>firststep   = true;
+            <string>inputBlock = true;
+inputBlockDelay = 2*room_speed;
+alarm[9] = inputBlockDelay;
+
+firststep   = true;
 targetRoom  = intro;
 targetLevel = -1;
 level       = -1;
@@ -148,6 +152,29 @@ time_numstring = string(time_num);
           <argument>
             <kind>1</kind>
             <string>music_fade_in(song_victory_short, 250, false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>inputBlock = false;
 </string>
           </argument>
         </arguments>
@@ -402,11 +429,14 @@ time_numstring = string(time_num);
 if time_num &lt; 10 {time_numstring = string_insert("0", time_numstring, 1);}
 if time_num &lt; 100 {time_numstring = string_insert("0", time_numstring, 1);}
 
-if inputmanager.any_press
+if inputmanager.any_press and !inputBlock
 {
     //set vars for next step/stages
     if !finished
     {
+        inputBlock = true;
+        alarm[9] = 0.5*room_speed;
+    
         if started
         {
             score_num   = scoreamount;
