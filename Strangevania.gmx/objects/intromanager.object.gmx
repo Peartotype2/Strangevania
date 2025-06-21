@@ -656,11 +656,11 @@ if introFinished
     str+="."+_day+_hour+_min*/
     
     var len = string_width(str);
-    var scale = 0.30;
+    var scale = 0.40;
     var _xOff = 0;
     var _yOff = 0;
     if (settings.tube_enabled and settings.oldtvfilter_enabled) {_xOff = -9; _yOff = -2;}
-    draw_text_transformed_colour(vieww-(len*scale)-1+_xOff, viewh-(3)+_yOff, str, scale, scale, 0,
+    draw_text_transformed_colour(vieww-(len*scale)-1+_xOff, viewh-(4)+_yOff, str, scale, scale, 0,
     c_white, c_white, c_white, c_white, versionAlpha)
     
     if !instance_exists(changelogmenu_manager) and menumanager.menu_level == menulevel.main
