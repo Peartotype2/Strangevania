@@ -6,3 +6,4 @@ Generate Changelog.ps1
 ٴUPDATE CHANGELOGٴ.lnk
 CreateRelease.ps1
 ٴCREATE NEW RELEASEٴ.lnk
+SendDiscordChangelog.ps1
