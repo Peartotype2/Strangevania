@@ -7,3 +7,5 @@ Generate Changelog.ps1
 CreateRelease.ps1
 ٴCREATE NEW RELEASEٴ.lnk
 SendDiscordChangelog.ps1
+UpdateDiscordStatus.ps1
+RestartDiscordBot.ps1
