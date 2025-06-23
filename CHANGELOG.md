@@ -1,3 +1,14 @@
+## v0.5.05 - 2025-06-23
+
+### Added
+- Added discord bot status
+- Added Discord bot to send changelog messages
+
+### Changed
+- Disabled input during reward menu fade in
+- Version text fades out when not in main menu
+- Adjusted version text size
+
 ## v0.5.04 - 2025-06-21
 
 ### Added
