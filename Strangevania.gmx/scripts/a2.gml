@@ -1,4 +1,6 @@
 ///a2(min, max, increment)
+// Creates an array of values between min and max 
+//  that are multiples of increment.
 
 var _min = argument[0];
 var _max = argument[1];
