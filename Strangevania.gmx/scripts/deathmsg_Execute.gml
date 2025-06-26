@@ -18,7 +18,7 @@ if (array_length_1d(args) == 1)
     }
     _id = real(_id);
     
-    if _id >= director.DeathMessage_Count
+    if _id >= deathmessage_manager.DeathMessage_Count
         or _id < -1
     {return "ID outside list range!!";}
     
