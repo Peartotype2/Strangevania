@@ -89,12 +89,13 @@ stat_tracker_init();
 settings_manager_init()
 level_manager_init();
 discord_manager_init();
+deathmessage_manager_init();
 
 whipskin_name = whipskin_info[whipskin_index, style.name];
 
-DeathMessage_List = ds_list_create();
+/*DeathMessage_List = ds_list_create();
 DeathMessage_Count = 0;
-deathmessage_init_list();
+deathmessage_init_list();*/
 
 particles_init();
 

@@ -574,10 +574,12 @@
       <script>scripts\cutscene_fade.gml</script>
     </scripts>
     <scripts name="Death Messages">
-      <script>scripts\ShowDeathMessage.gml</script>
-      <script>scripts\GetDeathMessage.gml</script>
+      <script>scripts\deathmessage_manager_init.gml</script>
       <script>scripts\deathmessage_init_list.gml</script>
       <script>scripts\deathmessage_register.gml</script>
+      <script>scripts\GetDeathMessage.gml</script>
+      <script>scripts\ShowDeathMessage.gml</script>
+      <script>scripts\deathmessage_characters_init.gml</script>
     </scripts>
     <scripts name="Discord">
       <script>scripts\discord_manager_init.gml</script>
@@ -619,6 +621,7 @@
       <script>scripts\percent.gml</script>
       <script>scripts\num_separator.gml</script>
       <script>scripts\string_is_real.gml</script>
+      <script>scripts\value_in_array.gml</script>
     </scripts>
     <scripts name="misc">
       <script>scripts\a1.gml</script>
@@ -696,6 +699,14 @@
     <object>objects\obj_player</object>
     <object>objects\obj_whipbox</object>
     <objects name="Main">
+      <objects name="Deathmessages">
+        <objects name="Characters">
+          <object>objects\char_parent</object>
+          <object>objects\char_dracula</object>
+          <object>objects\char_death</object>
+        </objects>
+        <object>objects\deathmessage_manager</object>
+      </objects>
       <objects name="ending">
         <object>objects\endingmanager</object>
         <object>objects\obj_ending_castle</object>
