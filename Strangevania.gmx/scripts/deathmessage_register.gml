@@ -1,7 +1,7 @@
-///deathmessage_register(good/bad, skippable, text, [icon, voiceSound, soundRate, writeSpeed, textScale, pitchMin, pitchMax, depth])
+///deathmessage_register(tags, skippable, text, [icon, voiceSound, soundRate, writeSpeed, textScale, pitchMin, pitchMax, depth])
 var arg_c   = argument_count;
 
-var _type   = argument[0];
+var _tags   = argument[0];
 var _skip   = argument[1];
 var _text   = argument[2];
 
@@ -24,7 +24,7 @@ if arg_c > 9 then _pitchMax = argument[9];
 if arg_c > 10 then _depth = argument[10];
 
 var msg_info = ds_map_create();
-ds_map_add(msg_info, "type", _type);
+ds_map_add(msg_info, "tags", _tags);
 ds_map_add(msg_info, "skippable", _skip);
 ds_map_add(msg_info, "text", _text);
 ds_map_add(msg_info, "icon", _icon);
@@ -35,7 +35,7 @@ ds_map_add(msg_info, "scale", _scale);
 ds_map_add(msg_info, "pitchMin", _pitchMin);
 ds_map_add(msg_info, "pitchMax", _pitchMax);
 ds_map_add(msg_info, "depth", _depth);
-ds_list_add(director.DeathMessage_List, msg_info);
-director.DeathMessage_Count++;
+ds_list_add(deathmessage_manager.DeathMessage_List, msg_info);
+deathmessage_manager.DeathMessage_Count++;
 
 
