@@ -1,8 +1,9 @@
-///ShowDeathMessage(id OR good/bad)
+///ShowDeathMessage(id OR tags)
 var _msgtype = argument[0];
 
 var _msg = GetDeathMessage(_msgtype);
 
+var _tags       = _msg[? "tags"];
 var _skip       = _msg[? "skippable"];
 var _text       = _msg[? "text"];
 var _icon       = _msg[? "icon"];
@@ -14,7 +15,7 @@ var _pitchMin   = _msg[? "pitchMin"];
 var _pitchMax   = _msg[? "pitchMax"];
 var _depth      = _msg[? "depth"];
 
-print("MESSAGE TYPE: " + string(_msgtype));
+print("MESSAGE TAGS: ", _tags);
 var _cutscene   = cutscene_info_init();
 _cutscene = scene_add_action(_cutscene, cutscene_wait, 1.25);
 _cutscene = scene_add_action(_cutscene, cutscene_show_dialog, _skip, _text, _icon, _speed, _rate, _sound, _pitchMin, _pitchMax, _scale, _depth);
