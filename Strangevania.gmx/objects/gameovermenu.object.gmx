@@ -40,7 +40,7 @@ alarm[1] = achDelay;
 initStep = true;
 
 deathMessageType        =   "bad";
-deathMessageChance      =   85;//50;  //percent chance of a message appearing at all.
+deathMessageChance      =   90;//50;  //percent chance of a message appearing at all.
 deathMessageGoodChance  =   20; //percent chance of it being an encouraging message.
 
 
