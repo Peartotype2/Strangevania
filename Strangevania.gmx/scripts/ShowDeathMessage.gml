@@ -1,4 +1,4 @@
-///ShowDeathMessage(id OR tags)
+///ShowDeathMessage(id OR tags) returns cutscene object
 var _msgtype = argument[0];
 
 var _msg = GetDeathMessage(_msgtype);
@@ -22,4 +22,10 @@ _cutscene = scene_add_action(_cutscene, cutscene_show_dialog, _skip, _text, _ico
 _cutscene = scene_add_action(_cutscene, cutscene_wait, 3);
 _cutscene = scene_add_action(_cutscene, cutscene_fadeout_dialog);
 
-cutscene_create(_cutscene);
+var _cutsceneObject = cutscene_create(_cutscene);
+with _cutsceneObject
+{
+    isDeathmessage = true;
+}
+
+return _cutsceneObject;

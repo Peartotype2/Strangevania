@@ -39,11 +39,13 @@ alarm[1] = achDelay;
 
 initStep = true;
 
+showingDeathmessage     =   false;
 deathMessageType        =   "bad";
 deathMessageChance      =   90;//50;  //percent chance of a message appearing at all.
 deathMessageGoodChance  =   20; //percent chance of it being an encouraging message.
+deathmessageObject      =   noone;
 
-
+inputDisabled = false;
 </string>
           </argument>
         </arguments>
@@ -145,20 +147,30 @@ if initStep
     
     if _rand &lt;= deathMessageChance
     {
-        print("DEATHMESSAGE");
+        showingDeathmessage = true;
+        inputDisabled = true;
+        print("DEATHMESSAGE SUCCESS");
         if irandom_range(1,100) &lt;= deathMessageGoodChance
         {deathMessageType = "good";}
         else {deathMessageType = "bad";}
         
-        ShowDeathMessage(deathMessageType);
-    }
+        deathmessageObject = ShowDeathMessage(deathMessageType);
+    } else {print("DEATHMESSAGE FAIL");}
 
     initStep = false;
 }
 
+inputDisabled = false;
+if instance_exists(deathmessageObject) {inputDisabled = true;}
+
+var accept_press = false;
 var oldSelect = selected;
-if inputmanager.up_press {selected--;}
-if inputmanager.down_press {selected++;}
+if !inputDisabled
+{
+    accept_press = inputmanager.menu.accept_press;
+    if inputmanager.up_press {selected--;}
+    if inputmanager.down_press {selected++;}
+}
 selected = clamp(selected, 0, 1);
 
 if oldSelect != selected
@@ -166,7 +178,7 @@ if oldSelect != selected
     audio_play_sound(snd_tick, 0, 0);
 }
 
-if inputmanager.menu.accept_press and !instance_exists(obj_dialog)
+if accept_press and !instance_exists(obj_dialog)
 {
     audio_play_sound(snd_select, 0, 0);
     if selected == CONTINUE
