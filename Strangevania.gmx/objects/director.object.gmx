@@ -191,14 +191,15 @@ if fullscreen
     game_height = display_get_height();
 }
 
+/* MOVED TO ALARM 1, CALLED AT BOTTOM OF CREATE EVENT
 audio_group_load(ag_sfx);
 audio_group_load(ag_voices);
 audio_group_load(ag_music_mainmenu);
 audio_group_load(ag_music);
-
+*/
 window_set_size(game_width, game_height);
 surface_resize(application_surface, game_width, game_height);
-room_goto_next();
+//room_goto_next(); Moved to alarm at bottom 
 loadImageIndex = 0;
 alarm[0] = 15;
 
@@ -222,6 +223,34 @@ bw_posx = 0;
 bw_posy = 0;
 bw_canmove = false;
 
+alarm[1] = 15; //room_goto_next(); and audiogroup loads
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto_next();
+audio_group_load(ag_sfx);
+audio_group_load(ag_voices);
+audio_group_load(ag_music_mainmenu);
+audio_group_load(ag_music);
 </string>
           </argument>
         </arguments>
