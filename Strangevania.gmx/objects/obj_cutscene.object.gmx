@@ -39,6 +39,8 @@ instanceList[0] = id;
 //instances = ds_list_create();
 //ds_list_add(instances, "Cutscene Controller");
 
+isDeathmessage = false;
+
 
 </string>
           </argument>
