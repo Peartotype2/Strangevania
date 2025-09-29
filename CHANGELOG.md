@@ -1,3 +1,26 @@
+## v0.5.06 - 2025-09-29
+
+### Added
+- Added 'isDeathmessage' flag to cutscene objects
+- Added value_in_array script
+- Added character system for dialogue
+- Added new Death Message Manager
+
+### Fixed
+- Fixed UI scaling during init loading screen
+- Fixed comment on array script
+- Fixed text alignment bug during dialogue
+- Fixed wrong file committed
+
+### Changed
+- Changed Deathmessages to be unskippable
+- Slightly lowered the chance of having no death message
+- Changed 'No Easy Weapon' modifier to inverse 'Easy Weapon'
+- Redid get/show death message functions to allow tags
+- Refactored /deathmsg command for new system
+- Refactored gameover death message call for new system
+- Refactored death message list for new system
+
 ## v0.5.05 - 2025-06-23
 
 ### Added
