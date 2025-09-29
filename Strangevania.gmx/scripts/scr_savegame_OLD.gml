@@ -1,5 +1,8 @@
 ///scr_savegame
 
+// DO NOT DELETE, STILL USED IN SAVE_MIGRATE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// DO NOT DELETE, STILL USED IN SAVE_MIGRATE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 if (file_exists(SAVE_FILE_NAME)) file_delete(SAVE_FILE_NAME);
 
 //Game Save

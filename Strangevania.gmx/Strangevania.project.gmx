@@ -601,6 +601,8 @@
       <script>scripts\save_close.gml</script>
       <script>scripts\save_backup.gml</script>
       <script>scripts\save_migrate.gml</script>
+      <script>scripts\save_get_comparator.gml</script>
+      <script>scripts\save_check_mismatch.gml</script>
     </scripts>
     <scripts name="Utility">
       <script>scripts\draw_rect_col.gml</script>

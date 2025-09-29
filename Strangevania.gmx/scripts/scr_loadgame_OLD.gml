@@ -1,5 +1,8 @@
 ///scr_loadgame_OLD([filename])
 
+// DO NOT DELETE, STILL USED IN SAVE_MIGRATE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// DO NOT DELETE, STILL USED IN SAVE_MIGRATE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 var _file = SAVE_FILE_NAME;
 if argument_count > 0 then _file = argument[0];
 

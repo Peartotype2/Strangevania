@@ -40,6 +40,9 @@ fps_timer = 0;
 fps_average = 0;
 fps_10pct_low = 0;
 
+saveBackupPrefix    = "backups/saveBACKUP";
+saveBackupSuffix    = ".dat";
+saveBackupMax       = 10;
 savemap  = undefined; //Leave this as undefined
 savename = "save0.dat"
 
@@ -174,7 +177,10 @@ sfx_loaded = false;
 
 global.skipIntroOnce = false;
 
-save_migrate("save0.sav");
+save_migrate("save0.sav"); //Old file format was .sav (New is .dat)
+
+save_check_mismatch();
+
 scr_loadconfig();
 scr_loadgame();
 if res_id == -1 {res_id = res_monitor_max-2;}

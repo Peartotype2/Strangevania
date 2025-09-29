@@ -1,8 +1,8 @@
 ///save_backup()
-var _prefix = "backups/saveBACKUP";
-var _suffix = ".dat";
+var _prefix = director.saveBackupPrefix;
+var _suffix = director.saveBackupSuffix;
 var _num    = 1;
-var _max    = 5;
+var _max    = director.saveBackupMax;
 
 while (file_exists(_prefix+string(_num)+_suffix) and _num <= _max)
 {
