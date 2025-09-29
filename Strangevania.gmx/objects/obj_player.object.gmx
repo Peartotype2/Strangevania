@@ -400,7 +400,7 @@ if !disableInput
     key_jump    = inputmanager.jump_press   //keyboard_check_pressed(ord("X"));
     key_whip    = inputmanager.attack_press //keyboard_check_pressed(ord("Z"));
     key_weapon  = inputmanager.weapon_press //keyboard_check_pressed(ord("C"));
-    if settings.noeasyweapon
+    if !settings.easyweapon
     {
         key_weapon  = (inputmanager.up_held and inputmanager.attack_press)
         key_whip    = (inputmanager.attack_press and !inputmanager.up_held)

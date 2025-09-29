@@ -39,7 +39,7 @@ _selected = false;
 totalModifiers  = 5;
 activeModifiers = 0;
 
-if settings.noeasyweapon    then activeModifiers++;
+if settings.easyweapon      then activeModifiers++;
 if settings.onehit          then activeModifiers++;
 if settings.permadeath      then activeModifiers++;
 if settings.nowhips         then activeModifiers++;

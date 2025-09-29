@@ -42,7 +42,7 @@ setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabl
 setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"));
 
 //Modifiers
-setting_register("noeasyweapon", "No Easy Weapon", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
+setting_register("easyweapon", "Easy Weapon", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
 setting_register("onehit", "1 HP Mode", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
 setting_register("permadeath", "Perma Death", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
 setting_register("nowhips", "No Whips", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
