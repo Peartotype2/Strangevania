@@ -16,9 +16,9 @@ ach_register("champion", "Champion", ach_icon_firstkill,
 "Kill 1000 enemies.",
 true, 1000, "PLAYER_KILLS", a1(700, 900));
 
-ach_register("warlord", "Warlord", ach_icon_firstkill,
-"Kill 3000 enemies.",
-true, 3000, "PLAYER_KILLS", a1(1500, 2000, 2500, 2900));
+ach_register("warlord", "Warlord", ach_icon_warlord,
+"Kill 5000 enemies.",
+true, 5000, "PLAYER_KILLS", a1(1500, 2000, 2500, 3000, 3500, 4000, 4500));
 
 ach_register("holybbq", "Holy BBQ", ach_icon_holybbq,
 "Cook up some BBQ with holy fire.");
