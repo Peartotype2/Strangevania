@@ -91,25 +91,31 @@
         <sprite>sprites\spr_new_unlock</sprite>
       </sprites>
       <sprites name="ACHIEVEMENT MENU">
+        <sprite>sprites\ach_icon_border</sprite>
         <sprites name="ACHIEVEMENTS">
           <sprite>sprites\ach_icon_holybbq</sprite>
           <sprite>sprites\ach_icon_firstkill</sprite>
+          <sprite>sprites\ach_icon_warrior</sprite>
+          <sprite>sprites\ach_icon_hunter</sprite>
+          <sprite>sprites\ach_icon_champion</sprite>
+          <sprite>sprites\ach_icon_warlord</sprite>
           <sprite>sprites\ach_icon_stylish</sprite>
           <sprite>sprites\ach_icon_exercise</sprite>
           <sprite>sprites\ach_icon_rocky</sprite>
           <sprite>sprites\ach_icon_fashion</sprite>
           <sprite>sprites\ach_icon_gameover</sprite>
         </sprites>
-        <sprite>sprites\spr_scroll_indicator</sprite>
-        <sprite>sprites\spr_page_arrow</sprite>
-        <sprite>sprites\ach_unlocked_border</sprite>
-        <sprite>sprites\ach_unlocked_border_faded</sprite>
-        <sprite>sprites\ach_info_border</sprite>
-        <sprite>sprites\ach_icon_border</sprite>
-        <sprite>sprites\ach_icon_blank</sprite>
-        <sprite>sprites\ach_icon_faded</sprite>
-        <sprite>sprites\ach_icon_selected</sprite>
-        <sprite>sprites\ach_icon_hidden</sprite>
+        <sprites name="OTHER">
+          <sprite>sprites\ach_icon_hidden</sprite>
+          <sprite>sprites\ach_icon_selected</sprite>
+          <sprite>sprites\ach_icon_faded</sprite>
+          <sprite>sprites\ach_icon_blank</sprite>
+          <sprite>sprites\ach_unlocked_border_faded</sprite>
+          <sprite>sprites\ach_unlocked_border</sprite>
+          <sprite>sprites\spr_page_arrow</sprite>
+          <sprite>sprites\spr_scroll_indicator</sprite>
+          <sprite>sprites\ach_info_border</sprite>
+        </sprites>
       </sprites>
       <sprites name="BUTTON PROMPTS">
         <sprites name="LIGHT">

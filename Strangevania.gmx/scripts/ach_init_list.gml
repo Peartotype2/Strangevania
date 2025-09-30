@@ -4,15 +4,15 @@ ach_register("firstkill", "First Blood", ach_icon_firstkill,
 "Kill your first enemy.",
 true, 1, "PLAYER_KILLS");
 
-ach_register("warrior", "Warrior", ach_icon_firstkill,
+ach_register("warrior", "Warrior", ach_icon_warrior,
 "Kill 100 enemies.",
 true, 100, "PLAYER_KILLS", a1(50, 75));
 
-ach_register("hunter", "Monster Hunter", ach_icon_firstkill,
+ach_register("hunter", "Monster Hunter", ach_icon_hunter,
 "Kill 500 enemies.",
 true, 500, "PLAYER_KILLS", a1(200, 300, 400));
 
-ach_register("champion", "Champion", ach_icon_firstkill,
+ach_register("champion", "Champion", ach_icon_champion,
 "Kill 1000 enemies.",
 true, 1000, "PLAYER_KILLS", a1(700, 900));
 
