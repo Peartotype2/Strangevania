@@ -10,6 +10,6 @@ save_backup();
 scr_savegame(); //Save in the new encoded .dat format
 
 //file_delete(_file);
-file_rename(_file, _file+".old");
+file_rename(_file, string_replace(_file,".sav",".migrated"));
 
 

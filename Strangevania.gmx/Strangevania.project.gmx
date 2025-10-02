@@ -388,6 +388,7 @@
         <script>scripts\deathmsg_Execute.gml</script>
         <script>scripts\reload_Execute.gml</script>
         <script>scripts\exit_Execute.gml</script>
+        <script>scripts\forcequit_Execute.gml</script>
         <script>scripts\error_Execute.gml</script>
         <script>scripts\vieww_Execute.gml</script>
         <script>scripts\viewh_Execute.gml</script>
@@ -608,6 +609,7 @@
       <script>scripts\save_backup.gml</script>
       <script>scripts\save_migrate.gml</script>
       <script>scripts\save_get_comparator.gml</script>
+      <script>scripts\save_get_last_backup.gml</script>
       <script>scripts\save_check_mismatch.gml</script>
     </scripts>
     <scripts name="Utility">

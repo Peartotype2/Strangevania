@@ -29,6 +29,8 @@
 game_subversion = "";
 game_calculate_subversion();
 
+exitWithoutSaving = true;
+
 holiday = "NONE";
 CalculateHolidays();
 
@@ -177,12 +179,10 @@ sfx_loaded = false;
 
 global.skipIntroOnce = false;
 
-save_migrate("save0.sav"); //Old file format was .sav (New is .dat)
-
 save_check_mismatch();
 
 scr_loadconfig();
-scr_loadgame();
+//scr_loadgame(); //Moved to Alarm[1]
 if res_id == -1 {res_id = res_monitor_max-2;}
 
 showHiddenStats = stat_get("CHEATS_ENABLED");
@@ -229,7 +229,7 @@ bw_posx = 0;
 bw_posy = 0;
 bw_canmove = false;
 
-alarm[1] = 15; //room_goto_next(); and audiogroup loads
+alarm[1] = 20; //room_goto_next(); and audiogroup loads and LoadGame script
 </string>
           </argument>
         </arguments>
@@ -252,7 +252,9 @@ alarm[1] = 15; //room_goto_next(); and audiogroup loads
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto_next();
+            <string>scr_loadgame();
+exitWithoutSaving = false;
+room_goto_next();
 audio_group_load(ag_sfx);
 audio_group_load(ag_voices);
 audio_group_load(ag_music_mainmenu);
@@ -639,9 +641,14 @@ else
           <argument>
             <kind>1</kind>
             <string>discord_presence_shutdown();
-scr_saveconfig();
-scr_savegame();
-save_backup();
+
+if !exitWithoutSaving
+{
+    scr_saveconfig();
+    scr_savegame();
+    save_backup();
+}
+else {exit;}
 
 if variable_instance_exists(id, "fatalcrash") then exit;
 
@@ -787,8 +794,69 @@ if key_screenshot
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room == init
+            <string>if room == directorInit
 {
+    var _oldSaveFile = file_find_first("*.sav", 0);
+    if _oldSaveFile != ""
+    {
+        if alarm[1] == 19 {print("OLD .SAV FILE DETECTED!!");}
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_font(font_changelog);
+        var str = "Old save file ("+_oldSaveFile+") detected.#Do you want to migrate this save?#(Press Y/N)#WARNING: This will overwrite your current save.";
+        draw_text_transformed(vieww/2, viewh/2, str, 0.25, 0.25, 0);
+        
+        var _choice = "none";
+        if keyboard_check_released(ord('N')) {_choice = "skip";}
+        else if keyboard_check_released(ord('Y')) {_choice = "migrate";}
+
+        
+        if _choice == "migrate" {save_migrate(_oldSaveFile);}
+        if _choice == "skip" {file_rename(_oldSaveFile, string_replace(_oldSaveFile,".sav",".old"));}
+        if _choice == "none" {alarm[1] = 18;} //Freeze alarm so it doesn't continue onto init loading
+    }
+    else if director.saveMismatch
+    {
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_font(font_changelog);
+        var str = "WARNING!#Current save file does not match your last backup#Do you want to load your last backup?#(Press Y/N)";
+        draw_text_transformed(vieww/2, viewh/2, str, 0.25, 0.25, 0);
+        
+        var _choice = "none";
+        if keyboard_check_released(ord('N')) {_choice = "skip";}
+        else if keyboard_check_released(ord('Y')) {_choice = "backup";}
+
+        
+        if _choice == "backup" 
+        {
+                date_set_timezone(timezone_local);
+                var date = date_current_datetime()
+                var time = date_datetime_string(date);
+                
+                time = string_replace_all(time, "/", "_");
+                time = string_replace_all(time, ":", ".");
+                time = string_replace_all(time, " ", "_");
+                
+                file_rename(SAVE_FILE_NAME, "MISMATCH"+time+"_"+SAVE_FILE_NAME);
+                file_copy(save_get_last_backup(), SAVE_FILE_NAME);
+                director.saveMismatch = false;
+        }
+        
+        if _choice == "skip" 
+        {
+            director.saveMismatch = false;
+        }
+        
+        if _choice == "none" {alarm[1] = 18;} //Freeze alarm so it doesn't continue onto init loading
+    }
+}
+
+if room == init
+{
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+
     var str = "Loading"
     var len = string_width(str);
     var height = string_height(str);
