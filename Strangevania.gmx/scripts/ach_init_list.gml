@@ -51,16 +51,16 @@ ach_register("burnout", "Burnout", ach_icon_hidden,
 true, 999, "PLAYER_CANDLES_BROKEN", a1(100, 250, 500, 750, 900));
 
 ach_register("longname", "An achievement with longname", ach_icon_hidden,
-"This is definitely an achievement that has a long name.");
+"This is definitely an achievement that has a long name. Haha I LOVE long names and descriptions for my achievements!");
 
 ach_register("achwhore", "Achievement Whore", ach_icon_hidden,
 "Unlock every achievement. You whore.",
 true, achievement_count, "NONE", milestoneList(achievement_count, 10));
 
-var _count = 37;
+/*var _count = 37;
 for(i=0;i<_count;i++)
 {
     ach_register("test" + string(achievement_count), "Test " + string(achievement_count), ach_icon_blank,
  "Testing achievements is fun.");
-}
+}*/
 
