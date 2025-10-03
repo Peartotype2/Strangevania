@@ -632,6 +632,7 @@
       <script>scripts\num_separator.gml</script>
       <script>scripts\string_is_real.gml</script>
       <script>scripts\value_in_array.gml</script>
+      <script>scripts\milestoneList.gml</script>
     </scripts>
     <scripts name="misc">
       <script>scripts\a1.gml</script>
