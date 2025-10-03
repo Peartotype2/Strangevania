@@ -11,3 +11,5 @@ for(i=0;i<achievement_count;i++)
 }
 
 achievements_unlocked = count;
+
+ach_set_progress("achwhore", count)

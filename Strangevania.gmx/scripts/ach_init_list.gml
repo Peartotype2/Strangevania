@@ -53,8 +53,9 @@ true, 999, "PLAYER_CANDLES_BROKEN", a1(100, 250, 500, 750, 900));
 ach_register("longname", "An achievement with longname", ach_icon_hidden,
 "This is definitely an achievement that has a long name.");
 
-ach_register("longname2", "The one billy bob guy thing yes", ach_icon_hidden,
-"This is definitely an achievement that has a long name as well I hope I can make the code fit it all.");
+ach_register("achwhore", "Achievement Whore", ach_icon_hidden,
+"Unlock every achievement. You whore.",
+true, achievement_count, "NONE", milestoneList(achievement_count, 10));
 
 var _count = 37;
 for(i=0;i<_count;i++)
