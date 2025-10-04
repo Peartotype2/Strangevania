@@ -74,7 +74,7 @@ for(i=0;i<_total;i++)
         case 9:
             _c = 1500;
             _l = true
-            var _achname = "champion";
+            var _achname = "vanquisher";
             event_register_script(_achname+"_awarded", "skindex_"+string(i), style_unlock, i, _achname);
         break;
         

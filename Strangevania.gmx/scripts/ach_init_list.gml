@@ -12,7 +12,7 @@ ach_register("hunter", "Monster Hunter", ach_icon_hunter,
 "Kill 500 enemies.",
 true, 500, "PLAYER_KILLS", a1(200, 300, 400));
 
-ach_register("champion", "Champion", ach_icon_champion,
+ach_register("vanquisher", "Vanquisher", ach_icon_vanquisher,
 "Kill 1000 enemies.",
 true, 1000, "PLAYER_KILLS", a1(700, 900));
 
