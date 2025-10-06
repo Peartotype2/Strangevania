@@ -15,6 +15,7 @@ if stat_get("CHEATS_ENABLED")
     exit;
 }
 
+var _currentProgress = _ach[? "progress"];
 var _total = _ach[? "progresstotal"];
 var _id = _ach[? "id"];
 var _showprogress = _ach[? "showprogress"];
@@ -25,7 +26,7 @@ if _popup == -1 and _amt < _total and _showprogress
     var len = array_length_1d(_miles);
     for(i=0;i<len;i++)
     {
-        if _amt == _miles[i]
+        if _amt >= _miles[i] and _currentProgress < _miles[i]
         {
             _popup = true;
             break;

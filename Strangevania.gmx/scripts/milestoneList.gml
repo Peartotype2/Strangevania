@@ -1,4 +1,4 @@
-///milestoneList(goal, stepSize, [minValue])
+///milestoneList(goal, stepSize, [startValue])
 
 var goal        = argument[0];
 var step        = argument[1]
