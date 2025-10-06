@@ -682,7 +682,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="37">
+    <constants number="38">
       <constant name="STAIR_START">234111</constant>
       <constant name="STAIR_RIGHT">234001</constant>
       <constant name="STAIR_LEFT">-234001</constant>
@@ -705,7 +705,8 @@
       <constant name="WEP_WATCH">98505</constant>
       <constant name="window_mouse_x">window_mouse_get_x()</constant>
       <constant name="window_mouse_y">window_mouse_get_y()</constant>
-      <constant name="achievements_unlocked">achievementmanager.unlocked_count</constant>
+      <constant name="achievement_unlocked_list">achievementmanager.ach_unlocked_list</constant>
+      <constant name="achievement_unlocked_count">achievementmanager.unlocked_count</constant>
       <constant name="achievement_count">achievementmanager.ach_count</constant>
       <constant name="achievement_list">achievementmanager.ach_list</constant>
       <constant name="achievement_queue">achievementmanager.ach_queue</constant>

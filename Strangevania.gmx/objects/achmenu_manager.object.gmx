@@ -311,7 +311,7 @@ draw_sprite(infospr, 0, infox, infoy);
 var count_x = infox + infow/2;
 var count_y = infoy-5;
 
-var str = string(achievements_unlocked) + "/" + string(achievement_count);
+var str = string(achievement_unlocked_count) + "/" + string(achievement_count);
 var def_scale = 1
 var str_scale = def_scale;
 

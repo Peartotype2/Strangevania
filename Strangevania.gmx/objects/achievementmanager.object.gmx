@@ -34,6 +34,8 @@ ach_count = 0;
 ach_init_list();
 print("ACHIEVEMENT_MANAGER: 'List Initialized' ");
 
+ach_unlocked_list = ds_list_create();
+
 ach_queue = ds_queue_create();
 
 unlocked_count = 0;
