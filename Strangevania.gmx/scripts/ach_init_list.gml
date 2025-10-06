@@ -10,15 +10,15 @@ true, 100, "PLAYER_KILLS", a1(50, 75));
 
 ach_register("hunter", "Monster Hunter", ach_icon_hunter,
 "Kill 500 enemies.",
-true, 500, "PLAYER_KILLS", a1(200, 300, 400));
+true, 500, "PLAYER_KILLS", milestoneList(500, 100, 100));//a1(200, 300, 400));
 
 ach_register("vanquisher", "Vanquisher", ach_icon_vanquisher,
 "Kill 1000 enemies.",
-true, 1000, "PLAYER_KILLS", a1(700, 900));
+true, 1000, "PLAYER_KILLS", a1(769));
 
 ach_register("warlord", "Warlord", ach_icon_warlord,
 "Kill 5000 enemies.",
-true, 5000, "PLAYER_KILLS", a1(1500, 2000, 2500, 3000, 3500, 4000, 4500));
+true, 5000, "PLAYER_KILLS", milestoneList(5000, 500, 1000));
 
 ach_register("holybbq", "Holy BBQ", ach_icon_holybbq,
 "Cook up some BBQ with holy fire.");
@@ -36,19 +36,19 @@ false, director.skin_index_max, "PLAYER_STYLES_OWNED");
 
 ach_register("exercise", "Good Exercise", ach_icon_exercise,
 "Take 500 steps up or down stairs.",
-true, 500, "PLAYER_STAIRS_CLIMBED", a1(100, 200, 300, 400));
+true, 500, "PLAYER_STAIRS_CLIMBED", milestoneList(500, 100));
 
 ach_register("rocky", "Rocky", ach_icon_rocky,
 "Take 1000 steps up or down stairs.",
-true, 1000, "PLAYER_STAIRS_CLIMBED", a1(600, 700, 800, 900));
+true, 1000, "PLAYER_STAIRS_CLIMBED", milestoneList(1000, 100, 500));
 
 ach_register("casanova", "Casanova", ach_icon_fashion,
 "Collect 1000 hearts.",
-true, 1000, "PLAYER_HEARTS_COLLECTED", a1(100, 250, 500, 750, 900));
+true, 1000, "PLAYER_HEARTS_COLLECTED", milestoneList(1000, 250));
 
 ach_register("burnout", "Burnout", ach_icon_hidden,
 "Destroy 999 candles.",
-true, 999, "PLAYER_CANDLES_BROKEN", a1(100, 250, 500, 750, 900));
+true, 999, "PLAYER_CANDLES_BROKEN", milestoneList(1000, 250));
 
 ach_register("longname", "An achievement with longname", ach_icon_hidden,
 "This is definitely an achievement that has a long name. Haha I LOVE long names and descriptions for my achievements!");
