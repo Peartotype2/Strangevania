@@ -11,7 +11,7 @@ var _level = levelmanager.level_list[| _id]
 var _name           = _level[? "name"];
 var _displayname    = _level[? "displayname"];
 var _unlocked       = _level[? "unlocked"];
-var _rank           = _level[? "rank"];
+var _rating         = _level[? "rating"];
 var _score          = _level[? "score"];
 var _time           = _level[? "time"];
 
@@ -44,12 +44,26 @@ draw_text_transformed_colour(xx+2, max(yy+(hh/hh_half), yy+(string_height(_displ
     
 if _selected
 {
+    //Draw letter grade for rating
+    if _rating > 0
+    {
+        var _rank = level_calc_grade(_rating)
+        var _sprScale = 0.25;
+        var _sprW = sprite_get_width(spr_lettergrade)*_sprScale;
+        var _sprH = sprite_get_width(spr_lettergrade)*_sprScale;
+        var _sprHscale = percent(h_off, 0, 16);
+        draw_sprite_ext(spr_lettergrade, _rank, xx+ww-(_sprW/2), yy+(_sprH/2)-16+h_off, _sprScale, _sprScale*_sprHscale,
+         0, c_white, (0.55*percent(h_off, 8, 16)*menu_alpha))
+        //print("RATING: ", _rating, " RANK: ", _rank); //DEV DEBUG REMOVE LATER
+    }
+
     //draw_set_font(font_hud);
     var _score_scale = 0.50;
     var hstr = "HIGHSCORE";
     var hxoff = (string_width(hstr)*_score_scale) + 2;
     draw_text_transformed_colour(xx+1, yy+((hh/4)*3)+1, hstr, _score_scale, _score_scale, 0,
     c_orange, c_orange, c_yellow, c_yellow, menu_alpha);
+
     
     //draw_set_font(font_hud)
     draw_text_transformed_colour(xx+1+hxoff, yy+((hh/4)*3)+1, string(_score), _score_scale, _score_scale, 0,

@@ -137,6 +137,7 @@
         <sprite>sprites\bp_left</sprite>
         <sprite>sprites\bp_right</sprite>
       </sprites>
+      <sprite>sprites\spr_lettergrade</sprite>
       <sprite>sprites\spr_timeclock</sprite>
       <sprite>sprites\spr_song</sprite>
     </sprites>
@@ -501,10 +502,17 @@
       <script>scripts\level_get_rooms.gml</script>
       <script>scripts\level_get_from_room.gml</script>
       <script>scripts\level_set_score.gml</script>
+      <script>scripts\level_set_rating.gml</script>
       <script>scripts\level_set_time.gml</script>
       <script>scripts\level_set_unlocked.gml</script>
       <script>scripts\level_get_score.gml</script>
+      <script>scripts\level_get_rating.gml</script>
       <script>scripts\level_get_time.gml</script>
+      <script>scripts\level_get_par_score.gml</script>
+      <script>scripts\level_get_par_time.gml</script>
+      <script>scripts\level_calc_rating.gml</script>
+      <script>scripts\level_update_ratings.gml</script>
+      <script>scripts\level_calc_grade.gml</script>
       <script>scripts\room_is_level.gml</script>
     </scripts>
     <scripts name="Settings Manager">

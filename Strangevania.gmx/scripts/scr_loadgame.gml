@@ -24,13 +24,15 @@ if (file_exists(SAVE_FILE_NAME))
                 var _templevel = ds_map_create();
                 ds_map_read(_templevel, _read);
                 _level[? "unlocked"] = _templevel[? "unlocked"];
-                _level[? "score"] = _templevel[? "score"];
-                _level[? "time"] = _templevel[? "time"];
-                _level[? "rank"] = _templevel[? "rank"];
+                _level[? "score"]    = _templevel[? "score"];
+                _level[? "time"]     = _templevel[? "time"];
+                _level[? "rating"]   = _templevel[? "rating"];
+                _level[? "rank"]     = _templevel[? "rank"];
                 levelmanager.level_list[| l] = _level;
                 ds_map_destroy(_templevel);
             }
         }
+        level_update_ratings();
         
         //SKIN UNLOCKS
         for(i=0;i<director.skin_index_max;i++)

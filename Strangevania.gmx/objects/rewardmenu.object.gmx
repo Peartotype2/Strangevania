@@ -354,8 +354,20 @@ if firststep
     print("MONEY ADDED: " + string(finalmoney));
     var _highscore = level_get_score(level);
     var _lowtime = level_get_time(level);
-    if finalscore &gt; _highscore {level_set_score(level, finalscore);}
-    if timeTotal &lt; _lowtime {level_set_time(level, timeTotal);}
+    
+    level_update_ratings();
+    
+    //if finalscore &gt; _highscore {level_set_score(level, finalscore);}
+    //if timeTotal &lt; _lowtime {level_set_time(level, timeTotal);}
+    
+    var _newRating = level_calc_rating(level, finalscore, timeTotal);
+    if _newRating &gt; level_get_rating(level)
+    {
+        level_set_rating(level, _newRating);
+        level_set_score(level, finalscore);
+        level_set_time(level, timeTotal);
+    }
+    
     gamemanager.hearts = gamemanager.heartsDefault;
     
     if level != -1

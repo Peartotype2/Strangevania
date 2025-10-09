@@ -45,6 +45,8 @@ if settings.permadeath      then activeModifiers++;
 if settings.nowhips         then activeModifiers++;
 if settings.noweapons       then activeModifiers++;
 
+level_update_ratings();
+
 </string>
           </argument>
         </arguments>
