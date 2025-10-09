@@ -104,6 +104,7 @@ timeLeft = 0;
 time_num = timeLeft;
 time_numstring = string(time_num);
 
+newRating = 0;
 
 
 </string>
@@ -360,10 +361,10 @@ if firststep
     //if finalscore &gt; _highscore {level_set_score(level, finalscore);}
     //if timeTotal &lt; _lowtime {level_set_time(level, timeTotal);}
     
-    var _newRating = level_calc_rating(level, finalscore, timeTotal);
-    if _newRating &gt; level_get_rating(level)
+    newRating = level_calc_rating(level, finalscore, timeTotal);
+    if newRating &gt; level_get_rating(level)
     {
-        level_set_rating(level, _newRating);
+        level_set_rating(level, newRating);
         level_set_score(level, finalscore);
         level_set_time(level, timeTotal);
     }
@@ -538,7 +539,7 @@ if inputmanager.any_press and !inputBlock
 
 //Draw grey over bgr
 var _bgrAlpha = 1//0.5;
-draw_sprite_ext(spr_white_pixel, 0, -1, -1, room_width, room_height, 0, c_black, _bgrAlpha);
+draw_sprite_ext(spr_white_pixel, 0, -1, -1, room_width, room_height, 0, c_dkgray, _bgrAlpha);
 
 draw_set_font(font_menu);
 draw_set_valign(fa_top);
@@ -555,6 +556,13 @@ draw_text_transformed_colour(stagex, stagey, stage_name, stagescale, stagescale,
  
 draw_text_transformed_colour(stagex, stagey+14, "complete",
  stagescale-0.4, stagescale-0.4, 0, c_white, c_white, c_ltgray, c_ltgray, 1);
+
+//Draw letter grade from rating
+var _grade = level_calc_grade(newRating);
+var _gSprScale = 0.75;
+var _gSprW = sprite_get_width(spr_lettergrade)*_gSprScale;
+var _gSprH = sprite_get_height(spr_lettergrade)*_gSprScale;
+draw_sprite_ext(spr_lettergrade, _grade, vieww-(_gSprW/2), _gSprH/2, _gSprScale, _gSprScale, 0, c_white, 1);
 
 draw_set_font(font_hud);
 draw_set_valign(fa_top);
