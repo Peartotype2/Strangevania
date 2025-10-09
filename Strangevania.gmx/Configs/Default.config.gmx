@@ -682,7 +682,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="38">
+    <constants number="45">
       <constant name="STAIR_START">234111</constant>
       <constant name="STAIR_RIGHT">234001</constant>
       <constant name="STAIR_LEFT">-234001</constant>
@@ -721,6 +721,13 @@
       <constant name="GAME_FPS_10PCT">director.fps_10pct_low</constant>
       <constant name="DM_COUNT">deathmessage_manager.DeathMessage_Count</constant>
       <constant name="DM_LIST">deathmessage_manager.DeathMessage_List</constant>
+      <constant name="RANK_NONE">-1</constant>
+      <constant name="RANK_D">0</constant>
+      <constant name="RANK_C">1</constant>
+      <constant name="RANK_B">2</constant>
+      <constant name="RANK_A">3</constant>
+      <constant name="RANK_S">4</constant>
+      <constant name="RANK_SS">5</constant>
     </constants>
   </ConfigConstants>
 </Config>
