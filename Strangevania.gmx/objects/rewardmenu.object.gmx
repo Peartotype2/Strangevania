@@ -80,10 +80,10 @@ scoreModMult   = 0;
 scoreModFadeInc = 0.0333;
 scoreModAlpha = 0;
 
-if settings.onehit      { scoreModMult += 0.25;  }
-if settings.permadeath  { scoreModMult += 0.25;  }
-if settings.nowhips     { scoreModMult += 0.25;  }
-if settings.noweapons   { scoreModMult += 0.125; }
+if settings.onehit      { scoreModMult += 0.125;  }
+if settings.permadeath  { scoreModMult += 0.125;  }
+if settings.nowhips     { scoreModMult += 0.125;  }
+if settings.noweapons   { scoreModMult += 0.0625; }
 
 moneyamount = 0;
 money_num = moneyamount;
