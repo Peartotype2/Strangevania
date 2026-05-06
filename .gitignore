@@ -9,3 +9,4 @@ CreateRelease.ps1
 SendDiscordChangelog.ps1
 UpdateDiscordStatus.ps1
 RestartDiscordBot.ps1
+*.ps1
