@@ -201,6 +201,8 @@
       </sprites>
       <sprites name="Death">
         <sprite>sprites\portrait_death</sprite>
+        <sprite>sprites\portrait_death_happy</sprite>
+        <sprite>sprites\portrait_death_concerned</sprite>
       </sprites>
     </sprites>
     <sprites name="items">
