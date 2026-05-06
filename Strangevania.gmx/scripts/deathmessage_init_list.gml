@@ -14,6 +14,15 @@ deathmessage_register(_tags, true, _text, portrait_bright, snd_voice7);
 var _text = "#Try again. This time will be different.";
 deathmessage_register(_tags, true, _text, portrait_empty, snd_voice3);
 
+
+
+// HEY YOU, YEAH YOU!
+//The below messages were move into their individual character objects!
+
+
+
+/*
+
 //////////////////////
 // --BAD MESSAGES-- //
 //////////////////////
@@ -36,6 +45,18 @@ var _text = "#You humans should learn when you're beaten. ";
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
 
 var _text = "#Pitiful. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#You will never beat me. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Did you really think that you were good enough? ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Fool. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Still trying? ";
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.5, 1.25, _pitchMin, _pitchMax);
 
 /////////////////////////////////////////////////////////
@@ -71,6 +92,15 @@ var _text = "#It's almost impressive.. #How you manage to snatch defeat from the
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
 
 var _text = "#So, tell me, what's your excuse this time? #Did your fingers suddenly develop a mind of their own, #or did you just forget how to press buttons?";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Jeez Arthur, if I were you I'd be VERY mad about that one. #Good thing I'm not! ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Wait, wait, can you go die again I wasn't watching! ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#ZzZzZzZzZzZz... Your performance is putting me to sleep man. ";
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
 
 

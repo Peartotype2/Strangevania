@@ -93,7 +93,10 @@ deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pit
 var _text = "#Wait, wait, can you go die again I wasn't watching! ";
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
 
-var _text = "#ZzZzZzZzZzZz... Your performance is putting me to sleep man. ";
+var _text = "#ZzZzZzZzZ... Your performance is putting me to sleep man. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#So close... But actually not. It's like, really really far. ";
 deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
 
 </string>
