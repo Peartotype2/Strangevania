@@ -34,6 +34,72 @@ pitchMax    = 1.20;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DEATH MESSAGES LIST
+
+/////////////////////////////////////////////////////////
+//DEATH//////////////////////////////////////////////////
+var _tags       = a1("bad", "death")
+var _voice      = char_death.voice;
+var _portrait   = char_death.portrait
+var _pitchMin   = char_death.pitchMin;
+var _pitchMax   = char_death.pitchMax;
+
+var _text = "#On your face again? Maybe you should give it a rest. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#You're not too good at this huh..........#Guess not. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#How did you even make it this far? ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Oh, you died again? I didn't notice. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#You know, if losing was an Olympic sport, you'd be a gold medalist by now. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Did you lose your last life or your last brain cell? #Hard to tell with you. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#I have to hand it to you, Arthur. You're consistent. #Consistently bad. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#It's almost impressive.. #How you manage to snatch defeat from the jaws of victory every single time. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#So, tell me, what's your excuse this time? #Did your fingers suddenly develop a mind of their own, #or did you just forget how to press buttons?";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Jeez Arthur, if I were you I'd be VERY mad about that one. #Good thing I'm not! ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#Wait, wait, can you go die again I wasn't watching! ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+var _text = "#ZzZzZzZzZzZz... Your performance is putting me to sleep man. ";
+deathmessage_register(_tags, true, _text, _portrait, _voice, 2, 0.65, 1.25, _pitchMin, _pitchMax);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
