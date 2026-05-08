@@ -357,6 +357,7 @@ game_height = res_array[res_id, 1];
 UpdateGameFPS();
 
 key_screenshot = keyboard_check_released(vk_f12);
+if key_screenshot {audio_play_sound(snd_screenshot, 0, 0);}
 
 if hideMouse
 {
