@@ -187,8 +187,6 @@ scr_loadconfig();
 //scr_loadgame(); //Moved to Alarm[1]
 if res_id == -1 {res_id = res_monitor_max-2;}
 
-showHiddenStats = stat_get("CHEATS_ENABLED");
-
 res_text = (string(res_array[res_id,0]) + "x" + string(res_array[res_id,1]))
 game_width = res_array[res_id, 0];
 game_height = res_array[res_id, 1];
@@ -255,6 +253,7 @@ alarm[1] = 20; //room_goto_next(); and audiogroup loads and LoadGame script
           <argument>
             <kind>1</kind>
             <string>scr_loadgame();
+showHiddenStats = stat_get("CHEATS_ENABLED");
 exitWithoutSaving = false;
 room_goto_next();
 audio_group_load(ag_sfx);
