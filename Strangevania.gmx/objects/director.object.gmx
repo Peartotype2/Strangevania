@@ -773,16 +773,37 @@ if !stat_get("FINISHED_GAME")
         _color, _color, _color, _color, _alpha);
         
         
-        
+    //////////////////////////////////////
     //DEBUG DEV REMOVE LATER LAG SIMULATOR
+    //////////////////////////////////////
     if keyboard_check(vk_lcontrol)
     {
+        if keyboard_check_pressed(vk_lcontrol)
+        {
+            _lagSwitchDefault   = 40000;
+            _lagSwitchAmount    = _lagSwitchDefault;
+        }
+    
+        var _lagIncrement = 10000;
+        if mouse_wheel_up() {_lagSwitchAmount += _lagIncrement;}
+        if mouse_wheel_down() {_lagSwitchAmount -= _lagIncrement;}
+        _lagSwitchAmount = max(_lagSwitchAmount, 0);
+    
         var _i, _max;
-        _max = 20000; // Increase this for more lag
+        _max = _lagSwitchAmount; // Increase this for more lag
         for (_i = 0; _i &lt; _max; _i++) {
             // Just loop to waste time
             var _temp = sqrt(_i); // Do something meaningless
         }
+        
+        var _line1          = "DEBUG LAG SWITCH WHILE HOLDING LEFT CONTROL!! ";
+        var _str            = string_all(_line1, percent_whole(_lagSwitchAmount, 0, _lagSwitchDefault), "%");
+        var _scale          = 3;
+        var _color          = iif((current_time div 250)%2, c_red, c_maroon);
+        var _color2         = iif((current_time div 250)%2, c_red, c_maroon);
+        var _alpha          = 1;
+        draw_text_transformed_colour(2, 65, _str, _scale, _scale, 0,
+            _color, _color, _color2, _color2, _alpha);
     }
 }
 </string>
