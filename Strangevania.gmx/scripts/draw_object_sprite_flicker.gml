@@ -2,7 +2,7 @@
 //ObjID defaults to whatever object is calling the script
 
 var _obj = id;
-if argument_count > 0 then _obj = argument[1];
+if argument_count > 0 then _obj = argument[0];
 
 with _obj
 {
