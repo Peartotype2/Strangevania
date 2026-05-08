@@ -640,6 +640,7 @@
       <script>scripts\draw_sprite_alpha.gml</script>
       <script>scripts\string_split.gml</script>
       <script>scripts\percent.gml</script>
+      <script>scripts\percent_whole.gml</script>
       <script>scripts\num_separator.gml</script>
       <script>scripts\string_is_real.gml</script>
       <script>scripts\value_in_array.gml</script>
