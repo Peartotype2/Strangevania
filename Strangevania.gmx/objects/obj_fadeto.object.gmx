@@ -217,7 +217,7 @@ if alpha &gt; 0 &amp;&amp; fadein
     alpha -= inc;
 }
 
-if alpha == 0 &amp;&amp; fadein {instance_destroy();}
+if alpha &lt;= 0 &amp;&amp; fadein {instance_destroy();}
 
 </string>
           </argument>
