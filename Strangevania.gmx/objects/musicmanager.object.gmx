@@ -289,21 +289,22 @@ else
     var _spriteScale = 0.25;
     
     var _yoff = (viewh)
+    var _xoff = 0;
     if songMenu {_yoff = sprite_get_height(spr_song)*_spriteScale+5}
-    if settingsMenu {_yoff = (viewh -(sprite_get_height(spr_song)*_spriteScale+5))}
+    if settingsMenu {_xoff = -50}//_yoff = (viewh -(sprite_get_height(spr_song)*_spriteScale+5))}
     
     var _textScale = 0.5;
-    draw_text_transformed_colour(viewx+vieww-17+0.5,viewy+_yoff-10+0.5, _title, _textScale, _textScale, 0,
+    draw_text_transformed_colour(viewx+vieww-17+0.5+_xoff,viewy+_yoff-10+0.5, _title, _textScale, _textScale, 0,
         c_black, c_black, c_black, c_black, song_alpha)
-    draw_text_transformed_colour(viewx+vieww-17,viewy+_yoff-10, _title, _textScale, _textScale, 0,
+    draw_text_transformed_colour(viewx+vieww-17+_xoff,viewy+_yoff-10, _title, _textScale, _textScale, 0,
         c_white, c_white, c_ltgray, c_ltgray, song_alpha)
         
-    draw_text_transformed_colour(viewx+vieww-17+0.5,viewy+_yoff-4+0.5, _artist, _textScale, _textScale, 0,
+    draw_text_transformed_colour(viewx+vieww-17+0.5+_xoff,viewy+_yoff-4+0.5, _artist, _textScale, _textScale, 0,
         c_black, c_black, c_black, c_black, song_alpha)
-    draw_text_transformed_colour(viewx+vieww-17,viewy+_yoff-4, _artist, _textScale, _textScale, 0,
+    draw_text_transformed_colour(viewx+vieww-17+_xoff,viewy+_yoff-4, _artist, _textScale, _textScale, 0,
         c_ltgray, c_ltgray, c_gray, c_gray, song_alpha)
         
-    draw_sprite_ext(spr_song, 0, viewx+vieww+0, viewy+_yoff-1, _spriteScale, _spriteScale, 0, c_white, song_alpha);
+    draw_sprite_ext(spr_song, 0, viewx+vieww+0+_xoff, viewy+_yoff-1, _spriteScale, _spriteScale, 0, c_white, song_alpha);
         
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
