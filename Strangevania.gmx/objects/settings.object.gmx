@@ -34,10 +34,12 @@ setting_register("oldmenu", "Original Main Menu", 0, a1("Off", "On"), "FINISHED_
 setting_register("enableconsole", "Enable Console", 0, a1("Disabled", "Enabled"), "CHEATS_ENABLED");
 //setting_register("keyboardlayout", "Keyboard Layout", 1, a1("WASD", "Arrows Keys"));
 //setting_register("crtmode", "CRT Mode", 1, a1("Disabled", "Enabled"));
+setting_register("gamepadtype", "Gamepad Type", 0, a1("XBox", "Playstation", "Switch"));
+setting_register("lowscreenshot", "Lo-Res Screenshot", 0, a1("Disabled", "Enabled"));
 setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"));
 setting_register("spriteflicker", "Sprite Flicker", 1, a1("Disabled", "Enabled"));
 setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"));
-setting_register("gamepadtype", "Gamepad Type", 1, a1("XBox", "Playstation", "Switch"));
+//setting_register("gamepadtype", "Gamepad Type", 1, a1("XBox", "Playstation", "Switch"));
 setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabled"));
 setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"));
 

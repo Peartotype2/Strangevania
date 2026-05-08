@@ -692,15 +692,32 @@ if !stat_get("FINISHED_GAME")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//key_screenshot = keyboard_check_released(vk_f12);
-
-if key_screenshot
+            <string>if key_screenshot and instance_exists(settings)
 {
     var time = date_get_string();
     
+    if !settings.lowscreenshot
+    {
+        screen_save(working_directory + "screenshots\strangevania_" + time + ".png");
+    }
+    else
+    {
+        var _low_w = 1280; 
+        var _low_h = 720;
+        
+        var _surf = surface_create(_low_w, _low_h);
+        surface_set_target(_surf);
+        draw_clear(c_black);
+        draw_set_colour_write_enable(true, true, true, false);
+        draw_surface_stretched(application_surface, 0, 0, _low_w, _low_h);
+        draw_set_colour_write_enable(true, true, true, true);
+        surface_reset_target();
+        var _filename = working_directory + "screenshots\strangevania_" + time + ".png";
+        surface_save(_surf, _filename);
+        surface_free(_surf);
+    }
     
-    audio_play_sound(snd_screenshot, 0, 0);
-    screen_save(working_directory + "screenshots\strangevania_" + time + ".png");
+    print("Screenshot taken: " + "strangevania_"+time+".png");
 }
 
 </string>
