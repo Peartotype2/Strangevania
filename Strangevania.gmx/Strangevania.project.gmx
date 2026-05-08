@@ -682,6 +682,7 @@
       <script>scripts\string_split_unicode.gml</script>
       <script>scripts\is_float.gml</script>
     </scripts>
+    <script>scripts\date_get_string.gml</script>
     <script>scripts\CalculateHolidays.gml</script>
     <script>scripts\DoorCutsceneInfo.gml</script>
     <script>scripts\DoorCutsceneInfo_BACKUP.gml</script>

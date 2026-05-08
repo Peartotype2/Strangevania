@@ -101,13 +101,7 @@ while (_er != "")
             <kind>1</kind>
             <string>if ds_list_empty(errorLog) then exit;
 
-date_set_timezone(timezone_local);
-var date = date_current_datetime()
-var time = date_datetime_string(date);
-
-time = string_replace_all(time, "/", "_");
-time = string_replace_all(time, ":", ".");
-time = string_replace_all(time, " ", "_");
+var time = date_get_string();
 
 var total = ds_list_size(errorLog);
 

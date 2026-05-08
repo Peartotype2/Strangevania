@@ -25,15 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*date_set_timezone(timezone_local);
-var date = date_current_datetime()
-var time = date_datetime_string(date);
-
-time = string_replace_all(time, "/", "_");
-time = string_replace_all(time, ":", ".");
-time = string_replace_all(time, " ", "_");*/
-
-debugLogFilename = working_directory + "logs/GAME-LOG-CURRENT.txt";
+            <string>debugLogFilename = working_directory + "logs/GAME-LOG-CURRENT.txt";
 debugLogFile = file_text_open_write(debugLogFilename);
 file_text_close(debugLogFile);
 

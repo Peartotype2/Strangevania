@@ -694,18 +694,11 @@ if !stat_get("FINISHED_GAME")
 
 if key_screenshot
 {
-    date_set_timezone(timezone_local);
-    var date = date_current_datetime()
-    var time = date_datetime_string(date);
+    var time = date_get_string();
     
-    time = string_replace_all(time, "/", "_");
-    time = string_replace_all(time, ":", ".");
-    time = string_replace_all(time, " ", "_");
     
     audio_play_sound(snd_screenshot, 0, 0);
     screen_save(working_directory + "screenshots\strangevania_" + time + ".png");
-    print("Screenshot taken: " + time);
-    //date_set_timezone(timezone_utc)
 }
 
 </string>
@@ -831,15 +824,9 @@ if key_screenshot
         
         if _choice == "backup" 
         {
-                date_set_timezone(timezone_local);
-                var date = date_current_datetime()
-                var time = date_datetime_string(date);
+                var time = date_get_string();
                 
-                time = string_replace_all(time, "/", "_");
-                time = string_replace_all(time, ":", ".");
-                time = string_replace_all(time, " ", "_");
-                
-                file_rename(SAVE_FILE_NAME, "MISMATCH"+time+"_"+SAVE_FILE_NAME);
+                file_rename(SAVE_FILE_NAME, "MISMATCH-"+time+"_"+SAVE_FILE_NAME);
                 file_copy(save_get_last_backup(), SAVE_FILE_NAME);
                 director.saveMismatch = false;
         }
