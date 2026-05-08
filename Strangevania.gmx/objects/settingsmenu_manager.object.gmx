@@ -267,8 +267,8 @@ draw_set_halign(fa_center);
 var _id = 0;
 var _x = surf_w/2//viewx+vieww/2;
 var _y = _h+_spacing+8//surf_h/2//viewy+viewh/2;
-var surf_x = (viewx+vieww/2)-surf_w/8;
-var surf_y = (viewy+viewh/2)-16//-surf_h/12;
+var surf_x = (viewx+16); //(viewx+vieww/2)-surf_w/8;
+var surf_y = (viewy+viewh/2)-24//-surf_h/12;
 //var _w = 152;
 //var _h = 8;
 
@@ -308,7 +308,7 @@ surface_reset_target();
 //draw_sprite_stretched_ext(spr_white_pixel, 0, (viewx+vieww/2)-(152/2)-_bord, (viewy+viewh/2)-16-_bord, 152+(_bord*2), 86+(_bord*2),
 //    c_dkgray, 0.25*menu_alpha);
 draw_surface_ext(surf, surf_x, surf_y, 0.25, 0.25, 0, c_white, 1);
-
+    
 //Draw back button prompt
 var bp_scale = (1/16)*3;
 draw_text_transformed_colour(viewx+vieww-22, viewy+viewh-12, "Back", 0.75, 0.75, 0,
@@ -316,6 +316,31 @@ draw_text_transformed_colour(viewx+vieww-22, viewy+viewh-12, "Back", 0.75, 0.75,
 draw_sprite_ext(bp_back_lt, inputmanager.control_type, viewx+vieww-12, viewy+viewh-12,
     bp_scale, bp_scale, 0, c_white, menu_alpha);
 
+    
+//Draw Settings Descriptions Box
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+var _curSetting     = settings.visibleList[| pos];
+var _descText       = _curSetting[? "desc"];
+var _descTextAlpha  = 1;
+var _descTextScale  = 0.5;
+
+var _descX = viewx+200;
+var _descY = viewy+64;
+var _descW = 92;
+var _descH = 88;
+var _descA = 0.45;
+
+var _descPad = 2;
+
+draw_sprite_stretched_ext(spr_black, 0, _descX, _descY, _descW, _descH, c_white, _descA);
+
+_descText = string_wordwrap_width(_descText, _descW-_descPad, "#", false, _descTextScale);
+draw_text_ext_transformed_colour(_descX+_descPad+0.5, _descY+_descPad+0.5, _descText, 10, -1, _descTextScale, _descTextScale, 0,
+    c_black, c_black, c_black, c_black, menu_alpha*_descTextAlpha);
+draw_text_ext_transformed_colour(_descX+_descPad, _descY+_descPad, _descText, 10, -1, _descTextScale, _descTextScale, 0,
+    c_white, c_white, c_white, c_white, menu_alpha*_descTextAlpha);
 
 //Reset draw values
 draw_set_halign(fa_left);

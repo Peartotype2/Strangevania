@@ -30,55 +30,74 @@ visibleCount = 0;
 list = ds_list_create();
 visibleList = ds_list_create();
 
-setting_register("oldmenu", "Original Main Menu", 0, a1("Off", "On"), "FINISHED_GAME", "Extras");
-setting_register("enableconsole", "Enable Console", 0, a1("Disabled", "Enabled"), "CHEATS_ENABLED");
+setting_register("oldmenu", "Original Main Menu", 0, a1("Off", "On"), "DESCRIPTION", "FINISHED_GAME", "Extras");
+setting_set_desc("oldmenu", "Enables the default main menu instead of the post ending menu");
+
+setting_register("enableconsole", "Enable Console", 0, a1("Disabled", "Enabled"), "DESCRIPTION", "CHEATS_ENABLED");
+setting_set_desc("enableconsole", "Enables using the console by pressing '~'");
+
 //setting_register("keyboardlayout", "Keyboard Layout", 1, a1("WASD", "Arrows Keys"));
 //setting_register("crtmode", "CRT Mode", 1, a1("Disabled", "Enabled"));
-setting_register("gamepadtype", "Gamepad Type", 0, a1("XBox", "Playstation", "Switch"));
-setting_register("lowscreenshot", "Lo-Res Screenshot", 0, a1("Disabled", "Enabled"));
-setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"));
-setting_register("spriteflicker", "Sprite Flicker", 1, a1("Disabled", "Enabled"));
-setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"));
-//setting_register("gamepadtype", "Gamepad Type", 1, a1("XBox", "Playstation", "Switch"));
-setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabled"));
-setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"));
+
+setting_register("gamepadtype", "Gamepad Type", 0, a1("XBox", "Playstation", "Switch"), "DESC",);
+setting_set_desc("gamepadtype", "Changes button prompts to use your preferred gamepad");
+
+setting_register("lowscreenshot", "Lo-Res Screenshot", 0, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("lowscreenshot", "Makes screenshots 720p to avoid lag when taking them at full resolution");
+
+setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("stairfade", "When enabled the screen will quickly fade to black when transitioning levels through stairs
+#RECOMMENDED TO BE ENABLED");
+
+setting_register("spriteflicker", "Sprite Flicker", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("spriteflicker", "Causes sections of objects and enemies to flicker mimicking a visual bug from the original NES Castlevania
+#MAY HELP TO DISABLE IF YOU ARE HAVING PERFORMANCE ISSUES");
+
+setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("achpopup", "Toggles showing the popups in upper right when getting an achievement");
+
+setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("whipeffects", "Toggles certain visual effects certain whip skins have");
+
+setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
+setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
 
 //Modifiers
-setting_register("easyweapon", "Easy Weapon", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
-setting_register("onehit", "1 HP Mode", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
-setting_register("permadeath", "Perma Death", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
-setting_register("nowhips", "No Whips", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
-setting_register("noweapons", "No Weapons", 0, a1("- ", "ON"), "HIDDEN", "Modifiers");
+setting_register("easyweapon", "Easy Weapon", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
+setting_register("onehit", "1 HP Mode", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
+setting_register("permadeath", "Perma Death", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
+setting_register("nowhips", "No Whips", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
+setting_register("noweapons", "No Weapons", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
 
 //CRT Settings
-setting_register("crt_reset", "Reset To Defaults", 0, a1("", ""), "HIDDEN", "CRT");
-setting_register("oldtvfilter_enabled", "All Effects", 1, a1("Off", "ON"), "HIDDEN", "CRT");
+setting_register("crt_reset", "Reset To Defaults", 0, a1("", ""), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("oldtvfilter_enabled", "All Effects", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
 
-setting_register("scanline_enabled", "Scanlines", 1, a1("Off", "ON"), "HIDDEN", "CRT");
-setting_register("scanline_magnetude", "--Magnitude", 5, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("scanline_enabled", "Scanlines", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("scanline_magnetude", "--Magnitude", 5, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
 
-setting_register("television_enabled", "Screen", 1, a1("Off", "ON"), "HIDDEN", "CRT");
-setting_register("television_sharpness", "--Sharpness", 14, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
-setting_register("television_saturation", "--Saturation", 10, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
-setting_register("television_contrast", "--Contrast", 21, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
-setting_register("television_brightness", "--Brightness", 20, a2(-1.0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("television_enabled", "Screen", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("television_sharpness", "--Sharpness", 14, a2(-1.0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("television_saturation", "--Saturation", 10, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("television_contrast", "--Contrast", 21, a2(-1.0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("television_brightness", "--Brightness", 20, a2(-1.0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
 
-setting_register("composite_enabled", "Composite", 1, a1("Off", "ON"), "HIDDEN", "CRT");
-setting_register("composite_artifact", "--Artifact", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
-setting_register("composite_fringing", "--Fringing", 6, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
-setting_register("composite_bleeding", "--Bleed", 12, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
-//setting_register("noise_magnetude", "Noise Magnitude", 9, a2(-1.0, 1.0, 0.1), "HIDDEN", "CRT");
+setting_register("composite_enabled", "Composite", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("composite_artifact", "--Artifact", 2, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("composite_fringing", "--Fringing", 6, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("composite_bleeding", "--Bleed", 12, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
+//setting_register("noise_magnetude", "Noise Magnitude", 9, a2(-1.0, 1.0, 0.1), "DESCRIPTION", "HIDDEN", "CRT");
 
-setting_register("chromatic_enabled", "Chromatic Aberration", 1, a1("Off", "ON"), "HIDDEN", "CRT");
-setting_register("chromatic_magnetude", "--Magnitude", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("chromatic_enabled", "Chromatic Aberration", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("chromatic_magnetude", "--Magnitude", 2, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
 
-setting_register("tube_enabled", "Tube", 1, a1("Off", "ON"), "HIDDEN", "CRT");
-setting_register("tube_distortion", "--Distortion", 2, a2(0, 1.0, 0.05), "HIDDEN", "CRT");
+setting_register("tube_enabled", "Tube", 1, a1("Off", "ON"), "DESCRIPTION", "HIDDEN", "CRT");
+setting_register("tube_distortion", "--Distortion", 2, a2(0, 1.0, 0.05), "DESCRIPTION", "HIDDEN", "CRT");
 
 /*var _amt = 15;
 for(var j=0;j&lt;_amt;j++)
 {
-    setting_register("test"+string(j), "Test "+string(j), 1, a1("Disabled", "Enabled"));
+    setting_register("test"+string(j), "Test "+string(j), 1, a1("Disabled", "Enabled"), "DESCRIPTION");
 }*/
 
 settings_update();
