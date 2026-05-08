@@ -403,11 +403,20 @@ if firststep
         logoFade    = 0;
         bgrFade     = 0;
         pushFlicker = true;
-        titley      = -100;
+        titley      = viewh/4;//-100;
         alarm[3]    = 1;
         alarm[2]    = 1;
         alarm[11]   = 1;
         if alarm[4] &gt; 1 then alarm[4] = 1;
+        if instance_exists(obj_fadeto)
+        {
+            with obj_fadeto
+            {
+                //instance_destroy();
+                inc = 0.3;
+                //Makes the fade in really quick
+            }
+        }
         //global.skipIntroOnce = false;
     }
     global.skipIntroOnce = false;
@@ -478,6 +487,7 @@ titley = lerp(titley, viewh/4 + tyoffset, 0.1);
 tyoffset = min(tyoffsetdef*(bgrFade), 0);
 if menumanager.menu_level == menulevel.styles {tyoffset = tyoffsetdef;}//-24;}
 if menumanager.menu_level == menulevel.achievements {tyoffset = tyoffsetdef;}
+if menumanager.menu_level == menulevel.settingsmenu {tyoffset = -12;}
 
 var _amp = 0.5;
 draw_sprite_ext(titlesprite, titlestep, titlex, titley+(sin(tybounce)*_amp), 1, 1, 0, c_white, 1-(bgrFade));
