@@ -1,4 +1,4 @@
-///setting_register(name, displayname, default, choices[], [visibleStat, category, var])
+///setting_register(name, displayname, default, choices[], desc, [visibleStat, category, var])
 var arg_c = argument_count;
 
 var _id, _name, _displayname, _var, _default, _choices;
@@ -10,18 +10,20 @@ with settings
     _default        =   argument[2];
     _value          =   _default;
     _choices        =   argument[3];
+    _desc           =   argument[4];
     _visible        =   "NONE";
     _category       =   -1;
     _var            =   -1;
     
-    if arg_c > 4 then _visible  = argument[4];
-    if arg_c > 5 then _category = argument[5];
-    if arg_c > 6 then _var      = argument[6];
+    if arg_c > 5 then _visible  = argument[5];
+    if arg_c > 6 then _category = argument[6];
+    if arg_c > 7 then _var      = argument[7];
     
     var setting_info = ds_map_create();
     ds_map_add(setting_info, "id", _id);
     ds_map_add(setting_info, "name", _name);
     ds_map_add(setting_info, "displayname", _displayname);
+    ds_map_add(setting_info, "desc", _desc);
     ds_map_add(setting_info, "var", _var);
     ds_map_add(setting_info, "default", _default);
     ds_map_add(setting_info, "value", _value);

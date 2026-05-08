@@ -530,6 +530,7 @@
       <script>scripts\setting_get.gml</script>
       <script>scripts\setting_get_choice.gml</script>
       <script>scripts\setting_set_value.gml</script>
+      <script>scripts\setting_set_desc.gml</script>
       <script>scripts\setting_is_visible.gml</script>
       <script>scripts\setting_set_visible.gml</script>
       <script>scripts\setting_get_display_value.gml</script>
