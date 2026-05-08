@@ -76,6 +76,7 @@
     <sound>sound\snd_strangevania</sound>
     <sound>sound\snd_laugh</sound>
     <sound>sound\snd_none</sound>
+    <sound>sound\snd_saveissue</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="menu">

@@ -180,6 +180,7 @@ sfx_loaded = false;
 
 global.skipIntroOnce = false;
 
+saveIssueSound = true;
 save_check_mismatch();
 
 scr_loadconfig();
@@ -794,6 +795,9 @@ if key_screenshot
     var _oldSaveFile = file_find_first("*.sav", 0);
     if _oldSaveFile != ""
     {
+        if saveIssueSound {audio_play_sound(snd_saveissue, 0, 0);}
+        saveIssueSound = false;
+        
         if alarm[1] == 19 {print("OLD .SAV FILE DETECTED!!");}
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
@@ -812,6 +816,9 @@ if key_screenshot
     }
     else if director.saveMismatch
     {
+        if saveIssueSound {audio_play_sound(snd_saveissue, 0, 0);}
+        saveIssueSound = false;
+        
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_font(font_changelog);
