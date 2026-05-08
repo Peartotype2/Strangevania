@@ -197,6 +197,7 @@
       <sprites name="Dracula">
         <sprite>sprites\portrait_dracula</sprite>
         <sprite>sprites\portrait_dracula_concerned</sprite>
+        <sprite>sprites\portrait_dracula_angry</sprite>
         <sprite>sprites\portrait_dracula_old</sprite>
       </sprites>
       <sprites name="Death">
