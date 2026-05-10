@@ -45,25 +45,26 @@ setting_set_desc("gamepadtype", "Changes button prompts to use your preferred ga
 setting_register("lowscreenshot", "Lo-Res Screenshot", 0, a1("Disabled", "Enabled"), "DESCRIPTION",);
 setting_set_desc("lowscreenshot", "Makes screenshots 720p to avoid lag when taking them at full resolution");
 
-setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
-setting_set_desc("stairfade", "When enabled the screen will quickly fade to black when transitioning levels through stairs
-#RECOMMENDED TO BE ENABLED");
-
 setting_register("spriteflicker", "Sprite Flicker", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
 setting_set_desc("spriteflicker", "Causes sections of objects and enemies to flicker mimicking a visual bug from the original NES Castlevania
 #MAY HELP TO DISABLE IF YOU ARE HAVING PERFORMANCE ISSUES");
+
+setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
+setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
 
 setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
 setting_set_desc("achpopup", "Toggles showing the popups in upper right when getting an achievement");
 
 setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
-setting_set_desc("whipeffects", "Toggles certain visual effects certain whip skins have");
+setting_set_desc("whipeffects", "Shows extra visual effects certain whip skins have");
 
-setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
-setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
 setting_register("whipsounds", "Whip Skin Sounds", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
 setting_set_desc("whipsounds", "Allows whip skins to play custom sounds when used
 #When disabled every whip skin will use the default sound");
+
+setting_register("stairfade", "Stair Fade Transition", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("stairfade", "When enabled the screen will quickly fade to black when transitioning levels through stairs
+#RECOMMENDED TO BE ENABLED");
 
 //Modifiers
 setting_register("easyweapon", "Easy Weapon", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
