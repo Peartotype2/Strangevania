@@ -328,13 +328,14 @@ var _descTextScale  = 0.5;
 
 var _descX = viewx+200;
 var _descY = viewy+64;
-var _descW = 92;
+var _descW = 100;//92;
 var _descH = 88;
 var _descA = 0.45;
 
 var _descPad = 2;
 
-draw_sprite_stretched_ext(spr_black, 0, _descX, _descY, _descW, _descH, c_white, _descA);
+draw_sprite_stretched_ext(spr_black, 0, _descX, _descY, _descW, _descH, c_white, _descA*menu_alpha);
+draw_outline(_descX, _descY, _descW, _descH, 0.5, c_white, 0.2*menu_alpha);
 
 _descText = string_wordwrap_width(_descText, _descW-_descPad, "#", false, _descTextScale);
 draw_text_ext_transformed_colour(_descX+_descPad+0.5, _descY+_descPad+0.5, _descText, 10, -1, _descTextScale, _descTextScale, 0,

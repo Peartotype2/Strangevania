@@ -1,4 +1,4 @@
-///ach_update_progress(name/id, stat)
+///ach_update_progress(name/id, [stat])
 
 var _id = argument[0];
 var _stat;

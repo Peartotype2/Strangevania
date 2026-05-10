@@ -52,8 +52,11 @@ setting_set_desc("spriteflicker", "Causes sections of objects and enemies to fli
 setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
 setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
 
-setting_register("achpopup", "Achievement Popups", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
-setting_set_desc("achpopup", "Toggles showing the popups in upper right when getting an achievement");
+setting_register("achpopup", "Achievement Popups", 2, a1("None", "Unlocks Only", "All"), "DESCRIPTION",);
+setting_set_desc("achpopup", "Changes the popups in top right for achievements
+#UNLOCKS ONLY = Only when an achievement is completed
+#ALL = Completions and progress milestones
+#Ex: 50/100 kills");
 
 setting_register("whipeffects", "Whip Special Effects", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
 setting_set_desc("whipeffects", "Shows extra visual effects certain whip skins have");

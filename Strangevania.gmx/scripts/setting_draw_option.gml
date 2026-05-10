@@ -83,7 +83,7 @@ draw_set_halign(fa_right);
 var _val = _choices[_value];
 var _valColor = c_white;
 if _val == "ON" then _valColor = c_lime;
-if _val == "Disabled" or _val == "Off" then _valColor = c_gray;
+if _val == "Disabled" or _val == "Off"  or _val == "None" then _valColor = c_gray;
 if string_is_real(string(_val))
 {
     if real(_val) >= -1 and real(_val) <= 1 

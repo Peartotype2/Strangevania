@@ -1,4 +1,4 @@
-///ach_add_progress(name/id, amount, popup)
+///ach_add_progress(name/id, [amount=1, popup])
 var argcount = argument_count;
 
 var _name = argument[0];

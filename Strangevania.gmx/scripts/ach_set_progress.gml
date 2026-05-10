@@ -1,4 +1,4 @@
-///ach_set_progress(name/id, amount, popup)
+///ach_set_progress(name/id, amount, [popup])
 var argcount = argument_count;
 
 var _name = argument[0];
@@ -20,7 +20,7 @@ var _total = _ach[? "progresstotal"];
 var _id = _ach[? "id"];
 var _showprogress = _ach[? "showprogress"];
 
-if _popup == -1 and _amt < _total and _showprogress
+if _popup == -1 and _amt < _total and _showprogress and settings.achpopup == 2
 {
     var _miles = _ach[? "milestones"];
     var len = array_length_1d(_miles);
