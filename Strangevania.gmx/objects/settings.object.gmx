@@ -61,6 +61,9 @@ setting_set_desc("whipeffects", "Toggles certain visual effects certain whip ski
 
 setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
 setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
+setting_register("whipsounds", "Whip Skin Sounds", 1, a1("Disabled", "Enabled"), "DESCRIPTION",);
+setting_set_desc("whipsounds", "Allows whip skins to play custom sounds when used
+#When disabled every whip skin will use the default sound");
 
 //Modifiers
 setting_register("easyweapon", "Easy Weapon", 0, a1("- ", "ON"), "DESCRIPTION", "HIDDEN", "Modifiers");
