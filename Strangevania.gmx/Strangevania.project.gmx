@@ -685,6 +685,7 @@
       <script>scripts\string_from_file.gml</script>
       <script>scripts\string_split_unicode.gml</script>
       <script>scripts\is_float.gml</script>
+      <script>scripts\draw_outline.gml</script>
     </scripts>
     <script>scripts\date_get_string.gml</script>
     <script>scripts\CalculateHolidays.gml</script>
