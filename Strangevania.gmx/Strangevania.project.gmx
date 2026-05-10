@@ -743,8 +743,8 @@
       <objects name="intro">
         <object>objects\intromanager</object>
         <object>objects\intro_bird</object>
-        <object>objects\obj_arthur</object>
-        <object>objects\obj_dracula</object>
+        <object>objects\obj_intro_arthur</object>
+        <object>objects\obj_intro_dracula</object>
       </objects>
       <objects name="debug">
         <object>objects\obj_debugbox</object>

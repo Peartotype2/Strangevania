@@ -34,8 +34,8 @@ titlestep = 0;
 
 if stat_get("FINISHED_GAME") and !settings.oldmenu
 {
-    instance_destroy(obj_arthur);
-    instance_destroy(obj_dracula);
+    instance_destroy(obj_intro_arthur);
+    instance_destroy(obj_intro_dracula);
     finaleBackground = true;
     titlesprite = logo_title_finale;
     audio_play_sound(snd_wind, 1, 1);
