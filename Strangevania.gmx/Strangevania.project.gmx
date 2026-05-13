@@ -54,6 +54,7 @@
     <sounds name="music">
       <sound>sound\song_intheway</sound>
       <sound>sound\song_namelesssong</sound>
+      <sound>sound\song_ocarina</sound>
       <sound>sound\song_victory</sound>
       <sound>sound\song_victory_short</sound>
       <sound>sound\song_songofhealing</sound>

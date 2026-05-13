@@ -18,6 +18,11 @@ switch _song
         _sinfo[artist] = "Metallica";
     break;
     
+    case song_ocarina:
+        _sinfo[title] = "OoT Title Theme"
+        _sinfo[artist] = "Ocarina of Time";
+    break;
+    
     case song_doomsgate:
         _sinfo[title] = "At Doom's Gate"
         _sinfo[artist] = "Mick Gordon";
