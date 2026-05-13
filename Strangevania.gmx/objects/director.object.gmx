@@ -29,8 +29,18 @@
 game_subversion = "";
 game_calculate_subversion();
 
-exitWithoutSaving = true;
-saveMismatch = false;
+exitWithoutSaving   = true;
+saveMismatch        = false;
+
+firstTimeSetup              = !file_exists("config.ini");
+firstTimeFade               = 1;
+firstTimeOptionsPos         = 0;
+firstTimeOptionsHoldWait    = 0;
+firstTimeInputDisabled      = 0;
+firstTimeContinueHold       = 0;
+firstTimeContinue           = 0;
+progress_lerp = 0;
+continue_sound_delay = 0;
 
 holiday = "NONE";
 CalculateHolidays();
@@ -256,10 +266,11 @@ alarm[1] = 20; //room_goto_next(); and audiogroup loads and LoadGame script
 showHiddenStats = stat_get("CHEATS_ENABLED");
 exitWithoutSaving = false;
 room_goto_next();
-audio_group_load(ag_sfx);
-audio_group_load(ag_voices);
-audio_group_load(ag_music_mainmenu);
-audio_group_load(ag_music);
+if !audio_group_is_loaded(ag_sfx) {audio_group_load(ag_sfx)};
+if !audio_group_is_loaded(ag_voices) {audio_group_load(ag_voices);}
+if !audio_group_is_loaded(ag_music_mainmenu) {audio_group_load(ag_music_mainmenu);}
+if !audio_group_is_loaded(ag_intro_song) {audio_group_load(ag_intro_song);}
+if !audio_group_is_loaded(ag_music) {audio_group_load(ag_music);}
 </string>
           </argument>
         </arguments>
@@ -829,8 +840,285 @@ if !stat_get("FINISHED_GAME")
             <kind>1</kind>
             <string>if room == directorInit
 {
+    //DIRECTOR INIT ROOM BEGINS
     var _oldSaveFile = file_find_first("*.sav", 0);
-    if _oldSaveFile != ""
+    
+    //FIRST TIME SETUP
+    if firstTimeSetup
+    {
+        continueHoldMax = 60;
+    
+        if !audio_group_is_loaded(ag_intro_song) {audio_group_load(ag_intro_song);}
+        if !audio_group_is_loaded(ag_sfx) {audio_group_load(ag_sfx);}
+        
+        if audio_group_is_loaded(ag_intro_song) and !audio_is_playing(song_ocarina)
+        and !firstTimeContinue
+        {
+            music_fade_in(song_ocarina, 2000, true);
+            firstTimeOptionsPos = 0;
+        }
+        
+        if audio_group_is_loaded(ag_intro_song)
+        {
+            var _inc = -0.025;
+            if firstTimeContinue {_inc *= -1;}
+            firstTimeFade += _inc;
+            firstTimeFade = clamp(firstTimeFade, 0, 1);
+        }
+        
+        if firstTimeInputDisabled {firstTimeInputDisabled--;}
+        
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_font(font_changelog);
+        
+        var str = "First Time Setup"
+        draw_text_transformed_colour(vieww/2, viewh/16, str, 0.375, 0.375, 0,
+            c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+        draw_text_transformed_colour(vieww/2, viewh/16, str, 0.375, 0.375, 0,
+            c_ltgray, c_ltgray, c_ltgray, c_ltgray, 1);
+        
+        draw_set_valign(fa_top); // Keep top alignment for predictable line_height spacing
+        draw_set_font(font_console);
+        
+        var options = array_create(3);
+        options[0]  = string_all("Master Volume ", round(director.mastervolume*100), "%");
+        options[1]  = string_all("Music Volume ", round(director.musicvolume*100), "%");
+        options[2]  = string_all("SFX Volume ", round(director.sfxvolume*100), "%");
+        
+        options[3]  = "";
+        
+        var _status = iif(director.fullscreen, "ON", "OFF");
+        options[4]  = string_all("Fullscreen ", _status);
+        
+        var dw = res_array[res_id, 0];
+        var dh = res_array[res_id, 1];
+        if fullscreen {dw = display_get_width();}
+        if fullscreen {dh = display_get_height();}
+        options[5]  = string_all(dw, "x", dh);
+        
+        options[6]  = "";
+        
+        options[7]  = "HOLD TO CONTINUE";
+        
+        var oScale          = 0.75;
+        var oLineHeight     = 12;
+        var oCount          = array_length_1d(options);
+        var oTotalHeight    = ((oCount-1) * oLineHeight) + (string_height("A")*oScale);
+        var oStartY         = viewh/2 - (oTotalHeight/2)
+        
+        var oldPos = firstTimeOptionsPos;
+        var movePos = (inputmanager.down_press - inputmanager.up_press);
+        if movePos != 0 and !firstTimeInputDisabled
+        {
+            var curPos = firstTimeOptionsPos;
+            curPos = clamp(curPos+movePos, 0, oCount-1);
+            while (options[curPos] == "") {curPos += movePos;}
+            firstTimeOptionsPos = clamp(curPos, 0, oCount-1);
+        }
+        if firstTimeOptionsPos != oldPos {audio_play_sound(snd_tick, 0, 0);}
+        
+        var oPos = firstTimeOptionsPos;
+        var holdWait = firstTimeOptionsHoldWait;
+        if holdWait &gt; 0 {firstTimeOptionsHoldWait--;}
+        
+        var left    = inputmanager.left_held;
+        var right   = inputmanager.right_held;
+        var holdDelay = 3;
+        if (left or right) and holdWait == 0 and !firstTimeInputDisabled
+        {
+            var increment   = 0.05; //5%
+            var change      = ((left*-1)+(right))*increment;
+            switch(oPos)
+            {
+                //Master Volume
+                case 0:
+                    var _old = director.mastervolume;
+                    director.mastervolume = clamp(director.mastervolume+change, 0, 1);
+                    if director.mastervolume != _old //Value changed
+                    {
+                        UpdateAudioVolume();
+                        var _snd = snd_tone;
+                        var _audio = audio_play_sound(_snd, 0, 0);
+                        audio_sound_gain(_audio, 0.75*director.mastervolume, 0);
+                    }
+                break;
+                
+                //Music Volume
+                case 1:
+                    var _old = director.musicvolume;
+                    director.musicvolume = clamp(director.musicvolume+change, 0, 1);
+                    if director.musicvolume != _old //Value changed
+                    {
+                        UpdateAudioVolume();
+                        var _snd = snd_tone_music;
+                        audio_play_sound(_snd, 0, 0);
+                    }
+                break;
+                
+                //SFX Volume
+                case 2:
+                    var _old = director.sfxvolume;
+                    director.sfxvolume = clamp(director.sfxvolume+change, 0, 1);
+                    if director.sfxvolume != _old //Value changed
+                    {
+                        UpdateAudioVolume();
+                        var _snd = choose(snd_hit, snd_fall, snd_whip, snd_kill, snd_hurt, snd_break);
+                        audio_play_sound(_snd, 0, 0);
+                    }
+                break;
+                
+                //FULLSCREEN
+                case 4:
+                    var newValue = sign(max(0, change));
+                    if newValue == fullscreen {break;}
+                    director.fullscreen = newValue;
+                    var dw = res_array[res_id, 0]
+                    var dh = res_array[res_id, 1]
+                    if director.fullscreen
+                    {
+                        dw = display_get_width();
+                        dh = display_get_height();
+                    }
+                    audio_play_sound(snd_select, 0, 0);
+                    ChangeResolution(dw, dh);
+                    firstTimeInputDisabled = 18;
+                break;
+                
+                //RESOLUTION
+                case 5:
+                    if director.fullscreen {break;}
+                    
+                    change = sign(change);
+                    var old = res_id;
+                    res_id = clamp(res_id+change, 0, res_max);
+                    if res_id == old {break;}
+                    
+                    var maxw = display_get_width();
+                    var maxh = display_get_height();
+                    if res_array[res_id+1, 0] &gt; maxw or res_array[res_id, 1] &gt; maxh
+                    {
+                        res_id -= 1;
+                        break;
+                    }
+                    
+                    var dw = res_array[res_id, 0]
+                    var dh = res_array[res_id, 1]
+                    audio_play_sound(snd_select, 0, 0);
+                    ChangeResolution(dw, dh);
+                    firstTimeInputDisabled = 18;
+                break;
+            }
+            firstTimeOptionsHoldWait = holdDelay;
+        }
+        else if !left and !right
+        {
+            firstTimeOptionsHoldWait = 0;
+        }
+        
+        if inputmanager.menu.accept_press and oPos == 4 //Fullscreen click
+        {
+            director.fullscreen = !director.fullscreen;
+            var dw = res_array[res_id, 0]
+            var dh = res_array[res_id, 1]
+            if director.fullscreen
+            {
+                dw = display_get_width();
+                dh = display_get_height();
+            }
+            audio_play_sound(snd_select, 0, 0);
+            ChangeResolution(dw, dh);
+            firstTimeInputDisabled = 18;
+        }
+            
+        if inputmanager.menu.accept_held and oPos == 7 //CONTINUE BUTTON
+        {
+            firstTimeContinueHold++;
+            if continue_sound_delay == 0 and !firstTimeContinue
+            {
+                var _prog = firstTimeContinueHold/continueHoldMax;
+                audio_stop_sound(snd_tone);
+                var _pitch = 1.7;
+                var _snd = play_sound_pitched(snd_tone, (_prog)*_pitch);
+                audio_sound_gain(_snd, 0.5, 0);
+                continue_sound_delay = 4*(1-_prog)
+            }
+            else {continue_sound_delay = max(0, continue_sound_delay-1);}
+            
+            if firstTimeContinueHold &gt;= continueHoldMax
+            {
+                if !firstTimeContinue {
+                    var _snd = play_sound_pitched(snd_bottle, 0.9);
+                    audio_sound_gain(_snd, 1, 0);
+                    //play_sound_pitched(snd_strangevania, 1);
+                }
+                firstTimeContinue = true;
+                if !firstTimeInputDisabled {music_fade_out(1000);}
+                firstTimeInputDisabled = 99;
+            }
+        }
+        if !inputmanager.menu.accept_held or oPos != 7 {firstTimeContinueHold = 0;}
+        if oPos != 7 {progress_lerp=0;}
+
+        if firstTimeContinue {firstTimeContinueHold = continueHoldMax;}
+        
+        //draw_sprite_ext(spr_white_pixel, 0, 0, viewh/2, vieww, 1, 0, c_green, 1)
+        
+        for (var o = 0; o &lt; oCount; o++)
+        {
+            var item_text = options[o];
+            var item_y = oStartY + (o * oLineHeight);
+            var item_color = c_white;
+            if o == 5 and fullscreen {item_color = c_dkgray;} //Gray out res if fullscreen
+            
+            // Check if this item matches the current selection position
+            if (oPos == o)
+            {
+                var _prog = firstTimeContinueHold/continueHoldMax;
+                item_color = c_black;
+                var item_text = string_all("&lt; ", item_text, " &gt;");
+                var text_w  = string_width(item_text) * oScale;
+                var text_h  = string_height(item_text) * oScale;
+                var pad_x   = 3;
+                var pad_y   = 2;
+                var xshake  = random_range(-2*_prog, 2*_prog);
+                var yshake  = random_range(-2*_prog, 2*_prog);
+                if firstTimeContinue {xshake = 0; yshake = 0;}
+                var x1      = (vieww / 2) - (text_w / 2) - pad_x + xshake;
+                var y1      = item_y - pad_y + yshake;
+                var x2      = (vieww / 2) + (text_w / 2) + pad_x-1 + xshake;
+                var y2      = item_y + text_h + pad_y + yshake;
+                var box_w   = x2-x1;
+                var box_h   = y2-y1;
+                var box_color = c_white;
+                if o == 5 and fullscreen {box_color = c_dkgray;}
+                
+                draw_sprite_ext(spr_white_pixel,0, x1, y1, box_w, box_h, 0, box_color, 1);
+                
+                var progress = (firstTimeContinueHold/(continueHoldMax-6))*100;
+                progress_lerp = lerp(progress_lerp, progress, 0.25);
+                if progress_lerp &lt; 0.5 {progress_lerp = 0;}
+                if firstTimeContinue {progress_lerp = 100;}
+                
+                if progress_lerp &gt; 0
+                {
+                    draw_set_alpha(0.75);
+                    draw_healthbar(x1, y1, x1+box_w, y1+box_h, progress_lerp, c_black, c_maroon, c_orange, 0, false, false);
+                    draw_set_alpha(1);
+                }
+            }
+            
+            draw_text_transformed_colour(vieww/2, item_y, item_text, oScale, oScale, 0,
+                item_color, item_color, item_color, item_color, 1);
+        }
+        
+        if !firstTimeContinue {alarm[1] = 18;} //Keeps alarm 1 paused until we continue
+        else if firstTimeFade &lt; 1 {alarm[1] = 18;}
+        
+        var fadeAlpha = iif(firstTimeInputDisabled and !firstTimeContinue, 0.65, firstTimeFade);
+        draw_sprite_stretched_ext(spr_black, 0, viewx, viewy, vieww, viewh, c_white, fadeAlpha); //Black fade in
+    }
+    else if _oldSaveFile != "" //OLD SAVE FILE TYPE DETECTED!!!!!!!!!
     {
         if saveIssueSound {audio_play_sound(snd_saveissue, 0, 0);}
         saveIssueSound = false;
@@ -853,7 +1141,7 @@ if !stat_get("FINISHED_GAME")
         if _choice == "skip" {file_rename(_oldSaveFile, string_replace(_oldSaveFile,".sav",".old"));}
         if _choice == "none" {alarm[1] = 18;} //Freeze alarm so it doesn't continue onto init loading
     }
-    else if director.saveMismatch
+    else if director.saveMismatch //SAVE FILE MISMATCH DETECTED!!!!!!!!!!!!!
     {
         if saveIssueSound {audio_play_sound(snd_saveissue, 0, 0);}
         saveIssueSound = false;

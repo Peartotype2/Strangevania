@@ -78,6 +78,8 @@
     <sound>sound\snd_laugh</sound>
     <sound>sound\snd_none</sound>
     <sound>sound\snd_saveissue</sound>
+    <sound>sound\snd_tone</sound>
+    <sound>sound\snd_tone_music</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="menu">
@@ -927,6 +929,7 @@
     <audiogroup name="ag_sfx"/>
     <audiogroup name="ag_voices"/>
     <audiogroup name="ag_music_mainmenu"/>
+    <audiogroup name="ag_intro_song"/>
   </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>

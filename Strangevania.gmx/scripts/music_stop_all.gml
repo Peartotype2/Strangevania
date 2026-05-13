@@ -2,3 +2,4 @@
 musicmanager.current_song = noone;
 audio_group_stop_all(ag_music);
 audio_group_stop_all(ag_music_mainmenu);
+audio_group_stop_all(ag_intro_song);
