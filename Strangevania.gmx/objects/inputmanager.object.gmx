@@ -130,6 +130,12 @@ konamiCurrent = 0;
         var EnterKey = keyboard_check_pressed(vk_enter);
         var ControllerButton = gamepad_button_check_pressed(0, gp_face1); // A on XBox or cross on PS
     menu.accept_press = AttackKey or SpaceKey or EnterKey or ControllerButton;
+    
+        var AttackKey = keyboard_check(ord("Z"));
+        var SpaceKey = keyboard_check(vk_space);
+        var EnterKey = keyboard_check(vk_enter);
+        var ControllerButton = gamepad_button_check(0, gp_face1); // A on XBox or cross on PS
+    menu.accept_held = AttackKey or SpaceKey or EnterKey or ControllerButton;
 }
 else
 {
@@ -155,6 +161,7 @@ else
     menu.escape_press   = false;
     menu.back_press     = false;
     menu.accept_press   = false;
+    menu.accept_held    = false;
 }
 ////Change button prompts depending on input////
 
