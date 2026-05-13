@@ -30,7 +30,7 @@ debugLogFile = file_text_open_write(debugLogFilename);
 file_text_close(debugLogFile);
 
 debugLog                = ds_list_create();
-debugLogMaxSize         = 2000;
+debugLogMaxSize         = 200000; //Seems uneeded, just setting it high for now
 debugLogCount           = 0;
 debugLogDisplayLines    = 18;
 debugLogScrollOffset    = -1;
