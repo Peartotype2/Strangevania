@@ -31,6 +31,7 @@ game_calculate_subversion();
 
 exitWithoutSaving   = true;
 saveMismatch        = false;
+saveMissing         = false;
 
 firstTimeSetup              = !file_exists("config.ini");
 firstTimeFade               = 1;
@@ -1114,6 +1115,7 @@ if !stat_get("FINISHED_GAME")
         
         if !firstTimeContinue {alarm[1] = 18;} //Keeps alarm 1 paused until we continue
         else if firstTimeFade &lt; 1 {alarm[1] = 18;}
+        else {firstTimeSetup = false;}
         
         var fadeAlpha = iif(firstTimeInputDisabled and !firstTimeContinue, 0.65, firstTimeFade);
         draw_sprite_stretched_ext(spr_black, 0, viewx, viewy, vieww, viewh, c_white, fadeAlpha); //Black fade in
@@ -1150,6 +1152,8 @@ if !stat_get("FINISHED_GAME")
         draw_set_valign(fa_middle);
         draw_set_font(font_changelog);
         var str = "WARNING!#Current save file does not match your last backup#Do you want to load your last backup?#(Press Y/N)#CAREFUL: This will overwrite your current save.##ESC to close game";
+        if saveMissing
+        {str = "WARNING!#Current save file missing#Do you want to load your last backup?#(Press Y/N)#CAREFUL: Choosing NO will start with a new game save.##ESC to close game";}
         draw_text_transformed(vieww/2, viewh/2, str, 0.25, 0.25, 0);
         
         if keyboard_check_released(vk_escape) {game_end();}
@@ -1163,14 +1167,16 @@ if !stat_get("FINISHED_GAME")
         {
                 var time = date_get_string();
                 
-                file_rename(SAVE_FILE_NAME, "MISMATCH-"+time+"_"+SAVE_FILE_NAME);
+                if file_exists(SAVE_FILE_NAME) {file_rename(SAVE_FILE_NAME, "MISMATCH-"+time+"_"+SAVE_FILE_NAME);}
                 file_copy(save_get_last_backup(), SAVE_FILE_NAME);
                 director.saveMismatch = false;
+                director.saveMissing = false;
         }
         
         if _choice == "skip" 
         {
             director.saveMismatch = false;
+            director.saveMissing = false;
         }
         
         if _choice == "none" {alarm[1] = 18;} //Freeze alarm so it doesn't continue onto init loading

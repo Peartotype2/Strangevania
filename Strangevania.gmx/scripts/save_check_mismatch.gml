@@ -10,6 +10,7 @@ if !file_exists(_prefix+"1"+_suffix)
 }
 
 var _currentSave = save_get_comparator(SAVE_FILE_NAME);
+if _currentSave == false {director.saveMissing = true;}
 
 var _backupName = save_get_last_backup();
 var _backupSave = save_get_comparator(_backupName);
