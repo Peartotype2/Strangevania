@@ -7,11 +7,11 @@ if is_real(_stat)
 }
 var _bool = false;
 
-var _len = array_length_1d(stattracker.hiddenStats);
+var _len = ds_list_size(stattracker.hiddenStats);
 
 var i = 0; repeat(_len)
 {
-    var _tempname = stattracker.hiddenStats[i];
+    var _tempname = stattracker.hiddenStats[| i];
     if _tempname == _stat then _bool = true;
     i++;
 }

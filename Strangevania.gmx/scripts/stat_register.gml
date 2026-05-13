@@ -15,7 +15,7 @@ stattracker.displayNames[_len-1] = __displayname;
 
 if _hidden
 {
-    stattracker.hiddenStats[stattracker.hiddenCount] = __name;
+    ds_list_add(stattracker.hiddenStats, __name);
     stattracker.hiddenCount++;
 }
 

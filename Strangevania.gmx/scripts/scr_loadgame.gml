@@ -81,7 +81,23 @@ if (file_exists(SAVE_FILE_NAME))
         
         //STATS
         var _statmap =  save_read_value("Other", "StatMap", "")
-        if _statmap != "" then ds_map_read(stattracker.statMap, _statmap);
+        if _statmap != ""
+        {
+            var _tempmap = ds_map_create();
+            ds_map_read(_tempmap, _statmap); //Load map from save file onto temp map
+            
+            var _key = ds_map_find_first(_tempmap);
+            while (!is_undefined(_key)) //Loop through temp map to merge with statMap
+            {
+                var _value = _tempmap[? _key];
+                
+                // This safely replaces or adds the saved value to the main tracker
+                stattracker.statMap[? _key] = _value; 
+                
+                _key = ds_map_find_next(_tempmap, _key);
+            }
+        }
+        ds_map_destroy(_tempmap);
         stat_set("SECONDS_PLAYED_SESSION", 0);
     save_close();
 }
