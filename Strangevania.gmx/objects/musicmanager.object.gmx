@@ -112,13 +112,13 @@ if initStep
         {
             if music_get_parent(n) == false
             {
-                ds_list_add(allsongs_list, _snd)
+                ds_list_add(allsongs_list, _snd);
                 
                 var _stat = (_snd+"_HEARD");
-                stat_register(_stat, _stat, 0, true)
+                stat_register(_stat, _stat, 0, true);
                 
-                var _knownStat = (_snd+"_KNOWN")
-                stat_register(_knownStat, _knownStat, 0, true)
+                var _knownStat = (_snd+"_KNOWN");
+                stat_register(_knownStat, _knownStat, 0, true);
                 
                 event_register_script(_snd+"_PLAYED", id, stat_set, _stat, 1);
                 
@@ -168,7 +168,7 @@ if current_song != noone
     for(i=0; i&lt;_len; i++)
     {
         var _song = stop_list[| i];
-        if !is_undefined(_song) //Band aid fix? POSSIBLE ISSUES DEBUG DEV 
+        if !is_undefined(_song) //Bandaid fix? POSSIBLE ISSUES DEBUG DEV 
         {
             var _gain = audio_sound_get_gain(_song);
             

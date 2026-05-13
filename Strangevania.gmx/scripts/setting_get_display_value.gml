@@ -1,6 +1,4 @@
 ///setting_get_display_value(id/name)
-//DEBUG UNUSED, NOT USED ANYWHERE
-//USELESS USELESS USELESS CODE SMH
 
 var _name = argument[0];
 var _value = -1;

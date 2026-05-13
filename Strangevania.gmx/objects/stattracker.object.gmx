@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Init
-
+hiddenStats = ds_list_create();
 statMap = ds_map_create();
 statList = ds_list_create();
 statCount = 0;
@@ -90,30 +90,6 @@ if ticks == room_speed
           <argument>
             <kind>1</kind>
             <string>print(json_encode(statMap));
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="119">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var _time = SecondsToTime(stat_get("SECONDS_PLAYED_SESSION"));
-print(_time);
 </string>
           </argument>
         </arguments>

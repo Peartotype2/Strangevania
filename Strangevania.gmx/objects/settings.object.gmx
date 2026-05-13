@@ -53,7 +53,7 @@ setting_register("skipintro", "Skip Intro", 0, a1("No", "Yes"), "DESCRIPTION",);
 setting_set_desc("skipintro", "Skips the logos and menu intro on game launch");
 
 setting_register("achpopup", "Achievement Popups", 2, a1("None", "Unlocks Only", "All"), "DESCRIPTION",);
-setting_set_desc("achpopup", "Changes the popups in top right for achievements
+setting_set_desc("achpopup", "Changes the popups for achievements
 #UNLOCKS ONLY = Only when an achievement is completed
 #ALL = Completions and progress milestones
 #Ex: 50/100 kills");
